@@ -343,7 +343,7 @@ CREATE TABLE users (
     email               VARCHAR(200) UNIQUE NOT NULL,
     hashed_password     VARCHAR(200) NOT NULL,
     full_name           VARCHAR(200),
-    role                VARCHAR(30) CHECK (role IN ('INTERNAL', 'DISTRICT_AUDITOR', 'CAG_OFFICER', 'ADMIN')),
+    role                VARCHAR(30) CHECK (role IN ('CITIZEN', 'MP', 'AUDITOR', 'DISTRICT_AUTHORITY', 'ADMIN')),
     jurisdiction_state  VARCHAR(2),   -- NULL = all states
     is_active           BOOLEAN DEFAULT TRUE,
     last_login          TIMESTAMP,
@@ -394,14 +394,9 @@ INSERT INTO states (state_code, state_name, region) VALUES
 ('WB', 'West Bengal', 'East');
 
 -- ============================================================
--- DEFAULT ADMIN USER (change password immediately)
--- Password: admin123 (hashed with bcrypt)
+-- OPERATOR ACCOUNTS
 -- ============================================================
-INSERT INTO users (username, email, hashed_password, full_name, role)
-VALUES (
-    'admin',
-    'admin@mplads-sentinel.gov.in',
-    '$2b$12$EixZaYVK1fsbw1ZfbX3OXePaWxn96p36WQoeG6Lruj3vjPGga31lW',  -- 'secret'
-    'System Administrator',
-    'ADMIN'
-);
+-- Intentionally no seeded user rows:
+--   * Avoids shipping a known/default account in every deployment.
+--   * Accounts must be provisioned out-of-band with backend/manage_users.py
+--     using deployment-specific credentials.

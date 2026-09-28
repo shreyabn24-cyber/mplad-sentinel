@@ -825,11 +825,10 @@ Used for the **interactive constituency map display**:
 | Method | Endpoint | Description |
 |--------|----------|-------------|
 | `GET` | `/admin/pipeline-status` | System health and pipeline counts |
-| `POST` | `/admin/trigger-pipeline` | Manually trigger full ML scoring pipeline |
-| `POST` | `/admin/sync-mospi` | Sync with official MoSPI e-SAKSHI data |
-| `POST` | `/admin/run-cross-scheme` | Trigger cross-scheme deduplication analysis |
-| `POST` | `/admin/train-ml` | Trigger ML model retraining |
-| `POST` | `/admin/load-demo-data` | Load demo scenarios for presentation |
+| `POST` | `/admin/trigger-pipeline` | Dispatch pipeline only when a worker module is configured; otherwise returns `501 not implemented` |
+| `POST` | `/admin/sync-mospi` | Return the stored MoSPI snapshot (`data/output/live_national_stats.json`), not a live pull |
+| `POST` | `/admin/run-cross-scheme` | Report counts from stored cross-scheme output (`data/output/cross_scheme_matches.csv`) |
+| `POST` | `/admin/train-ml` | Report trained-artefact availability; offline training is via `ml/training/train_real.py` |
 
 ### Notifications Router — `/api/v1/notifications`
 

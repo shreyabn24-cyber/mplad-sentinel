@@ -193,3 +193,24 @@ def test_widening_the_work_key_is_guarded_by_the_catalog():
     )
     assert "information_schema.columns" in sql
     assert "DO $$" in sql
+
+
+def test_bootstrap_init_sql_uses_the_runtime_role_model():
+    sql = (REPO_ROOT / "database" / "init.sql").read_text(encoding="utf-8")
+    check = re.search(r"CHECK\s*\(role IN \(([^)]*)\)\)", sql, re.DOTALL)
+    assert check, "database/init.sql must constrain users.role"
+    values = {v.strip().strip("'") for v in check.group(1).split(",")}
+    assert values == {"CITIZEN", "MP", "AUDITOR", "DISTRICT_AUTHORITY", "ADMIN"}
+    assert "PUBLIC" not in values
+
+
+def test_bootstrap_init_sql_does_not_seed_default_accounts():
+    sql = (REPO_ROOT / "database" / "init.sql").read_text(encoding="utf-8")
+    offenders = re.findall(r"INSERT\s+INTO\s+users\b[^;]*", sql, re.IGNORECASE)
+    assert not offenders, "database/init.sql must not seed user accounts"
+
+
+def test_compose_only_mounts_existing_database_bootstrap_files():
+    compose = (REPO_ROOT / "docker-compose.yml").read_text(encoding="utf-8")
+    assert "./database/init.sql" in compose
+    assert "seed_demo_data.sql" not in compose
