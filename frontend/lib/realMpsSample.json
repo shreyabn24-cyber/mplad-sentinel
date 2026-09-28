@@ -1,0 +1,242 @@
+[
+  {
+    "mp_id": "MP-AN-001",
+    "full_name": "Bishnu Pada Ray",
+    "party": "IND",
+    "state_code": "AN",
+    "constituency_code": "C-AN-001",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-AP-001",
+    "full_name": "Ambica G Lakshminarayana Valmiki",
+    "party": "IND",
+    "state_code": "AP",
+    "constituency_code": "C-AP-001",
+    "annual_allocation": 201899064.11
+  },
+  {
+    "mp_id": "MP-AP-002",
+    "full_name": "Appalanaidu Kalisetti",
+    "party": "IND",
+    "state_code": "AP",
+    "constituency_code": "C-AP-002",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-AP-003",
+    "full_name": "B K Parthasarathi",
+    "party": "IND",
+    "state_code": "AP",
+    "constituency_code": "C-AP-003",
+    "annual_allocation": 160491894.11
+  },
+  {
+    "mp_id": "MP-AP-004",
+    "full_name": "Balashowry Vallabbhaneni",
+    "party": "IND",
+    "state_code": "AP",
+    "constituency_code": "C-AP-004",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-AP-005",
+    "full_name": "Bastipati Nagaraju Panchalingala",
+    "party": "IND",
+    "state_code": "AP",
+    "constituency_code": "C-AP-005",
+    "annual_allocation": 159998515.11
+  },
+  {
+    "mp_id": "MP-AP-006",
+    "full_name": "Bhupathiraju Srinivasa Varma",
+    "party": "IND",
+    "state_code": "AP",
+    "constituency_code": "C-AP-006",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-AP-007",
+    "full_name": "C.M.Ramesh",
+    "party": "IND",
+    "state_code": "AP",
+    "constituency_code": "C-AP-007",
+    "annual_allocation": 202531656.11
+  },
+  {
+    "mp_id": "MP-AP-008",
+    "full_name": "Daggubati Purandeshwari",
+    "party": "IND",
+    "state_code": "AP",
+    "constituency_code": "C-AP-008",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-AP-009",
+    "full_name": "Daggumalla Prasada Rao",
+    "party": "IND",
+    "state_code": "AP",
+    "constituency_code": "C-AP-009",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-AP-010",
+    "full_name": "Dr Byreddy Shabari",
+    "party": "IND",
+    "state_code": "AP",
+    "constituency_code": "C-AP-010",
+    "annual_allocation": 182589107.24
+  },
+  {
+    "mp_id": "MP-AP-011",
+    "full_name": "Dr Chandra Sekhar Pemmasani",
+    "party": "IND",
+    "state_code": "AP",
+    "constituency_code": "C-AP-011",
+    "annual_allocation": 159774113.11
+  },
+  {
+    "mp_id": "MP-AP-012",
+    "full_name": "Gm Harish Balayogi",
+    "party": "IND",
+    "state_code": "AP",
+    "constituency_code": "C-AP-012",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-AP-013",
+    "full_name": "Gumma Thanuja Rani",
+    "party": "IND",
+    "state_code": "AP",
+    "constituency_code": "C-AP-013",
+    "annual_allocation": 149458905.11
+  },
+  {
+    "mp_id": "MP-AP-014",
+    "full_name": "Kinjarapu Ram Mohan Naidu",
+    "party": "IND",
+    "state_code": "AP",
+    "constituency_code": "C-AP-014",
+    "annual_allocation": 171200630.11
+  },
+  {
+    "mp_id": "MP-AP-015",
+    "full_name": "Krishna Prasad Tenneti",
+    "party": "IND",
+    "state_code": "AP",
+    "constituency_code": "C-AP-015",
+    "annual_allocation": 167796849.11
+  },
+  {
+    "mp_id": "MP-AP-016",
+    "full_name": "Lavu Sri Krishna Devarayalu",
+    "party": "IND",
+    "state_code": "AP",
+    "constituency_code": "C-AP-016",
+    "annual_allocation": 174009663.11
+  },
+  {
+    "mp_id": "MP-AP-017",
+    "full_name": "Maddila Gurumoorthy",
+    "party": "IND",
+    "state_code": "AP",
+    "constituency_code": "C-AP-017",
+    "annual_allocation": 180399007.0
+  },
+  {
+    "mp_id": "MP-AP-018",
+    "full_name": "Magunta Sreenivasulu Reddy",
+    "party": "IND",
+    "state_code": "AP",
+    "constituency_code": "C-AP-018",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-AP-019",
+    "full_name": "Midhun Reddy",
+    "party": "IND",
+    "state_code": "AP",
+    "constituency_code": "C-AP-019",
+    "annual_allocation": 178951477.11
+  },
+  {
+    "mp_id": "MP-AP-020",
+    "full_name": "Prabhakar Reddy Vemireddy",
+    "party": "IND",
+    "state_code": "AP",
+    "constituency_code": "C-AP-020",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-AP-021",
+    "full_name": "Putta Mahesh Kumar",
+    "party": "IND",
+    "state_code": "AP",
+    "constituency_code": "C-AP-021",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-AP-022",
+    "full_name": "Sivanath Kesineni",
+    "party": "IND",
+    "state_code": "AP",
+    "constituency_code": "C-AP-022",
+    "annual_allocation": 159864032.49
+  },
+  {
+    "mp_id": "MP-AP-023",
+    "full_name": "Sribharat Mathukumli",
+    "party": "IND",
+    "state_code": "AP",
+    "constituency_code": "C-AP-023",
+    "annual_allocation": 164841922.0
+  },
+  {
+    "mp_id": "MP-AP-024",
+    "full_name": "Tangella Uday Srinivas",
+    "party": "IND",
+    "state_code": "AP",
+    "constituency_code": "C-AP-024",
+    "annual_allocation": 199417886.76
+  },
+  {
+    "mp_id": "MP-AP-025",
+    "full_name": "Y S Avinash Reddy",
+    "party": "IND",
+    "state_code": "AP",
+    "constituency_code": "C-AP-025",
+    "annual_allocation": 156430260.11
+  },
+  {
+    "mp_id": "MP-AR-001",
+    "full_name": "Kiren Rijiju",
+    "party": "IND",
+    "state_code": "AR",
+    "constituency_code": "C-AR-001",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-AR-002",
+    "full_name": "Shri Tapir Gao",
+    "party": "IND",
+    "state_code": "AR",
+    "constituency_code": "C-AR-002",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-AS-001",
+    "full_name": "Amarsing Tisso",
+    "party": "IND",
+    "state_code": "AS",
+    "constituency_code": "C-AS-001",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-AS-002",
+    "full_name": "Bijuli Kalita Medhi",
+    "party": "IND",
+    "state_code": "AS",
+    "constituency_code": "C-AS-002",
+    "annual_allocation": 147000000.0
+  }
+]

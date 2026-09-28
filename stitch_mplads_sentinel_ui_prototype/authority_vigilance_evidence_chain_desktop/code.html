@@ -1,0 +1,684 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta content="width=device-width, initial-scale=1.0" name="viewport"><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"><link href="https://fonts.googleapis.com" rel="preconnect"><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"><link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600;700&amp;family=Public+Sans:wght@600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+          "on-error-container": "#93000a",
+          "on-surface-variant": "#44474e",
+          "inverse-on-surface": "#eef0ff",
+          "surface": "#faf8ff",
+          "outline-variant": "#c5c6cf",
+          "surface-container-high": "#e2e7ff",
+          "on-surface": "#131b2e",
+          "outline": "#75777f",
+          "primary-fixed-dim": "#b4c7ef",
+          "secondary-container": "#92f5a4",
+          "surface-container-highest": "#dae2fd",
+          "on-secondary-fixed-variant": "#005323",
+          "primary": "#000e27",
+          "error": "#ba1a1a",
+          "tertiary-container": "#3b1c00",
+          "primary-container": "#0f2444",
+          "inverse-surface": "#283044",
+          "tertiary": "#1c0a00",
+          "surface-container": "#eaedff",
+          "surface-dim": "#d2d9f4",
+          "on-primary-fixed": "#041b3b",
+          "on-tertiary-fixed-variant": "#6e3900",
+          "on-primary-fixed-variant": "#344769",
+          "tertiary-fixed": "#ffdcc3",
+          "secondary-fixed-dim": "#79db8d",
+          "on-secondary-fixed": "#00210a",
+          "tertiary-fixed-dim": "#ffb77d",
+          "on-secondary": "#ffffff",
+          "background": "#faf8ff",
+          "on-primary": "#ffffff",
+          "secondary-fixed": "#95f8a7",
+          "on-tertiary-container": "#d27200",
+          "on-background": "#131b2e",
+          "on-primary-container": "#798cb1",
+          "on-tertiary-fixed": "#2f1500",
+          "surface-variant": "#dae2fd",
+          "error-container": "#ffdad6",
+          "surface-tint": "#4c5f82",
+          "on-error": "#ffffff",
+          "on-tertiary": "#ffffff",
+          "surface-container-lowest": "#ffffff",
+          "surface-bright": "#faf8ff",
+          "inverse-primary": "#b4c7ef",
+          "primary-fixed": "#d7e3ff",
+          "surface-container-low": "#f2f3ff",
+          "secondary": "#006d30",
+          "on-secondary-container": "#007233"
+        },
+        "borderRadius": {
+          "DEFAULT": "0.125rem",
+          "lg": "0.25rem",
+          "xl": "0.5rem",
+          "full": "0.75rem"
+        },
+        "spacing": {
+          "gutter-mobile": "1rem",
+          "gutter-tablet": "1.5rem",
+          "space-xs": "0.25rem",
+          "space-md": "1rem",
+          "container-max": "80rem",
+          "space-2xl": "3rem",
+          "space-3xl": "4rem",
+          "gutter-desktop": "2rem",
+          "space-2xs": "0.125rem",
+          "space-lg": "1.5rem",
+          "space-sm": "0.5rem",
+          "space-xl": "2rem"
+        },
+        "fontFamily": {
+          "headline-lg-mobile": [
+            "Public Sans"
+          ],
+          "headline-sm": [
+            "Public Sans"
+          ],
+          "label-sm": [
+            "Noto Sans"
+          ],
+          "body-md": [
+            "Noto Sans"
+          ],
+          "title-lg": [
+            "Public Sans"
+          ],
+          "headline-xl": [
+            "Public Sans"
+          ],
+          "body-sm": [
+            "Noto Sans"
+          ],
+          "headline-md": [
+            "Public Sans"
+          ],
+          "headline-xl-mobile": [
+            "Public Sans"
+          ],
+          "body-lg": [
+            "Noto Sans"
+          ],
+          "headline-lg": [
+            "Public Sans"
+          ],
+          "metric-display": [
+            "Public Sans"
+          ],
+          "label-md": [
+            "Noto Sans"
+          ],
+          "title-md": [
+            "Public Sans"
+          ]
+        },
+        "fontSize": {
+          "headline-lg-mobile": [
+            "24px",
+            {
+              "lineHeight": "32px",
+              "fontWeight": "700"
+            }
+          ],
+          "headline-sm": [
+            "20px",
+            {
+              "lineHeight": "28px",
+              "fontWeight": "600"
+            }
+          ],
+          "label-sm": [
+            "12px",
+            {
+              "lineHeight": "16px",
+              "fontWeight": "600"
+            }
+          ],
+          "body-md": [
+            "16px",
+            {
+              "lineHeight": "24px",
+              "fontWeight": "400"
+            }
+          ],
+          "title-lg": [
+            "18px",
+            {
+              "lineHeight": "26px",
+              "fontWeight": "600"
+            }
+          ],
+          "headline-xl": [
+            "40px",
+            {
+              "lineHeight": "48px",
+              "fontWeight": "700"
+            }
+          ],
+          "body-sm": [
+            "14px",
+            {
+              "lineHeight": "20px",
+              "fontWeight": "400"
+            }
+          ],
+          "headline-md": [
+            "24px",
+            {
+              "lineHeight": "32px",
+              "fontWeight": "600"
+            }
+          ],
+          "headline-xl-mobile": [
+            "30px",
+            {
+              "lineHeight": "38px",
+              "fontWeight": "700"
+            }
+          ],
+          "body-lg": [
+            "18px",
+            {
+              "lineHeight": "28px",
+              "fontWeight": "400"
+            }
+          ],
+          "headline-lg": [
+            "32px",
+            {
+              "lineHeight": "40px",
+              "fontWeight": "700"
+            }
+          ],
+          "metric-display": [
+            "36px",
+            {
+              "lineHeight": "44px",
+              "fontWeight": "700"
+            }
+          ],
+          "label-md": [
+            "14px",
+            {
+              "lineHeight": "20px",
+              "fontWeight": "600"
+            }
+          ],
+          "title-md": [
+            "16px",
+            {
+              "lineHeight": "24px",
+              "fontWeight": "600"
+            }
+          ]
+        }
+      },
+    },
+  }</script></head><body class="bg-surface font-body-md text-body-md text-on-surface"><header class="fixed top-0 w-full z-50 shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-1 bg-[#D97706] w-full"></div><div class="bg-surface-container-low border-b border-outline-variant/30 text-on-surface-variant"><div class="max-w-container-max mx-auto px-gutter-desktop h-9 flex items-center justify-between font-label-sm text-label-sm"><div class="flex items-center gap-space-sm"><span class="">Government Public Information Portal</span><span class="text-outline">|</span><span class="">भारत सरकार • Ministry of Statistics &amp; Programme Implementation</span></div><div class="flex items-center gap-space-md"><div class="flex items-center gap-space-xs"><button class="hover:text-on-surface" type="button">A-</button><button class="hover:text-on-surface font-bold" type="button">A</button><button class="hover:text-on-surface" type="button">A+</button></div><span class="text-outline">|</span><button class="hover:text-on-surface flex items-center gap-space-2xs" type="button"><span class="material-symbols-outlined text-[14px]">volume_up</span>Screen Reader Access</button><span class="text-outline">|</span><div class="flex items-center gap-space-xs font-label-sm"><button class="hover:text-on-surface font-bold text-on-surface" type="button">English</button><span class="text-outline">/</span><button class="hover:text-on-surface" type="button">हिन्दी</button></div></div></div></div><div class="bg-surface-container-lowest border-b border-outline-variant/30"><div class="max-w-container-max mx-auto px-gutter-desktop h-20 flex items-center justify-between"><div class="flex items-center gap-space-md"><img alt="Brand logo. - Primary color: #0f2444
+- Font: publicSans
+- Mode: light
+- Roundness: rounded-sm
+" class="h-12 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1Vn3gONp7AC-faXX00SqL_HeshKE23rWldNovjXvZZiC3CDJX2FeqDp0Wou0L7C2GEVGjTK717WAYNumkmg-WkRaG7ZTTztLwP8bBM5jt4nzl6IewYMrkhZxTIeCSbtXM9KVYPNzrbdoo3eMrWBisophgh8_Omw2lZrKS0T8-3fSKzKjr2LSXPvaal9qLUEn50eA1h_21pyNn_s1iwbz6Nuv-AUXa1mKJg_Oy3D3ql5TW4iSTogLljb-5Q"><div class="flex flex-col"><span class="font-headline-sm text-headline-sm text-primary-container leading-none tracking-tight">e-SAKSHI / MPLADS</span><span class="font-label-sm text-label-sm text-on-surface-variant tracking-wide mt-1">Public Project Monitoring &amp; Citizen Verification Portal</span></div></div><div class="flex items-center gap-space-md"><a class="inline-flex items-center gap-space-xs px-space-md py-2 bg-error text-on-error rounded-lg font-label-md text-label-md hover:bg-error/90 transition-colors" data-path="report-a-project" href="#"><span class="material-symbols-outlined text-[18px]">flag</span>Report a Project</a><a class="inline-flex items-center gap-space-xs px-space-md py-2 border border-primary-container text-primary-container rounded-lg font-label-md text-label-md hover:bg-surface-container transition-colors" data-path="officer-login" href="#"><span class="material-symbols-outlined text-[18px]">login</span>Sign In</a><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></div><div class="bg-primary-container"><div class="max-w-container-max mx-auto px-gutter-desktop h-12 flex items-center justify-between"><nav class="flex items-center gap-space-xs" data-active-classes="bg-primary text-on-primary font-bold"><a class="px-space-md py-2 rounded-lg font-label-md text-label-md text-primary-fixed hover:bg-primary/50 hover:text-on-primary transition-colors" data-path="national-dashboard" href="#">Home</a><a class="px-space-md py-2 rounded-lg font-label-md text-label-md text-primary-fixed hover:bg-primary/50 hover:text-on-primary transition-colors" data-path="projects-explorer" href="#">Projects</a><a class="px-space-md py-2 rounded-lg font-label-md text-label-md text-primary-fixed hover:bg-primary/50 hover:text-on-primary transition-colors" data-path="constituency-map" href="#">Map View</a><a class="px-space-md py-2 rounded-lg font-label-md text-label-md text-primary-fixed hover:bg-primary/50 hover:text-on-primary transition-colors" data-path="public-reports" href="#">Public Reports</a><a class="px-space-md py-2 rounded-lg font-label-md text-label-md text-primary-fixed hover:bg-primary/50 hover:text-on-primary transition-colors" data-path="faq-and-help" href="#">Help &amp; FAQ</a><a aria-current="page" class="px-space-md py-2 rounded-lg transition-colors inline-flex items-center gap-space-xs bg-primary text-on-primary font-bold" data-path="auditor-portal" href="#">Authority Portal<span class="px-1.5 py-0.5 bg-secondary text-on-secondary rounded-DEFAULT text-[10px] font-bold tracking-wider uppercase">Secure</span></a></nav><div class="flex items-center font-label-sm text-label-sm text-primary-fixed-dim"><span class="inline-block w-2 h-2 rounded-full bg-secondary-fixed mr-2 animate-pulse"></span>Public Audit Registry Live</div></div></div></header><main class="w-full pt-41 bg-surface min-h-[calc(100vh-280px)]"><div class="flex flex-col w-full">
+<!-- Restricted Access Ribbon -->
+<section class="w-full bg-primary text-on-primary">
+<div class="max-w-container-max mx-auto px-gutter-desktop py-space-sm flex flex-col md:flex-row items-center justify-between gap-space-sm">
+<div class="flex items-center gap-space-sm flex-wrap">
+<span class="inline-flex items-center gap-space-2xs px-space-sm py-0.5 bg-error text-on-error rounded-DEFAULT font-label-sm text-label-sm font-bold tracking-wider uppercase">
+<span class="material-symbols-outlined text-[14px]">lock</span>
+          RESTRICTED ACCESS
+        </span>
+<span class="font-label-sm text-label-sm text-primary-fixed-dim">
+          Authority Vigilance &amp; Anomaly Investigation Suite • Level-2 Active Clearance
+        </span>
+</div>
+<div class="flex items-center gap-space-md font-label-sm text-label-sm">
+<div class="flex items-center gap-space-xs text-primary-fixed">
+<span class="material-symbols-outlined text-[16px] text-secondary-fixed">verified_user</span>
+<span class="">Dr. A. K. Sharma, IAS (Principal Secretary / District Vigilance Authority)</span>
+</div>
+<span class="text-primary-fixed-dim/40">|</span>
+<div class="flex items-center gap-space-2xs text-secondary-fixed font-semibold">
+<span class="inline-block w-2 h-2 rounded-full bg-secondary-fixed animate-pulse"></span>
+          Session ID: VIG-2025-098-IND
+        </div>
+</div>
+</div>
+</section>
+<!-- Legal & Triage Disclaimer -->
+<section class="w-full bg-surface-container-high text-on-surface border-none shadow-sm">
+<div class="max-w-container-max mx-auto px-gutter-desktop py-space-sm flex items-start gap-space-md">
+<div class="p-space-xs bg-tertiary-container text-on-tertiary-container rounded-DEFAULT shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[20px]">info</span>
+</div>
+<div class="flex-1">
+<p class="font-body-sm text-body-sm leading-relaxed text-on-surface-variant font-medium">
+<strong class="text-on-surface">Statutory Audit Disclaimer:</strong> This information is intended to support human review and triaging. It does not establish wrongdoing. Any official administrative action requires physical verification and formal inquiry by the designated competent authority under Section 19(2) of the District Oversight Protocol.
+        </p>
+</div>
+<div class="hidden lg:flex items-center gap-space-xs text-on-surface-variant font-label-sm text-label-sm shrink-0">
+<span class="material-symbols-outlined text-[16px]">gavel</span>
+        CAG-MoSPI Protocol 2024.B
+      </div>
+</div>
+</section>
+<!-- Main Dossier Body -->
+<div class="max-w-container-max mx-auto px-gutter-desktop py-space-xl w-full">
+<!-- Anomaly Case Header Banner -->
+<div class="w-full bg-surface-container-lowest rounded-xl shadow-md p-space-xl mb-space-2xl">
+<div class="flex flex-col lg:flex-row lg:items-center justify-between gap-space-lg">
+<div class="space-y-space-xs min-w-0 flex-1">
+<div class="flex items-center gap-space-sm flex-wrap">
+<span class="px-space-sm py-0.5 bg-primary-container text-on-primary-container rounded-DEFAULT font-label-sm text-label-sm">
+              SANCTION: MPLADS-2024-UP-04812
+            </span>
+<span class="px-space-sm py-0.5 bg-error-container text-on-error-container rounded-DEFAULT font-label-sm text-label-sm flex items-center gap-space-2xs font-bold">
+<span class="material-symbols-outlined text-[14px]">warning</span>
+              L2: Verification Required
+            </span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">
+              Target Constituency: Rampur (Lok Sabha 07)
+            </span>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight truncate">
+            Community Road &amp; Drainage Link — Rampur Sector 4
+          </h1>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+            Implementing Agency: Rural Engineering Services (RES) Division 2 • Sanction Order Date: 12 Aug 2024 • Scheduled Completion: 28 Feb 2025
+          </p>
+</div>
+<!-- Risk Metric Scorecard -->
+<div class="flex items-center gap-space-xl shrink-0 p-space-md bg-surface-container rounded-lg">
+<div class="flex flex-col items-center justify-center">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Composite Anomaly Risk</span>
+<div class="flex items-baseline gap-space-2xs mt-space-2xs">
+<span class="font-metric-display text-metric-display text-error font-bold">83</span>
+<span class="font-title-md text-title-md text-on-surface-variant">/100</span>
+</div>
+<span class="font-label-sm text-label-sm text-error font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">trending_up</span> Critical Threshold
+            </span>
+</div>
+<div class="w-px h-14 bg-outline-variant/50"></div>
+<div class="space-y-space-2xs font-body-sm text-body-sm">
+<div class="flex justify-between gap-space-md">
+<span class="text-on-surface-variant">Approved Budget:</span>
+<strong class="text-on-surface font-semibold">₹42,50,000</strong>
+</div>
+<div class="flex justify-between gap-space-md">
+<span class="text-on-surface-variant">Disbursed (PFMS):</span>
+<strong class="text-error font-semibold">₹14,50,000 (34.1%)</strong>
+</div>
+<div class="flex justify-between gap-space-md">
+<span class="text-on-surface-variant">Verified On-Ground:</span>
+<strong class="text-error font-semibold">~12% Physical</strong>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Forensic Layout Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-xl">
+<!-- Left Column: Multi-Signal Evidence Chain (7 cols) -->
+<div class="lg:col-span-7 space-y-space-xl">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary-container text-[24px]">fact_check</span>
+<h2 class="font-title-lg text-title-lg text-on-surface">Multi-Signal Forensic Chain</h2>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">5 Telemetric Ingestion Channels</span>
+</div>
+<!-- Signal 1: Expenditure Velocity -->
+<div class="bg-surface-container-lowest rounded-lg shadow-sm overflow-hidden">
+<div class="p-space-md bg-surface-container-low flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<div class="p-space-xs bg-error-container text-on-error-container rounded-DEFAULT">
+<span class="material-symbols-outlined text-[18px]">payments</span>
+</div>
+<div>
+<span class="font-label-md text-label-md text-on-surface font-semibold block">Signal 1: Cost &amp; Expenditure Velocity Anomaly</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Primary Source: PFMS State Treasury Ledger • Ingested: 3d ago</span>
+</div>
+</div>
+<div class="flex items-center gap-space-xs">
+<span class="px-space-sm py-0.5 bg-primary-fixed text-on-primary-fixed rounded-DEFAULT font-label-sm text-label-sm font-semibold">
+                Confidence: 89%
+              </span>
+</div>
+</div>
+<div class="p-space-md space-y-space-sm font-body-sm text-body-sm">
+<p class="text-on-surface leading-relaxed">
+<strong class="font-semibold text-error">₹14.5L drawn within 14 days</strong> against only 35% reported work stage. Outflow velocity is measured at <strong class="font-semibold text-error">2.8x</strong> above district baseline for Stage-I sub-grade leveling.
+            </p>
+<div class="p-space-sm bg-surface-container rounded-DEFAULT space-y-space-xs font-label-sm text-label-sm">
+<div class="flex justify-between text-on-surface-variant">
+<span class="">Voucher Serial: PFMS/UP/2024/091924</span>
+<span class="">Beneficiary: Shree Balaji Infra &amp; Co.</span>
+</div>
+<div class="w-full bg-surface-dim h-2 rounded-full overflow-hidden">
+<div class="bg-error h-full rounded-full" style="width: 82%;"></div>
+</div>
+<div class="flex justify-between text-on-surface-variant text-[11px]">
+<span class="">Normal Stage Disbursal Velocity Window</span>
+<span class="text-error font-semibold">+180% Accelerated Drawdown</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Signal 2: Satellite Earth Observation -->
+<div class="bg-surface-container-lowest rounded-lg shadow-sm overflow-hidden">
+<div class="p-space-md bg-surface-container-low flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<div class="p-space-xs bg-error-container text-on-error-container rounded-DEFAULT">
+<span class="material-symbols-outlined text-[18px]">satellite_alt</span>
+</div>
+<div>
+<span class="font-label-md text-label-md text-on-surface font-semibold block">Signal 2: Satellite Earth Observation Spectral Gap</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Sources: ESA Sentinel-2 (10m) &amp; Cartosat-2C Spectral Ingest</span>
+</div>
+</div>
+<span class="px-space-sm py-0.5 bg-primary-fixed text-on-primary-fixed rounded-DEFAULT font-label-sm text-label-sm font-semibold">
+              Confidence: 94%
+            </span>
+</div>
+<div class="p-space-md space-y-space-md">
+<p class="font-body-sm text-body-sm text-on-surface leading-relaxed">
+              Surface earthwork disturbance detected in pass <strong>Oct 2025</strong>. However, continuous passes through <strong>Dec 2025</strong> show no signatures of bituminous laying, asphalt heat reflectance, or aggregate compacted road-bed development.
+            </p>
+<!-- Spectral Visual comparison -->
+<div class="grid grid-cols-2 gap-space-md">
+<div class="space-y-space-2xs">
+<div class="h-36 w-full rounded-lg overflow-hidden relative">
+<img class="w-full h-full object-cover" data-alt="Satellite earth observation high resolution aerial imagery of rural India showing rough dirt tracks with earthwork clearing, visible soil disturbance, natural daylight, precision surveillance." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD0TJr9L2wdpidoIbmeADKhOM35KXwNmcMHrNjczPZYErP_YL_zfcihYC6jzo_yQk_PviCgq3etD5PMlIPqDGI8RnywmZU2Jy48Ikk5yedigvrVcMD0KjdiellE14D8D9CdT95x4gWmMpp5RVID8Aj-dfBZd74KFO9waULkzEOVSi8cCI8dHWOva26B5am4wsWro5K304WR9rzmHvMpn737GpuiwEvgiGE4Rlxmim-dnAuRgV6XtzhTIw">
+<span class="absolute bottom-2 left-2 px-space-xs py-0.5 bg-primary/80 text-on-primary font-label-sm text-label-sm rounded-DEFAULT">
+                    Baseline Pass (18 Oct)
+                  </span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant block">NDVI Soil Disturbance Index: 0.71</span>
+</div>
+<div class="space-y-space-2xs">
+<div class="h-36 w-full rounded-lg overflow-hidden relative">
+<img class="w-full h-full object-cover" data-alt="Satellite top down view of identical coordinates showing untouched muddy barren road path with stagnant puddle edges, no paved asphalt layer, high contrast orbital photography." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCMmEMfYT5i2XfiBFXQ7wluCq6E1yWiVTeiHWVFmbQgnMxR6-QIWNR3tkJQ3RN0PDh0LXZseGmpMIlTR67pDXkz3_PFYxfj12SIhogIVAuZ_R8R0pUFQOnxDaIFJzxb6EIQhJRpvUtawrrHGGjt3uTGBweCkRbphM-MuOh-WrhQazVuRFF5gkIjH3MqYgxyXC5SsB_rpW7lyFUkmASfheQWcA6hk_k0yCyCLtVdlyGUvYS7atiXP2b-vw">
+<span class="absolute bottom-2 left-2 px-space-xs py-0.5 bg-error/90 text-on-error font-label-sm text-label-sm rounded-DEFAULT">
+                    Audit Pass (29 Dec)
+                  </span>
+</div>
+<span class="font-label-sm text-label-sm text-error font-semibold block">Asphalt Spectral Signature: 0.00%</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Signal 3: Ground Citizen Verification -->
+<div class="bg-surface-container-lowest rounded-lg shadow-sm overflow-hidden">
+<div class="p-space-md bg-surface-container-low flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<div class="p-space-xs bg-error-container text-on-error-container rounded-DEFAULT">
+<span class="material-symbols-outlined text-[18px]">cell_tower</span>
+</div>
+<div>
+<span class="font-label-md text-label-md text-on-surface font-semibold block">Signal 3: Ground Citizen Submissions &amp; Geotags</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">4 Independent Reports via Sentinel Citizen Mobile App</span>
+</div>
+</div>
+<span class="px-space-sm py-0.5 bg-primary-fixed text-on-primary-fixed rounded-DEFAULT font-label-sm text-label-sm font-semibold">
+              Confidence: 81%
+            </span>
+</div>
+<div class="p-space-md space-y-space-sm">
+<p class="font-body-sm text-body-sm text-on-surface leading-relaxed">
+              Verified ground respondents documented unpaved gravel ruts, missing RCC side-gutters, and pooled monsoon discharge. Submissions validated via EXIF hardware timestamping and cell-tower triangulation within 45m radius.
+            </p>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-sm">
+<div class="flex items-start gap-space-sm p-space-sm bg-surface-container rounded-lg">
+<span class="material-symbols-outlined text-[18px] text-secondary mt-0.5">location_on</span>
+<div class="space-y-space-2xs font-body-sm text-body-sm">
+<strong class="font-semibold text-on-surface block text-[13px]">Case Rep #CR-4819 (Geotagged)</strong>
+<span class="text-on-surface-variant text-[12px] block">"No RCC side channels installed. Sand dumped and left since Diwali."</span>
+<span class="font-label-sm text-label-sm text-outline block text-[11px]">Cell Lock: CellID 404-45-7281 (28.799° N, 79.021° E)</span>
+</div>
+</div>
+<div class="flex items-start gap-space-sm p-space-sm bg-surface-container rounded-lg">
+<span class="material-symbols-outlined text-[18px] text-secondary mt-0.5">location_on</span>
+<div class="space-y-space-2xs font-body-sm text-body-sm">
+<strong class="font-semibold text-on-surface block text-[13px]">Case Rep #CR-4822 (EXIF Verified)</strong>
+<span class="text-on-surface-variant text-[12px] block">"Only broken stone aggregate laid over mud track. Vehicles slipping."</span>
+<span class="font-label-sm text-label-sm text-outline block text-[11px]">Aadhaar-Linked Mobile Auth: Verified</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Signal 4: Weather & Rain Feasibility -->
+<div class="bg-surface-container-lowest rounded-lg shadow-sm overflow-hidden">
+<div class="p-space-md bg-surface-container-low flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<div class="p-space-xs bg-surface-container text-on-surface-variant rounded-DEFAULT">
+<span class="material-symbols-outlined text-[18px]">wb_sunny</span>
+</div>
+<div>
+<span class="font-label-md text-label-md text-on-surface font-semibold block">Signal 4: Weather &amp; Rainfall Feasibility Grid</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Source: IMD Historical Weather Grid (Rampur Station #42189)</span>
+</div>
+</div>
+<span class="px-space-sm py-0.5 bg-primary-fixed text-on-primary-fixed rounded-DEFAULT font-label-sm text-label-sm font-semibold">
+              Confidence: 96%
+            </span>
+</div>
+<div class="p-space-md space-y-space-sm font-body-sm text-body-sm">
+<p class="text-on-surface leading-relaxed">
+              Executing agency's informal oral report claimed unseasonal torrential waterlogging impeded progress. IMD official meteorological log registered <strong class="font-semibold text-on-surface">18 uninterrupted dry days</strong> between Nov 02 and Nov 20, 2024, perfectly suited for heavy civil road works and bitumen curing.
+            </p>
+</div>
+</div>
+<!-- Signal 5: Exculpatory & Contradictory Evidence (Balance Check) -->
+<div class="bg-surface-container-lowest rounded-lg shadow-sm overflow-hidden">
+<div class="p-space-md bg-secondary-container/30 flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<div class="p-space-xs bg-secondary-container text-on-secondary-container rounded-DEFAULT">
+<span class="material-symbols-outlined text-[18px]">balance</span>
+</div>
+<div>
+<span class="font-label-md text-label-md text-on-surface font-semibold block">Signal 5: Exculpatory &amp; Contractor Delay Notifications</span>
+<span class="font-label-sm text-label-sm text-secondary font-semibold">Vital Regulatory Balance Check</span>
+</div>
+</div>
+<span class="px-space-sm py-0.5 bg-surface-container text-on-surface rounded-DEFAULT font-label-sm text-label-sm">
+              Document Filed
+            </span>
+</div>
+<div class="p-space-md space-y-space-sm font-body-sm text-body-sm">
+<p class="text-on-surface leading-relaxed">
+              Implementing agency filed formal correspondence (Ref: RES/DIV2/NOTIF-98) dated 14 Nov 2024 citing a <strong class="font-semibold text-on-surface">state-wide commercial cement supply disruption</strong> and pending physical relocation of a 63 kVA high-tension transformer by the State Electricity Distribution Board (UPPCL).
+            </p>
+<div class="flex items-center gap-space-sm p-space-sm bg-surface-container-low rounded-DEFAULT">
+<span class="material-symbols-outlined text-[18px] text-on-surface-variant">attach_file</span>
+<span class="font-label-sm text-label-sm text-on-surface flex-1">Letter_UPPCL_Shift_Notice_Stamped.pdf (1.8 MB)</span>
+<a class="font-label-sm text-label-sm text-primary font-semibold hover:underline" href="#">Inspect File</a>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column: Contractor Graph & Action Workspace (5 cols) -->
+<div class="lg:col-span-5 space-y-space-xl">
+<!-- Contractor Network Graph Card -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm p-space-lg">
+<div class="flex items-center justify-between mb-space-md">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[22px]">hub</span>
+<h3 class="font-title-lg text-title-lg text-on-surface">Contractor Concentration Graph</h3>
+</div>
+<span class="px-space-sm py-0.5 bg-error-container text-on-error-container font-label-sm text-label-sm font-bold rounded-DEFAULT">
+              High Concentration
+            </span>
+</div>
+<div class="p-space-md bg-surface-container rounded-lg space-y-space-sm mb-space-md">
+<div class="flex justify-between items-start">
+<div>
+<span class="font-title-md text-title-md text-on-surface font-bold block">Shree Balaji Infrastructure &amp; Co.</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Reg: GSTIN09AAFCB2981M1ZV</span>
+</div>
+<span class="material-symbols-outlined text-error text-[20px]">account_tree</span>
+</div>
+<div class="grid grid-cols-3 gap-space-xs pt-space-xs font-label-sm text-label-sm text-center">
+<div class="p-space-xs bg-surface-container-lowest rounded-DEFAULT">
+<span class="text-on-surface-variant block text-[11px]">Active Works</span>
+<strong class="font-title-md text-title-md text-on-surface font-bold">28</strong>
+</div>
+<div class="p-space-xs bg-surface-container-lowest rounded-DEFAULT">
+<span class="text-on-surface-variant block text-[11px]">Districts</span>
+<strong class="font-title-md text-title-md text-on-surface font-bold">4</strong>
+</div>
+<div class="p-space-xs bg-surface-container-lowest rounded-DEFAULT">
+<span class="text-on-surface-variant block text-[11px]">Total Value</span>
+<strong class="font-title-md text-title-md text-on-surface font-bold">₹8.4 Cr</strong>
+</div>
+</div>
+</div>
+<!-- Network Graph Visual SVG -->
+<div class="w-full bg-surface-container-low rounded-lg p-space-sm relative">
+<svg class="w-full h-44 text-on-surface" viewBox="0 0 380 180" xmlns="http://www.w3.org/2000/svg">
+<!-- Connectors -->
+<line stroke="#CBD5E1" stroke-dasharray="3 3" stroke-width="2" x1="190" x2="60" y1="90" y2="40"></line>
+<line stroke="#CBD5E1" stroke-width="2" x1="190" x2="60" y1="90" y2="140"></line>
+<line stroke="#CBD5E1" stroke-width="2" x1="190" x2="310" y1="90" y2="40"></line>
+<line stroke="#CBD5E1" stroke-dasharray="3 3" stroke-width="2" x1="190" x2="310" y1="90" y2="140"></line>
+<line stroke="#BA1A1A" stroke-width="2.5" x1="190" x2="190" y1="90" y2="25"></line>
+<!-- Nodal Circles -->
+<g class="cursor-pointer">
+<circle cx="60" cy="40" fill="#DAE2FD" r="18"></circle>
+<text fill="#0F2444" font-family="Noto Sans" font-size="9" font-weight="bold" text-anchor="middle" x="60" y="44">RES Div 1</text>
+</g>
+<g class="cursor-pointer">
+<circle cx="60" cy="140" fill="#DAE2FD" r="18"></circle>
+<text fill="#0F2444" font-family="Noto Sans" font-size="9" font-weight="bold" text-anchor="middle" x="60" y="144">Moradabad</text>
+</g>
+<g class="cursor-pointer">
+<circle cx="310" cy="40" fill="#DAE2FD" r="18"></circle>
+<text fill="#0F2444" font-family="Noto Sans" font-size="9" font-weight="bold" text-anchor="middle" x="310" y="44">Bareilly</text>
+</g>
+<g class="cursor-pointer">
+<circle cx="310" cy="140" fill="#DAE2FD" r="18"></circle>
+<text fill="#0F2444" font-family="Noto Sans" font-size="9" font-weight="bold" text-anchor="middle" x="310" y="144">Badaun</text>
+</g>
+<!-- Target Anomaly Node -->
+<g class="cursor-pointer">
+<circle cx="190" cy="25" fill="#FFDAD6" r="20" stroke="#BA1A1A" stroke-width="1.5"></circle>
+<text fill="#93000A" font-family="Noto Sans" font-size="8" font-weight="bold" text-anchor="middle" x="190" y="28">Current Case</text>
+</g>
+<!-- Central Contractor Entity -->
+<g class="cursor-pointer">
+<circle cx="190" cy="90" fill="#0F2444" r="28"></circle>
+<text fill="#FFFFFF" font-family="Public Sans" font-size="10" font-weight="bold" text-anchor="middle" x="190" y="88">BALAJI</text>
+<text fill="#B4C7EF" font-family="Noto Sans" font-size="8" text-anchor="middle" x="190" y="100">INFRA</text>
+</g>
+</svg>
+<div class="flex items-center justify-between text-[11px] font-label-sm text-label-sm text-on-surface-variant mt-space-2xs">
+<span class="flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-error inline-block"></span> Current Project Link</span>
+<span class="flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-surface-variant inline-block"></span> Other District Allocations</span>
+</div>
+</div>
+</div>
+<!-- Action Suite & Audit Note Drafting Panel -->
+<div class="bg-surface-container-lowest rounded-xl shadow-md p-space-lg space-y-space-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[22px]">history_edu</span>
+<h3 class="font-title-lg text-title-lg text-on-surface">Vigilance Action Suite</h3>
+</div>
+<span class="px-space-sm py-0.5 bg-surface-container-high text-on-surface font-label-sm text-label-sm rounded-DEFAULT">
+              Draft Mode
+            </span>
+</div>
+<!-- Draft Note Area -->
+<div class="space-y-space-xs">
+<label class="font-label-sm text-label-sm text-on-surface-variant block font-semibold">
+              System-Generated Audit Note (Strictly Draft • Human Edit Required)
+            </label>
+<textarea class="w-full p-space-sm bg-surface-container-low text-on-surface font-body-sm text-body-sm rounded-lg border-none focus:outline-none focus:bg-surface-container resize-none leading-relaxed" id="auditNote" rows="7">AUDIT MEMO REF: VIG/RMP/2025/1104
+PROJECT: Community Road &amp; Drainage Link — Rampur Sector 4 (MPLADS-2024-UP-04812)
+PRELIMINARY FINDING:
+An unexplained fiscal velocity of ₹14.5L drawdown within 14 days contrasts with ESA Sentinel imagery and citizen telemetry indicating nil asphalt laying.
+RECOMMENDED STATUTORY DIRECTIVES:
+1. Depute District Executive Engineer (Civil) for ground physical core test.
+2. Freeze Next Tranche release of ₹12.0L on PFMS portal.
+3. Call upon RES Executing Engineer for UPPCL transformer shifting correspondence verification.</textarea>
+</div>
+<!-- Action Buttons Group -->
+<div class="space-y-space-sm pt-space-xs">
+<button class="w-full flex items-center justify-between p-space-sm bg-primary text-on-primary rounded-lg font-label-md text-label-md hover:bg-primary-container transition-colors shadow-sm" type="button">
+<span class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-[18px]">engineering</span>
+                Dispatch Field Verification Team
+              </span>
+<span class="text-primary-fixed-dim text-xs">Assign District Engineer</span>
+</button>
+<button class="w-full flex items-center justify-between p-space-sm bg-surface-container text-on-surface rounded-lg font-label-md text-label-md hover:bg-surface-container-high transition-colors" type="button">
+<span class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-[18px]">mail</span>
+                Issue Notice for Clarification
+              </span>
+<span class="text-on-surface-variant text-xs">7-Day Statutory Window</span>
+</button>
+<button class="w-full flex items-center justify-between p-space-sm bg-error text-on-error rounded-lg font-label-md text-label-md hover:bg-error/90 transition-colors shadow-sm" type="button">
+<span class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-[18px]">verified</span>
+                Approve &amp; Escalate to State Vigilance Committee
+              </span>
+<span class="text-error-container text-xs">Digital Sign (e-Sign)</span>
+</button>
+<div class="pt-space-xs">
+<button class="w-full flex items-center justify-center gap-space-xs p-space-sm text-on-surface-variant hover:text-error font-label-md text-label-md transition-colors" type="button">
+<span class="material-symbols-outlined text-[16px]">cancel</span>
+                Clear Flag / Register False Positive (Mandatory Remarks)
+              </button>
+</div>
+</div>
+<div class="p-space-sm bg-surface-container rounded-DEFAULT flex items-center gap-space-sm text-on-surface-variant font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[16px]">fingerprint</span>
+<span class="">All actions are cryptographically signed and archived in the National Vigilance Audit Trail.</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Active Audit Trail Timeline -->
+<div class="w-full bg-surface-container-lowest rounded-xl shadow-sm p-space-xl mt-space-2xl">
+<div class="flex items-center justify-between mb-space-lg">
+<div>
+<h3 class="font-title-lg text-title-lg text-on-surface">Immutable Vigilance Audit Ledger</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Time-stamped audit provenance for this case record under MoSPI Section 14(a)</p>
+</div>
+<button class="inline-flex items-center gap-space-2xs px-space-md py-1.5 bg-surface-container text-on-surface font-label-sm text-label-sm rounded-lg hover:bg-surface-container-high transition-colors" type="button">
+<span class="material-symbols-outlined text-[16px]">file_download</span>
+          Export Audit Trail (CSV)
+        </button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-4 gap-space-md">
+<div class="p-space-md bg-surface-container-low rounded-lg space-y-space-xs">
+<span class="font-label-sm text-label-sm text-outline block">14 Nov 2024 • 11:20 IST</span>
+<span class="font-label-md text-label-md text-on-surface font-semibold block">PFMS Anomaly Auto-Flagged</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Drawdown rate flagged by Sentinel automated heuristic model v4.2.</p>
+</div>
+<div class="p-space-md bg-surface-container-low rounded-lg space-y-space-xs">
+<span class="font-label-sm text-label-sm text-outline block">18 Nov 2024 • 16:45 IST</span>
+<span class="font-label-md text-label-md text-on-surface font-semibold block">Satellite Ingest Integrated</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant">ESA Sentinel pass correlation registered surface spectral mismatch.</p>
+</div>
+<div class="p-space-md bg-surface-container-low rounded-lg space-y-space-xs">
+<span class="font-label-sm text-label-sm text-outline block">22 Nov 2024 • 09:12 IST</span>
+<span class="font-label-md text-label-md text-on-surface font-semibold block">Citizen Geotags Aggregated</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant">4 ground telemetry submissions verified via Cell-ID triangulation.</p>
+</div>
+<div class="p-space-md bg-surface-container rounded-lg space-y-space-xs">
+<span class="font-label-sm text-label-sm text-secondary font-semibold block">Today • Active Inspection</span>
+<span class="font-label-md text-label-md text-on-surface font-semibold block">Level-2 Officer Review</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Dossier opened by Dr. A.K. Sharma, IAS. Case action pending selection.</p>
+</div>
+</div>
+</div>
+</div>
+</div></main><footer class="w-full bg-primary-container text-on-primary-container mt-space-3xl border-t-4 border-[#D97706]"><div class="max-w-container-max mx-auto px-gutter-desktop py-space-2xl"><div class="grid grid-cols-1 md:grid-cols-4 gap-space-xl pb-space-xl border-b border-outline-variant/20"><div class="md:col-span-1"><div class="font-headline-sm text-headline-sm text-on-primary mb-space-xs">e-SAKSHI MPLADS</div><p class="font-body-sm text-body-sm text-primary-fixed-dim leading-relaxed mb-space-md">National Public Dashboard for Constituency Development Scheme transparency, tracking citizen funds, sanctions, and physical works verification.</p><div class="flex items-center gap-space-xs text-secondary-fixed font-label-sm text-label-sm"><span class="material-symbols-outlined text-[16px]">verified</span>Certified Public Ledger</div></div><div><div class="font-title-md text-title-md text-on-primary mb-space-sm">National Portals</div><ul class="space-y-space-xs font-body-sm text-body-sm"><li class="hover:text-on-primary transition-colors"><a href="#" class="">India.gov.in</a></li><li class="hover:text-on-primary transition-colors"><a href="#" class="">Ministry of Statistics (MoSPI)</a></li><li class="hover:text-on-primary transition-colors"><a href="#" class="">Public Financial Management System</a></li><li class="hover:text-on-primary transition-colors"><a href="#" class="">National Informatics Centre</a></li></ul></div><div><div class="font-title-md text-title-md text-on-primary mb-space-sm">Citizen Support &amp; RTI</div><ul class="space-y-space-xs font-body-sm text-body-sm"><li class="hover:text-on-primary transition-colors"><a href="#" class="">Citizen Grievance Redressal</a></li><li class="hover:text-on-primary transition-colors"><a href="#" class="">Right to Information (RTI) Cell</a></li><li class="hover:text-on-primary transition-colors"><a href="#" class="">Toll-Free Helpline: 1800-11-2024</a></li><li class="hover:text-on-primary transition-colors"><a href="#" class="">District Nodal Officer Directory</a></li></ul></div><div><div class="font-title-md text-title-md text-on-primary mb-space-sm">Transparency Standards</div><p class="font-body-sm text-body-sm text-primary-fixed-dim leading-relaxed mb-space-sm">All records are synchronized with District Treasury Sanction orders and geo-tagged site images under Open Data License India.</p><div class="inline-flex items-center gap-space-2xs px-space-sm py-1 bg-primary text-on-primary rounded font-label-sm text-label-sm border border-outline/30"><span class="material-symbols-outlined text-[14px]">gavel</span>Compliance: Sec 4(1)(b) RTI Act</div></div></div><div class="pt-space-lg flex flex-col md:flex-row items-center justify-between gap-space-md font-label-sm text-label-sm text-on-primary-container"><p class="text-center md:text-left max-w-2xl">Disclaimer: Information shown is for public transparency and verification. Does not establish wrongdoing without official audit. Maintained by National Informatics Centre.</p><p class="">© 2024 Ministry of Statistics &amp; Programme Implementation. All rights reserved.</p></div></div></footer>
+
+</body></html>

@@ -1,0 +1,993 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta content="width=device-width, initial-scale=1.0" name="viewport"><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"><link href="https://fonts.googleapis.com" rel="preconnect"><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"><link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600;700&amp;family=Public+Sans:wght@600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+          "on-error-container": "#93000a",
+          "on-surface-variant": "#44474e",
+          "inverse-on-surface": "#eef0ff",
+          "surface": "#faf8ff",
+          "outline-variant": "#c5c6cf",
+          "surface-container-high": "#e2e7ff",
+          "on-surface": "#131b2e",
+          "outline": "#75777f",
+          "primary-fixed-dim": "#b4c7ef",
+          "secondary-container": "#92f5a4",
+          "surface-container-highest": "#dae2fd",
+          "on-secondary-fixed-variant": "#005323",
+          "primary": "#000e27",
+          "error": "#ba1a1a",
+          "tertiary-container": "#3b1c00",
+          "primary-container": "#0f2444",
+          "inverse-surface": "#283044",
+          "tertiary": "#1c0a00",
+          "surface-container": "#eaedff",
+          "surface-dim": "#d2d9f4",
+          "on-primary-fixed": "#041b3b",
+          "on-tertiary-fixed-variant": "#6e3900",
+          "on-primary-fixed-variant": "#344769",
+          "tertiary-fixed": "#ffdcc3",
+          "secondary-fixed-dim": "#79db8d",
+          "on-secondary-fixed": "#00210a",
+          "tertiary-fixed-dim": "#ffb77d",
+          "on-secondary": "#ffffff",
+          "background": "#faf8ff",
+          "on-primary": "#ffffff",
+          "secondary-fixed": "#95f8a7",
+          "on-tertiary-container": "#d27200",
+          "on-background": "#131b2e",
+          "on-primary-container": "#798cb1",
+          "on-tertiary-fixed": "#2f1500",
+          "surface-variant": "#dae2fd",
+          "error-container": "#ffdad6",
+          "surface-tint": "#4c5f82",
+          "on-error": "#ffffff",
+          "on-tertiary": "#ffffff",
+          "surface-container-lowest": "#ffffff",
+          "surface-bright": "#faf8ff",
+          "inverse-primary": "#b4c7ef",
+          "primary-fixed": "#d7e3ff",
+          "surface-container-low": "#f2f3ff",
+          "secondary": "#006d30",
+          "on-secondary-container": "#007233"
+        },
+        "borderRadius": {
+          "DEFAULT": "0.125rem",
+          "lg": "0.25rem",
+          "xl": "0.5rem",
+          "full": "0.75rem"
+        },
+        "spacing": {
+          "gutter-mobile": "1rem",
+          "gutter-tablet": "1.5rem",
+          "space-xs": "0.25rem",
+          "space-md": "1rem",
+          "container-max": "80rem",
+          "space-2xl": "3rem",
+          "space-3xl": "4rem",
+          "gutter-desktop": "2rem",
+          "space-2xs": "0.125rem",
+          "space-lg": "1.5rem",
+          "space-sm": "0.5rem",
+          "space-xl": "2rem"
+        },
+        "fontFamily": {
+          "headline-lg-mobile": [
+            "Public Sans"
+          ],
+          "headline-sm": [
+            "Public Sans"
+          ],
+          "label-sm": [
+            "Noto Sans"
+          ],
+          "body-md": [
+            "Noto Sans"
+          ],
+          "title-lg": [
+            "Public Sans"
+          ],
+          "headline-xl": [
+            "Public Sans"
+          ],
+          "body-sm": [
+            "Noto Sans"
+          ],
+          "headline-md": [
+            "Public Sans"
+          ],
+          "headline-xl-mobile": [
+            "Public Sans"
+          ],
+          "body-lg": [
+            "Noto Sans"
+          ],
+          "headline-lg": [
+            "Public Sans"
+          ],
+          "metric-display": [
+            "Public Sans"
+          ],
+          "label-md": [
+            "Noto Sans"
+          ],
+          "title-md": [
+            "Public Sans"
+          ]
+        },
+        "fontSize": {
+          "headline-lg-mobile": [
+            "24px",
+            {
+              "lineHeight": "32px",
+              "fontWeight": "700"
+            }
+          ],
+          "headline-sm": [
+            "20px",
+            {
+              "lineHeight": "28px",
+              "fontWeight": "600"
+            }
+          ],
+          "label-sm": [
+            "12px",
+            {
+              "lineHeight": "16px",
+              "fontWeight": "600"
+            }
+          ],
+          "body-md": [
+            "16px",
+            {
+              "lineHeight": "24px",
+              "fontWeight": "400"
+            }
+          ],
+          "title-lg": [
+            "18px",
+            {
+              "lineHeight": "26px",
+              "fontWeight": "600"
+            }
+          ],
+          "headline-xl": [
+            "40px",
+            {
+              "lineHeight": "48px",
+              "fontWeight": "700"
+            }
+          ],
+          "body-sm": [
+            "14px",
+            {
+              "lineHeight": "20px",
+              "fontWeight": "400"
+            }
+          ],
+          "headline-md": [
+            "24px",
+            {
+              "lineHeight": "32px",
+              "fontWeight": "600"
+            }
+          ],
+          "headline-xl-mobile": [
+            "30px",
+            {
+              "lineHeight": "38px",
+              "fontWeight": "700"
+            }
+          ],
+          "body-lg": [
+            "18px",
+            {
+              "lineHeight": "28px",
+              "fontWeight": "400"
+            }
+          ],
+          "headline-lg": [
+            "32px",
+            {
+              "lineHeight": "40px",
+              "fontWeight": "700"
+            }
+          ],
+          "metric-display": [
+            "36px",
+            {
+              "lineHeight": "44px",
+              "fontWeight": "700"
+            }
+          ],
+          "label-md": [
+            "14px",
+            {
+              "lineHeight": "20px",
+              "fontWeight": "600"
+            }
+          ],
+          "title-md": [
+            "16px",
+            {
+              "lineHeight": "24px",
+              "fontWeight": "600"
+            }
+          ]
+        }
+      },
+    },
+  }</script></head><body class="bg-surface font-body-md text-body-md text-on-surface"><header class="fixed top-0 w-full z-50 shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-1 bg-[#D97706] w-full"></div><div class="bg-surface-container-low border-b border-outline-variant/30 text-on-surface-variant"><div class="max-w-container-max mx-auto px-gutter-desktop h-9 flex items-center justify-between font-label-sm text-label-sm"><div class="flex items-center gap-space-sm"><span class="">Government Public Information Portal</span><span class="text-outline">|</span><span class="">भारत सरकार • Ministry of Statistics &amp; Programme Implementation</span></div><div class="flex items-center gap-space-md"><div class="flex items-center gap-space-xs"><button class="hover:text-on-surface" type="button">A-</button><button class="hover:text-on-surface font-bold" type="button">A</button><button class="hover:text-on-surface" type="button">A+</button></div><span class="text-outline">|</span><button class="hover:text-on-surface flex items-center gap-space-2xs" type="button"><span class="material-symbols-outlined text-[14px]">volume_up</span>Screen Reader Access</button><span class="text-outline">|</span><div class="flex items-center gap-space-xs font-label-sm"><button class="hover:text-on-surface font-bold text-on-surface" type="button">English</button><span class="text-outline">/</span><button class="hover:text-on-surface" type="button">हिन्दी</button></div></div></div></div><div class="bg-surface-container-lowest border-b border-outline-variant/30"><div class="max-w-container-max mx-auto px-gutter-desktop h-20 flex items-center justify-between"><div class="flex items-center gap-space-md"><img alt="Brand logo. - Primary color: #0f2444
+- Font: publicSans
+- Mode: light
+- Roundness: rounded-sm
+" class="h-12 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1Vn3gONp7AC-faXX00SqL_HeshKE23rWldNovjXvZZiC3CDJX2FeqDp0Wou0L7C2GEVGjTK717WAYNumkmg-WkRaG7ZTTztLwP8bBM5jt4nzl6IewYMrkhZxTIeCSbtXM9KVYPNzrbdoo3eMrWBisophgh8_Omw2lZrKS0T8-3fSKzKjr2LSXPvaal9qLUEn50eA1h_21pyNn_s1iwbz6Nuv-AUXa1mKJg_Oy3D3ql5TW4iSTogLljb-5Q"><div class="flex flex-col"><span class="font-headline-sm text-headline-sm text-primary-container leading-none tracking-tight">e-SAKSHI / MPLADS</span><span class="font-label-sm text-label-sm text-on-surface-variant tracking-wide mt-1">Public Project Monitoring &amp; Transparency Portal</span></div></div><div class="flex items-center gap-space-md"><a class="inline-flex items-center gap-space-xs px-space-md py-2 bg-error text-on-error rounded-lg font-label-md text-label-md hover:bg-error/90 transition-colors" data-path="report-a-project" href="#"><span class="material-symbols-outlined text-[18px]">flag</span>Report a Project</a><a class="inline-flex items-center gap-space-xs px-space-md py-2 border border-primary-container text-primary-container rounded-lg font-label-md text-label-md hover:bg-surface-container transition-colors" data-path="officer-login" href="#"><span class="material-symbols-outlined text-[18px]">login</span>Sign In</a><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></div><div class="bg-primary-container"><div class="max-w-container-max mx-auto px-gutter-desktop h-12 flex items-center justify-between"><nav class="flex items-center gap-space-xs" data-active-classes="bg-primary text-on-primary font-bold"><a class="px-space-md py-2 rounded-lg font-label-md text-label-md text-primary-fixed hover:bg-primary/50 hover:text-on-primary transition-colors" data-path="national-dashboard" href="#">Home</a><a aria-current="page" class="px-space-md py-2 rounded-lg transition-colors bg-primary text-on-primary font-bold" data-path="projects-explorer" href="#">Projects</a><a class="px-space-md py-2 rounded-lg font-label-md text-label-md text-primary-fixed hover:bg-primary/50 hover:text-on-primary transition-colors" data-path="constituency-map" href="#">Map View</a><a class="px-space-md py-2 rounded-lg font-label-md text-label-md text-primary-fixed hover:bg-primary/50 hover:text-on-primary transition-colors" data-path="public-reports" href="#">Public Reports</a><a class="px-space-md py-2 rounded-lg font-label-md text-label-md text-primary-fixed hover:bg-primary/50 hover:text-on-primary transition-colors" data-path="faq-and-help" href="#">Help &amp; FAQ</a><a class="px-space-md py-2 rounded-lg font-label-md text-label-md text-primary-fixed hover:bg-primary/50 hover:text-on-primary transition-colors inline-flex items-center gap-space-xs" data-path="auditor-portal" href="#">Authority Portal<span class="px-1.5 py-0.5 bg-secondary text-on-secondary rounded-DEFAULT text-[10px] font-bold tracking-wider uppercase">Secure</span></a></nav><div class="flex items-center font-label-sm text-label-sm text-primary-fixed-dim"><span class="inline-block w-2 h-2 rounded-full bg-secondary-fixed mr-2 animate-pulse"></span>Public Audit Registry Live</div></div></div></header><main class="w-full pt-41 bg-surface min-h-[calc(100vh-280px)]"><div class="flex flex-col w-full">
+<!-- Subtle Saffron Accent Strip -->
+<div class="w-full h-1 bg-tertiary-container/30"></div>
+<!-- Breadcrumb & Top Telemetry Strip -->
+<div class="bg-surface-container-low py-space-sm px-gutter-desktop">
+<div class="max-w-container-max mx-auto flex flex-wrap items-center justify-between gap-space-sm font-label-sm text-label-sm text-on-surface-variant">
+<div class="flex items-center gap-space-xs">
+<span class="hover:text-on-surface cursor-pointer">National Portal</span>
+<span class="material-symbols-outlined text-[14px]">chevron_right</span>
+<span class="hover:text-on-surface cursor-pointer">Karnataka State Registry</span>
+<span class="material-symbols-outlined text-[14px]">chevron_right</span>
+<span class="text-on-surface font-bold">Ballari Parliamentary Constituency (PC-09)</span>
+</div>
+<div class="flex items-center gap-space-md">
+<span class="inline-flex items-center gap-space-2xs bg-surface-container-lowest px-2 py-0.5 rounded text-on-surface font-label-sm">
+<span class="material-symbols-outlined text-secondary text-[14px]">sync</span>
+          NIC-MPLADS Ledger Synced: Today 08:30 IST
+        </span>
+<span class="text-outline-variant">|</span>
+<span class="text-secondary font-semibold flex items-center gap-space-2xs">
+<span class="material-symbols-outlined text-[15px]">verified_user</span>
+          Open Audit Ledger v4.2
+        </span>
+</div>
+</div>
+</div>
+<!-- Page Header & Quick Search Section -->
+<div class="bg-surface-container-lowest py-space-2xl px-gutter-desktop shadow-sm">
+<div class="max-w-container-max mx-auto">
+<div class="flex flex-col lg:flex-row lg:items-end justify-between gap-space-lg mb-space-xl">
+<div class="max-w-3xl">
+<div class="inline-flex items-center gap-space-2xs px-space-sm py-1 bg-surface-container text-primary-container font-label-sm text-label-sm rounded mb-space-sm">
+<span class="material-symbols-outlined text-[16px]">travel_explore</span>
+            Central Public Works Directory
+          </div>
+<h1 class="font-headline-xl text-headline-xl text-primary font-bold tracking-tight">Explore MPLADS Projects Across India</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant mt-space-xs">Search, filter, and inspect public works across all parliamentary constituencies, districts, and sectors with ground-truth transparency verification.</p>
+</div>
+<!-- Quick Metric Strip -->
+<div class="flex items-center gap-space-md bg-surface-container-low p-space-md rounded-lg shadow-sm">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">State Allocation</span>
+<span class="font-title-lg text-title-lg text-primary font-bold">₹124.50 Cr</span>
+</div>
+<div class="w-px h-8 bg-outline-variant/40"></div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Sanctioned Works</span>
+<span class="font-title-lg text-title-lg text-secondary font-bold">13,300</span>
+</div>
+<div class="w-px h-8 bg-outline-variant/40"></div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Audit Red Flags</span>
+<span class="font-title-lg text-title-lg text-error font-bold">730</span>
+</div>
+</div>
+</div>
+<!-- Global Search Command Bar -->
+<div class="relative w-full bg-surface-container-low p-space-xs rounded-xl shadow-md flex flex-col md:flex-row items-center gap-space-xs">
+<div class="flex-1 flex items-center px-space-md w-full">
+<span class="material-symbols-outlined text-outline text-[24px] mr-space-sm">search</span>
+<input class="w-full bg-transparent font-body-md text-body-md text-on-surface placeholder:text-outline focus:outline-none py-space-sm" placeholder="Search by Project Name, Work ID (e.g. KAR-BLR-2024-881), Village, District, or Lok Sabha Constituency..." type="text" value="Ballari Parliamentary Constituency Community Works">
+<button class="text-outline hover:text-on-surface p-1" type="button">
+<span class="material-symbols-outlined text-[20px]">cancel</span>
+</button>
+</div>
+<div class="flex items-center gap-space-xs w-full md:w-auto px-space-xs">
+<button class="flex-1 md:flex-none inline-flex items-center justify-center gap-space-xs bg-surface-container hover:bg-surface-container-high px-space-md py-2.5 rounded font-label-md text-label-md text-on-surface transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">mic</span>
+            Voice
+          </button>
+<button class="flex-1 md:flex-none inline-flex items-center justify-center gap-space-xs bg-primary-container text-on-primary hover:bg-primary px-space-xl py-2.5 rounded font-label-md text-label-md transition-colors shadow-sm" type="button">
+<span class="material-symbols-outlined text-[18px]">manage_search</span>
+            Search Registry
+          </button>
+</div>
+</div>
+</div>
+</div>
+<!-- Main Exploration Workspace: Sidebar & Results Area -->
+<div class="max-w-container-max mx-auto px-gutter-desktop py-space-xl w-full">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-xl items-start">
+<!-- FILTER SIDEBAR (Left 280px / 3.5 cols desktop) -->
+<aside class="lg:col-span-3 bg-surface-container-lowest p-space-lg rounded-xl shadow-md space-y-space-lg sticky top-28">
+<div class="flex items-center justify-between pb-space-sm border-b border-surface-container">
+<div class="flex items-center gap-space-xs font-title-md text-title-md text-primary">
+<span class="material-symbols-outlined text-[20px]">tune</span>
+            Filters &amp; Criteria
+          </div>
+<button class="font-label-sm text-label-sm text-on-surface-variant hover:text-error transition-colors underline decoration-dotted" type="button">
+            Reset All
+          </button>
+</div>
+<!-- 1. Location Selector -->
+<div class="space-y-space-sm">
+<label class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface font-bold flex items-center gap-space-2xs">
+<span class="material-symbols-outlined text-[16px] text-primary-container">pin_drop</span>
+            Jurisdiction
+          </label>
+<!-- State Dropdown -->
+<div class="space-y-space-2xs">
+<span class="font-label-sm text-label-sm text-on-surface-variant">State / UT</span>
+<select class="w-full bg-surface-container-low text-on-surface font-body-sm text-body-sm px-space-sm py-2 rounded focus:outline-none focus:bg-surface-container-lowest shadow-sm">
+<option selected="">Karnataka (KA)</option>
+<option>Uttar Pradesh (UP)</option>
+<option>Maharashtra (MH)</option>
+<option>Bihar (BR)</option>
+<option>West Bengal (WB)</option>
+<option>Tamil Nadu (TN)</option>
+<option>Rajasthan (RJ)</option>
+<option>All 36 States &amp; UTs...</option>
+</select>
+</div>
+<!-- District Dropdown -->
+<div class="space-y-space-2xs">
+<span class="font-label-sm text-label-sm text-on-surface-variant">District</span>
+<select class="w-full bg-surface-container-low text-on-surface font-body-sm text-body-sm px-space-sm py-2 rounded focus:outline-none focus:bg-surface-container-lowest shadow-sm">
+<option selected="">Ballari</option>
+<option>Bengaluru Urban</option>
+<option>Belagavi</option>
+<option>Mysuru</option>
+<option>Kalaburagi</option>
+<option>All Districts in KA</option>
+</select>
+</div>
+<!-- House Selector Toggle -->
+<div class="space-y-space-2xs">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Parliamentary House</span>
+<div class="grid grid-cols-2 gap-space-2xs bg-surface-container-low p-1 rounded">
+<button class="py-1 px-space-xs text-center rounded font-label-sm text-label-sm bg-primary-container text-on-primary shadow-sm" type="button">
+                Lok Sabha
+              </button>
+<button class="py-1 px-space-xs text-center rounded font-label-sm text-label-sm text-on-surface-variant hover:text-on-surface" type="button">
+                Rajya Sabha
+              </button>
+</div>
+</div>
+</div>
+<div class="h-px bg-surface-container"></div>
+<!-- 2. Project Status Multi-select -->
+<div class="space-y-space-sm">
+<label class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface font-bold flex items-center justify-between">
+<span class="flex items-center gap-space-2xs">
+<span class="material-symbols-outlined text-[16px] text-primary-container">pending_actions</span>
+              Execution Status
+            </span>
+<span class="text-outline font-normal">4 Selected</span>
+</label>
+<div class="space-y-space-xs">
+<label class="flex items-center justify-between p-space-xs hover:bg-surface-container-low rounded cursor-pointer group">
+<div class="flex items-center gap-space-sm">
+<input checked="" class="w-4 h-4 rounded text-primary-container accent-primary-container cursor-pointer" type="checkbox">
+<span class="font-body-sm text-body-sm text-on-surface">Ongoing Works</span>
+</div>
+<span class="px-2 py-0.5 bg-surface-container text-on-surface font-label-sm text-label-sm rounded-full">4,820</span>
+</label>
+<label class="flex items-center justify-between p-space-xs hover:bg-surface-container-low rounded cursor-pointer group">
+<div class="flex items-center gap-space-sm">
+<input checked="" class="w-4 h-4 rounded text-primary-container accent-primary-container cursor-pointer" type="checkbox">
+<span class="font-body-sm text-body-sm text-on-surface">Completed &amp; Closed</span>
+</div>
+<span class="px-2 py-0.5 bg-secondary/15 text-secondary font-label-sm text-label-sm rounded-full">6,930</span>
+</label>
+<label class="flex items-center justify-between p-space-xs hover:bg-surface-container-low rounded cursor-pointer group">
+<div class="flex items-center gap-space-sm">
+<input checked="" class="w-4 h-4 rounded text-primary-container accent-primary-container cursor-pointer" type="checkbox">
+<span class="font-body-sm text-body-sm text-on-surface font-semibold text-error">Needs Review / Flagged</span>
+</div>
+<span class="px-2 py-0.5 bg-error/15 text-error font-label-sm text-label-sm rounded-full font-bold">730</span>
+</label>
+<label class="flex items-center justify-between p-space-xs hover:bg-surface-container-low rounded cursor-pointer group">
+<div class="flex items-center gap-space-sm">
+<input checked="" class="w-4 h-4 rounded text-primary-container accent-primary-container cursor-pointer" type="checkbox">
+<span class="font-body-sm text-body-sm text-on-surface">Under Planning / Sanction</span>
+</div>
+<span class="px-2 py-0.5 bg-surface-container text-on-surface font-label-sm text-label-sm rounded-full">820</span>
+</label>
+</div>
+</div>
+<div class="h-px bg-surface-container"></div>
+<!-- 3. Sector / Category -->
+<div class="space-y-space-sm">
+<label class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface font-bold flex items-center gap-space-2xs">
+<span class="material-symbols-outlined text-[16px] text-primary-container">category</span>
+            Sector / Category
+          </label>
+<div class="flex flex-wrap gap-space-xs">
+<span class="px-space-sm py-1 bg-primary-container text-on-primary rounded font-label-sm text-label-sm cursor-pointer shadow-sm">All Sectors</span>
+<span class="px-space-sm py-1 bg-surface-container-low hover:bg-surface-container text-on-surface-variant rounded font-label-sm text-label-sm cursor-pointer">Healthcare (38)</span>
+<span class="px-space-sm py-1 bg-surface-container-low hover:bg-surface-container text-on-surface-variant rounded font-label-sm text-label-sm cursor-pointer">Drinking Water (64)</span>
+<span class="px-space-sm py-1 bg-surface-container-low hover:bg-surface-container text-on-surface-variant rounded font-label-sm text-label-sm cursor-pointer">Education &amp; Schools (47)</span>
+<span class="px-space-sm py-1 bg-surface-container-low hover:bg-surface-container text-on-surface-variant rounded font-label-sm text-label-sm cursor-pointer">Roads &amp; Bridges (51)</span>
+<span class="px-space-sm py-1 bg-surface-container-low hover:bg-surface-container text-on-surface-variant rounded font-label-sm text-label-sm cursor-pointer">Community Halls (29)</span>
+<span class="px-space-sm py-1 bg-surface-container-low hover:bg-surface-container text-on-surface-variant rounded font-label-sm text-label-sm cursor-pointer">Renewable Energy (12)</span>
+<span class="px-space-sm py-1 bg-surface-container-low hover:bg-surface-container text-on-surface-variant rounded font-label-sm text-label-sm cursor-pointer">Sanitation (7)</span>
+</div>
+</div>
+<div class="h-px bg-surface-container"></div>
+<!-- 4. Funding Bracket -->
+<div class="space-y-space-sm">
+<label class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface font-bold flex items-center gap-space-2xs">
+<span class="material-symbols-outlined text-[16px] text-primary-container">payments</span>
+            Budget Bracket
+          </label>
+<div class="grid grid-cols-2 gap-space-xs">
+<button class="py-1.5 px-space-xs text-center rounded font-label-sm text-label-sm bg-surface-container-low hover:bg-surface-container text-on-surface transition-colors" type="button">
+              &lt; ₹10 Lakh
+            </button>
+<button class="py-1.5 px-space-xs text-center rounded font-label-sm text-label-sm bg-primary-container text-on-primary shadow-sm" type="button">
+              ₹10L – ₹25L
+            </button>
+<button class="py-1.5 px-space-xs text-center rounded font-label-sm text-label-sm bg-surface-container-low hover:bg-surface-container text-on-surface transition-colors" type="button">
+              ₹25L – ₹50L
+            </button>
+<button class="py-1.5 px-space-xs text-center rounded font-label-sm text-label-sm bg-surface-container-low hover:bg-surface-container text-on-surface transition-colors" type="button">
+              &gt; ₹50 Lakh
+            </button>
+</div>
+</div>
+<div class="h-px bg-surface-container"></div>
+<!-- 5. Year Sanctioned -->
+<div class="space-y-space-sm">
+<label class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface font-bold flex items-center gap-space-2xs">
+<span class="material-symbols-outlined text-[16px] text-primary-container">calendar_month</span>
+            Sanction Financial Year
+          </label>
+<div class="flex items-center gap-space-xs">
+<button class="flex-1 py-1.5 rounded font-label-sm text-label-sm bg-surface-container-low hover:bg-surface-container text-on-surface" type="button">2025-26</button>
+<button class="flex-1 py-1.5 rounded font-label-sm text-label-sm bg-primary-container text-on-primary shadow-sm font-semibold" type="button">2024-25</button>
+<button class="flex-1 py-1.5 rounded font-label-sm text-label-sm bg-surface-container-low hover:bg-surface-container text-on-surface" type="button">2023-24</button>
+</div>
+</div>
+<div class="h-px bg-surface-container"></div>
+<!-- 6. Ground-Truth Verification Filters -->
+<div class="space-y-space-sm">
+<label class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface font-bold flex items-center gap-space-2xs">
+<span class="material-symbols-outlined text-[16px] text-secondary">verified</span>
+            Auditing Integrity
+          </label>
+<div class="space-y-space-xs bg-surface-container-low p-space-sm rounded-lg">
+<label class="flex items-start gap-space-sm cursor-pointer">
+<input checked="" class="mt-0.5 w-4 h-4 rounded text-secondary accent-secondary" type="checkbox">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface font-semibold">Citizen Ground Photographs</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant text-[12px] leading-tight">Must have geo-stamped photos uploaded by local villagers</span>
+</div>
+</label>
+<div class="h-px bg-outline-variant/30 my-space-xs"></div>
+<label class="flex items-start gap-space-sm cursor-pointer">
+<input checked="" class="mt-0.5 w-4 h-4 rounded text-secondary accent-secondary" type="checkbox">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface font-semibold">Satellite Verified Works</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant text-[12px] leading-tight">ISRO Bhuvan optical pass cross-matched</span>
+</div>
+</label>
+</div>
+</div>
+<!-- Actions -->
+<div class="pt-space-xs space-y-space-xs">
+<button class="w-full py-2.5 bg-primary-container hover:bg-primary text-on-primary rounded font-label-md text-label-md flex items-center justify-center gap-space-xs shadow-md transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">filter_alt</span>
+            Apply Selected Filters (248)
+          </button>
+<button class="w-full py-2 bg-surface-container-low hover:bg-surface-container text-on-surface-variant rounded font-label-sm text-label-sm text-center" type="button">
+            Save Filter Profile
+          </button>
+</div>
+</aside>
+<!-- RESULTS AREA (Right 960px / 8.5 cols desktop) -->
+<main class="lg:col-span-9 flex flex-col gap-space-md min-w-0">
+<!-- Results Toolbar & View Switcher -->
+<div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex flex-col md:flex-row items-start md:items-center justify-between gap-space-md">
+<div>
+<div class="flex items-center gap-space-xs">
+<span class="w-2.5 h-2.5 rounded-full bg-secondary"></span>
+<span class="font-title-md text-title-md text-primary font-bold">Showing 248 projects</span>
+<span class="text-on-surface-variant font-body-sm text-body-sm">in Karnataka • Ballari District</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Filtering by: FY 2024-25 | Lok Sabha | ₹10L - ₹50L | Ground Photo Verified</p>
+</div>
+<div class="flex items-center flex-wrap gap-space-sm self-stretch md:self-auto justify-end">
+<!-- Sort dropdown -->
+<div class="flex items-center gap-space-2xs bg-surface-container-low px-space-sm py-1.5 rounded text-on-surface font-label-sm text-label-sm">
+<span class="text-on-surface-variant">Sort:</span>
+<select class="bg-transparent font-semibold text-on-surface focus:outline-none cursor-pointer">
+<option>Last Updated (Recent First)</option>
+<option>Attention Priority (High to Low)</option>
+<option>Physical Progress (% High)</option>
+<option>Sanctioned Budget (High to Low)</option>
+</select>
+</div>
+<!-- View switcher -->
+<div class="inline-flex p-1 bg-surface-container-low rounded-lg gap-space-2xs">
+<button class="p-1.5 rounded bg-surface-container-lowest text-primary shadow-sm flex items-center" title="List View" type="button">
+<span class="material-symbols-outlined text-[18px]">view_list</span>
+</button>
+<button class="p-1.5 rounded text-on-surface-variant hover:text-on-surface flex items-center" title="Grid View" type="button">
+<span class="material-symbols-outlined text-[18px]">grid_view</span>
+</button>
+<a class="p-1.5 rounded text-on-surface-variant hover:text-on-surface flex items-center" data-path="constituency-map" href="#" title="Interactive Map View">
+<span class="material-symbols-outlined text-[18px]">map</span>
+</a>
+</div>
+</div>
+</div>
+<!-- High-Density Desktop Project Table / Card Results -->
+<div class="flex flex-col gap-space-md">
+<!-- PROJECT 1: Rampur Community Hall (Needs Review) -->
+<article class="bg-surface-container-lowest rounded-xl shadow-md hover:shadow-xl transition-shadow p-space-lg flex flex-col xl:flex-row gap-space-lg items-start xl:items-center">
+<!-- Site Photo Preview with Geo Coordinates Tag -->
+<div class="relative w-full xl:w-56 h-40 xl:h-36 rounded-lg overflow-hidden shrink-0 bg-surface-container-high">
+<img class="w-full h-full object-cover" data-alt="Photographic evidence of an unfinished rural concrete community hall building structure in Rampur village, Bellary Karnataka with exposed reinforcing steel rebar and brick walls under bright midday sun, captured for public citizen audit tracking." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBuiehXhG3aEFsAJ5wi3lFOGBfLTJbUVgyZjsN_2NgnNX_VBVFrpUEIsQte4M5uaVnYrDEYdN1SBMwN4Qjd7Cqk4V5ZaQFx94Nc5LZrr2ztMjL4-73LfRZSNUHVWJWs8gAJziiFgMKX-F0ETzq6zMW82avTF6ZfbG_PNE-ac9bvegmzAR34v293x0pg2oVYytp2gc5ueQw9Nya7OkOAji34s7kLfH6TXY9-rArBW7LXUZ65_nWtaG14JA">
+<div class="absolute bottom-1.5 left-1.5 bg-primary/80 backdrop-blur text-on-primary px-2 py-0.5 rounded font-label-sm text-[10px] tracking-wider flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px] text-tertiary-fixed">photo_camera</span>
+                15.1394° N, 76.9214° E
+              </div>
+<div class="absolute top-1.5 right-1.5 bg-error text-on-error px-1.5 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider flex items-center gap-0.5 shadow-sm">
+<span class="material-symbols-outlined text-[12px]">flag</span>
+                Disputed Photo
+              </div>
+</div>
+<!-- Project Details Info Block -->
+<div class="flex-1 min-w-0 flex flex-col gap-space-xs">
+<div class="flex flex-wrap items-center gap-space-xs">
+<span class="px-2 py-0.5 bg-surface-container-high text-primary-container font-label-sm text-label-sm font-semibold rounded">
+                  ID: KAR-BLR-2024-0492
+                </span>
+<span class="text-outline-variant">•</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">location_on</span>
+                  Rampur Gram, Ballari PC-09, Karnataka
+                </span>
+<span class="text-outline-variant">•</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">cottage</span>
+                  Community Infrastructure
+                </span>
+</div>
+<h2 class="font-headline-sm text-headline-sm text-primary font-bold hover:text-primary-container cursor-pointer transition-colors truncate">
+                Construction of Community Hall &amp; Skill Centre — Rampur
+              </h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2">
+                Sanctioned multi-purpose community hall designed for village meetings and self-help training. Citizen audit report filed on 14 Feb 2025 alleging 3-month roof shuttering delay and foundation cracks.
+              </p>
+<!-- Telemetry indicators row -->
+<div class="flex flex-wrap items-center gap-space-md pt-space-xs font-label-sm text-label-sm">
+<div class="flex items-center gap-space-xs">
+<span class="text-on-surface-variant">Sanctioned:</span>
+<span class="font-title-md text-title-md text-primary font-bold">₹25.0 Lakh</span>
+</div>
+<div class="flex items-center gap-space-xs">
+<span class="text-on-surface-variant">Disbursed:</span>
+<span class="font-semibold text-on-surface">₹17.0 Lakh</span>
+</div>
+<div class="flex items-center gap-space-xs">
+<span class="text-on-surface-variant">Executing Agency:</span>
+<span class="text-on-surface font-medium">PWD Ballari Sub-Div 2</span>
+</div>
+</div>
+</div>
+<!-- Progress & Status Column -->
+<div class="w-full xl:w-56 shrink-0 flex flex-col gap-space-sm pt-space-sm xl:pt-0 border-t xl:border-t-0 border-surface-container">
+<!-- Status Badge (Amber pair) -->
+<div class="inline-flex items-center gap-1.5 px-space-sm py-1 bg-tertiary-fixed text-on-tertiary-fixed font-label-sm text-label-sm rounded self-start xl:self-end font-semibold">
+<span class="material-symbols-outlined text-[16px] text-on-tertiary-container">warning</span>
+                Needs Review
+              </div>
+<!-- Progress bar with percentage -->
+<div class="space-y-1">
+<div class="flex justify-between font-label-sm text-label-sm">
+<span class="text-on-surface-variant">Physical Progress</span>
+<span class="font-bold text-primary">68%</span>
+</div>
+<div class="w-full h-2.5 bg-surface-container-high rounded-full overflow-hidden">
+<div class="h-full bg-on-tertiary-container rounded-full" style="width: 68%;"></div>
+</div>
+<span class="font-label-sm text-[11px] text-error flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px]">history</span>
+                  Overdue by 42 days
+                </span>
+</div>
+<!-- Action buttons -->
+<div class="flex items-center gap-space-xs mt-space-xs">
+<a class="flex-1 text-center py-1.5 bg-primary-container hover:bg-primary text-on-primary rounded font-label-sm text-label-sm font-semibold transition-colors" data-path="projects-explorer" href="#">
+                  Inspect Dossier
+                </a>
+<a class="p-1.5 bg-surface-container-low hover:bg-error-container text-error rounded transition-colors" data-path="report-a-project" href="#" title="Flag Discrepancy or Report Photo">
+<span class="material-symbols-outlined text-[18px]">flag</span>
+</a>
+</div>
+</div>
+</article>
+<!-- PROJECT 2: PHC Maternity Wing Siruguppa (On Track / Green) -->
+<article class="bg-surface-container-lowest rounded-xl shadow-md hover:shadow-xl transition-shadow p-space-lg flex flex-col xl:flex-row gap-space-lg items-start xl:items-center">
+<!-- Site Photo Preview -->
+<div class="relative w-full xl:w-56 h-40 xl:h-36 rounded-lg overflow-hidden shrink-0 bg-surface-container-high">
+<img class="w-full h-full object-cover" data-alt="Modern whitewashed rural government hospital maternity extension wing building in Siruguppa Karnataka with clean blue glazed glass windows, solar rooftop panels, and paved ambulance driveway in pristine condition." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDSRvPPFRW506nIZ9qZBzmKy7lKyeCvpW2kGIpVaA4dOGfI4tghlPoriWK-AtwpvGKlTaO44rwH1aCMmXvGtMEOhr0-bTTCmZQe7WwcktIuD7E0vWqm3KcKyIlm1zc7yX9FEI3A6KtMHKjj1x3-tdg_V3XB3xImBowxbyclpj-ojSE37rRY8UlojA4XxKN6duDB3IPdCRYoqptWjBZ4OqjnHhn1IHqv4Z7fZ_QBNaihDF-pIuO3MUBAUQ">
+<div class="absolute bottom-1.5 left-1.5 bg-primary/80 backdrop-blur text-on-primary px-2 py-0.5 rounded font-label-sm text-[10px] tracking-wider flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px] text-secondary-fixed">satellite_alt</span>
+                Bhuvan Pass: 02 Feb 2025
+              </div>
+<div class="absolute top-1.5 right-1.5 bg-secondary text-on-secondary px-1.5 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider flex items-center gap-0.5 shadow-sm">
+<span class="material-symbols-outlined text-[12px]">verified</span>
+                Audit Verified
+              </div>
+</div>
+<!-- Details Block -->
+<div class="flex-1 min-w-0 flex flex-col gap-space-xs">
+<div class="flex flex-wrap items-center gap-space-xs">
+<span class="px-2 py-0.5 bg-surface-container-high text-primary-container font-label-sm text-label-sm font-semibold rounded">
+                  ID: KAR-BLR-2024-0118
+                </span>
+<span class="text-outline-variant">•</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">location_on</span>
+                  Siruguppa Taluk, Ballari, Karnataka
+                </span>
+<span class="text-outline-variant">•</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">local_hospital</span>
+                  Healthcare &amp; Diagnostics
+                </span>
+</div>
+<h2 class="font-headline-sm text-headline-sm text-primary font-bold hover:text-primary-container cursor-pointer transition-colors truncate">
+                Primary Health Centre Maternity Wing Expansion &amp; Neonatal Care Unit
+              </h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2">
+                12-bed emergency obstetric care and incubator room addition to Primary Health Centre. Medical gas manifold piping complete, final electrical inspection underway.
+              </p>
+<div class="flex flex-wrap items-center gap-space-md pt-space-xs font-label-sm text-label-sm">
+<div class="flex items-center gap-space-xs">
+<span class="text-on-surface-variant">Sanctioned:</span>
+<span class="font-title-md text-title-md text-primary font-bold">₹45.0 Lakh</span>
+</div>
+<div class="flex items-center gap-space-xs">
+<span class="text-on-surface-variant">Disbursed:</span>
+<span class="font-semibold text-on-surface">₹42.75 Lakh</span>
+</div>
+<div class="flex items-center gap-space-xs">
+<span class="text-on-surface-variant">Implementing Body:</span>
+<span class="text-on-surface font-medium">Karnataka Health Systems Dev.</span>
+</div>
+</div>
+</div>
+<!-- Progress & Status -->
+<div class="w-full xl:w-56 shrink-0 flex flex-col gap-space-sm pt-space-sm xl:pt-0 border-t xl:border-t-0 border-surface-container">
+<div class="inline-flex items-center gap-1.5 px-space-sm py-1 bg-secondary-fixed text-on-secondary-fixed font-label-sm text-label-sm rounded self-start xl:self-end font-semibold">
+<span class="material-symbols-outlined text-[16px] text-secondary">check_circle</span>
+                On Track
+              </div>
+<div class="space-y-1">
+<div class="flex justify-between font-label-sm text-label-sm">
+<span class="text-on-surface-variant">Physical Progress</span>
+<span class="font-bold text-secondary">95%</span>
+</div>
+<div class="w-full h-2.5 bg-surface-container-high rounded-full overflow-hidden">
+<div class="h-full bg-secondary rounded-full" style="width: 95%;"></div>
+</div>
+<span class="font-label-sm text-[11px] text-secondary flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px]">task_alt</span>
+                  Target Handover: 28 Mar 2025
+                </span>
+</div>
+<div class="flex items-center gap-space-xs mt-space-xs">
+<a class="flex-1 text-center py-1.5 bg-primary-container hover:bg-primary text-on-primary rounded font-label-sm text-label-sm font-semibold transition-colors" data-path="projects-explorer" href="#">
+                  Inspect Dossier
+                </a>
+<button class="p-1.5 bg-surface-container-low hover:bg-surface-container text-on-surface rounded transition-colors" title="Download Geotagged Certificate" type="button">
+<span class="material-symbols-outlined text-[18px]">download_for_offline</span>
+</button>
+</div>
+</div>
+</article>
+<!-- PROJECT 3: Solar Micro-Irrigation Well (Completed & Audited / Blue) -->
+<article class="bg-surface-container-lowest rounded-xl shadow-md hover:shadow-xl transition-shadow p-space-lg flex flex-col xl:flex-row gap-space-lg items-start xl:items-center">
+<!-- Site Photo Preview -->
+<div class="relative w-full xl:w-56 h-40 xl:h-36 rounded-lg overflow-hidden shrink-0 bg-surface-container-high">
+<img class="w-full h-full object-cover" data-alt="Ground level photograph of high efficiency solar photovoltaic panels mounted on steel frames beside a concrete agricultural tube well with pressurized water flowing into an irrigation canal in Kudligi, Ballari district." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA8XYqwXppnkQTiHKQRoUT3Un4u-4-OC2_JT4CwLXU9qqTyEOISifP5vxILdFJxifyJOqD9ZyEbboACbiPc7H7Fq5ZZdBj4P6qwyQPq2pbwAeQTCNPqudibVoQjgl85R62KgXZ19SCkMjZ59X1Cnd2TaqcCD5Im_6kvTjP_pJV-5EzCuP_-BJIt8u1UuOWR2neW3LMwzIYTGJ_aI18xihxpxvXopaSwfUqxN_rdYkQfcPDRzi0hCJsqjA">
+<div class="absolute bottom-1.5 left-1.5 bg-primary/80 backdrop-blur text-on-primary px-2 py-0.5 rounded font-label-sm text-[10px] tracking-wider flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px] text-primary-fixed">assignment_turned_in</span>
+                Gram Sabha Signed
+              </div>
+<div class="absolute top-1.5 right-1.5 bg-primary-container text-on-primary px-1.5 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider flex items-center gap-0.5 shadow-sm">
+<span class="material-symbols-outlined text-[12px]">verified</span>
+                100% Complete
+              </div>
+</div>
+<!-- Details Block -->
+<div class="flex-1 min-w-0 flex flex-col gap-space-xs">
+<div class="flex flex-wrap items-center gap-space-xs">
+<span class="px-2 py-0.5 bg-surface-container-high text-primary-container font-label-sm text-label-sm font-semibold rounded">
+                  ID: KAR-BLR-2023-0901
+                </span>
+<span class="text-outline-variant">•</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">location_on</span>
+                  Kudligi Gram Panchayat, Ballari
+                </span>
+<span class="text-outline-variant">•</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">solar_power</span>
+                  Agriculture &amp; Renewable Energy
+                </span>
+</div>
+<h2 class="font-headline-sm text-headline-sm text-primary font-bold hover:text-primary-container cursor-pointer transition-colors truncate">
+                Solar Powered Micro-Irrigation Deep Borewell Cluster &amp; Storage Sump
+              </h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2">
+                10 HP solar submersible water pumping system serving 42 small-holder marginal farmers in dryland belt. Social audit resolution passed unanimously on 10 Jan 2025.
+              </p>
+<div class="flex flex-wrap items-center gap-space-md pt-space-xs font-label-sm text-label-sm">
+<div class="flex items-center gap-space-xs">
+<span class="text-on-surface-variant">Sanctioned:</span>
+<span class="font-title-md text-title-md text-primary font-bold">₹14.2 Lakh</span>
+</div>
+<div class="flex items-center gap-space-xs">
+<span class="text-on-surface-variant">Utilized:</span>
+<span class="font-semibold text-secondary">₹14.18 Lakh (99.8%)</span>
+</div>
+<div class="flex items-center gap-space-xs">
+<span class="text-on-surface-variant">Nodal Dept:</span>
+<span class="text-on-surface font-medium">Zilla Panchayat Minor Irrigation</span>
+</div>
+</div>
+</div>
+<!-- Progress & Status -->
+<div class="w-full xl:w-56 shrink-0 flex flex-col gap-space-sm pt-space-sm xl:pt-0 border-t xl:border-t-0 border-surface-container">
+<div class="inline-flex items-center gap-1.5 px-space-sm py-1 bg-primary-fixed text-on-primary-fixed font-label-sm text-label-sm rounded self-start xl:self-end font-semibold">
+<span class="material-symbols-outlined text-[16px] text-primary">done_all</span>
+                Completed &amp; Audited
+              </div>
+<div class="space-y-1">
+<div class="flex justify-between font-label-sm text-label-sm">
+<span class="text-on-surface-variant">Physical Progress</span>
+<span class="font-bold text-primary">100%</span>
+</div>
+<div class="w-full h-2.5 bg-surface-container-high rounded-full overflow-hidden">
+<div class="h-full bg-primary-container rounded-full" style="width: 100%;"></div>
+</div>
+<span class="font-label-sm text-[11px] text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px] text-secondary">verified</span>
+                  Audited by CAG Panel #3
+                </span>
+</div>
+<div class="flex items-center gap-space-xs mt-space-xs">
+<a class="flex-1 text-center py-1.5 bg-primary-container hover:bg-primary text-on-primary rounded font-label-sm text-label-sm font-semibold transition-colors" data-path="projects-explorer" href="#">
+                  Inspect Dossier
+                </a>
+<button class="p-1.5 bg-surface-container-low hover:bg-surface-container text-on-surface rounded transition-colors" title="View Full Completion Certificate" type="button">
+<span class="material-symbols-outlined text-[18px]">receipt_long</span>
+</button>
+</div>
+</div>
+</article>
+<!-- PROJECT 4: Sandur Digital Learning Centre (On Track / Early Stage) -->
+<article class="bg-surface-container-lowest rounded-xl shadow-md hover:shadow-xl transition-shadow p-space-lg flex flex-col xl:flex-row gap-space-lg items-start xl:items-center">
+<!-- Site Photo Preview -->
+<div class="relative w-full xl:w-56 h-40 xl:h-36 rounded-lg overflow-hidden shrink-0 bg-surface-container-high">
+<img class="w-full h-full object-cover" data-alt="Interior construction view of a village government school computer laboratory room with technicians running electrical cabling conduits and assembling computer desks in Sandur Ballari." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCDlcS2nDcHXkvV5Xj54Y6G0EgwIek3e3dqgGO24Txt8MMfV5r4STu-3tLUiXGNBXxwptU7CGvbC1l5AuHHtWMFs4hcCT8lS3eQsZ5GcnkGCBSDWEPbIQLB_enj8fj-pcAQkFrCCCxlSQ0OvkEQERBKNj5aDDWKSsQwN8Pb009nmOQ44RVfs3CHLXfZQf3rXjKGVnZv5t5Zvseon9iXQ8GK73ADNIAvtli746SDwNMmD35NZeOcNuC1bw">
+<div class="absolute bottom-1.5 left-1.5 bg-primary/80 backdrop-blur text-on-primary px-2 py-0.5 rounded font-label-sm text-[10px] tracking-wider flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px] text-secondary-fixed">schedule</span>
+                Updated 3 days ago
+              </div>
+<div class="absolute top-1.5 right-1.5 bg-secondary text-on-secondary px-1.5 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider flex items-center gap-0.5 shadow-sm">
+<span class="material-symbols-outlined text-[12px]">build</span>
+                Phase 1 Active
+              </div>
+</div>
+<!-- Details Block -->
+<div class="flex-1 min-w-0 flex flex-col gap-space-xs">
+<div class="flex flex-wrap items-center gap-space-xs">
+<span class="px-2 py-0.5 bg-surface-container-high text-primary-container font-label-sm text-label-sm font-semibold rounded">
+                  ID: KAR-BLR-2024-1102
+                </span>
+<span class="text-outline-variant">•</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">location_on</span>
+                  Sandur Taluk School, Ballari
+                </span>
+<span class="text-outline-variant">•</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">school</span>
+                  Education &amp; Digital Infra
+                </span>
+</div>
+<h2 class="font-headline-sm text-headline-sm text-primary font-bold hover:text-primary-container cursor-pointer transition-colors truncate">
+                Gram Panchayat Digital Learning Centre &amp; STEM Laboratory
+              </h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2">
+                Supply and commissioning of 20 N-Computing terminal stations, interactive flat panel display, and dedicated solar inverter backup for higher secondary government school.
+              </p>
+<div class="flex flex-wrap items-center gap-space-md pt-space-xs font-label-sm text-label-sm">
+<div class="flex items-center gap-space-xs">
+<span class="text-on-surface-variant">Sanctioned:</span>
+<span class="font-title-md text-title-md text-primary font-bold">₹18.0 Lakh</span>
+</div>
+<div class="flex items-center gap-space-xs">
+<span class="text-on-surface-variant">Disbursed:</span>
+<span class="font-semibold text-on-surface">₹7.2 Lakh (40%)</span>
+</div>
+<div class="flex items-center gap-space-xs">
+<span class="text-on-surface-variant">Procurement:</span>
+<span class="text-on-surface font-medium">GeM Portal Order #7712</span>
+</div>
+</div>
+</div>
+<!-- Progress & Status -->
+<div class="w-full xl:w-56 shrink-0 flex flex-col gap-space-sm pt-space-sm xl:pt-0 border-t xl:border-t-0 border-surface-container">
+<div class="inline-flex items-center gap-1.5 px-space-sm py-1 bg-secondary-fixed text-on-secondary-fixed font-label-sm text-label-sm rounded self-start xl:self-end font-semibold">
+<span class="material-symbols-outlined text-[16px] text-secondary">update</span>
+                On Track
+              </div>
+<div class="space-y-1">
+<div class="flex justify-between font-label-sm text-label-sm">
+<span class="text-on-surface-variant">Physical Progress</span>
+<span class="font-bold text-secondary">35%</span>
+</div>
+<div class="w-full h-2.5 bg-surface-container-high rounded-full overflow-hidden">
+<div class="h-full bg-secondary rounded-full" style="width: 35%;"></div>
+</div>
+<span class="font-label-sm text-[11px] text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px]">schedule</span>
+                  Target Delivery: 15 May 2025
+                </span>
+</div>
+<div class="flex items-center gap-space-xs mt-space-xs">
+<a class="flex-1 text-center py-1.5 bg-primary-container hover:bg-primary text-on-primary rounded font-label-sm text-label-sm font-semibold transition-colors" data-path="projects-explorer" href="#">
+                  Inspect Dossier
+                </a>
+<button class="p-1.5 bg-surface-container-low hover:bg-surface-container text-on-surface rounded transition-colors" title="Track Hardware Serial Numbers" type="button">
+<span class="material-symbols-outlined text-[18px]">inventory_2</span>
+</button>
+</div>
+</div>
+</article>
+<!-- PROJECT 5: High-Mast LED Lighting Installation (Verification Underway) -->
+<article class="bg-surface-container-lowest rounded-xl shadow-md hover:shadow-xl transition-shadow p-space-lg flex flex-col xl:flex-row gap-space-lg items-start xl:items-center">
+<!-- Site Photo Preview -->
+<div class="relative w-full xl:w-56 h-40 xl:h-36 rounded-lg overflow-hidden shrink-0 bg-surface-container-high">
+<img class="w-full h-full object-cover" data-alt="Wide shot of an installed 16-meter tall high-mast galvanized steel lighting pole in a bustling rural town market intersection in Hospet Ballari during evening dusk." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBxldLg0Ac9yJkeJzxJ8M_FdG8KDSRmjX8QrdUdC4ac1x3Y4mAtLMMi8hHkSxd9hfKNWoPSNVPX9cDJn3h3YToY6OLsaF1p65CGz2sQ3FW5M0k0DcteZwOgOTwfqDrEy-O46tXzIG0OgplCaD-AARH1h4Mh3wMwjhCuAtGqbuwCsaaxilMHd2XCiyiZITmUieplgfTII7QYUqSBRSluvMMQ_k76D2GEbiZ0dBFbPJ7ugTUOrGAwqcd8cg">
+<div class="absolute bottom-1.5 left-1.5 bg-primary/80 backdrop-blur text-on-primary px-2 py-0.5 rounded font-label-sm text-[10px] tracking-wider flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px] text-tertiary-fixed">rule</span>
+                Pending District Engr. Signoff
+              </div>
+<div class="absolute top-1.5 right-1.5 bg-tertiary-fixed text-on-tertiary-fixed px-1.5 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider flex items-center gap-0.5 shadow-sm">
+<span class="material-symbols-outlined text-[12px]">visibility</span>
+                Under Verification
+              </div>
+</div>
+<!-- Details Block -->
+<div class="flex-1 min-w-0 flex flex-col gap-space-xs">
+<div class="flex flex-wrap items-center gap-space-xs">
+<span class="px-2 py-0.5 bg-surface-container-high text-primary-container font-label-sm text-label-sm font-semibold rounded">
+                  ID: KAR-BLR-2024-0553
+                </span>
+<span class="text-outline-variant">•</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">location_on</span>
+                  Hospet Municipal Area (6 Clusters), Ballari
+                </span>
+<span class="text-outline-variant">•</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">lightbulb</span>
+                  Civic Electrification
+                </span>
+</div>
+<h2 class="font-headline-sm text-headline-sm text-primary font-bold hover:text-primary-container cursor-pointer transition-colors truncate">
+                High-Mast LED Lighting Installation (6 Critical Market Junctions)
+              </h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2">
+                Erection of six 16-metre octagonal high-mast lighting towers with dual power automatic timer switchboards for public safety at weekly cattle market and state highway intersections.
+              </p>
+<div class="flex flex-wrap items-center gap-space-md pt-space-xs font-label-sm text-label-sm">
+<div class="flex items-center gap-space-xs">
+<span class="text-on-surface-variant">Sanctioned:</span>
+<span class="font-title-md text-title-md text-primary font-bold">₹12.0 Lakh</span>
+</div>
+<div class="flex items-center gap-space-xs">
+<span class="text-on-surface-variant">Disbursed:</span>
+<span class="font-semibold text-on-surface">₹9.6 Lakh (80%)</span>
+</div>
+<div class="flex items-center gap-space-xs">
+<span class="text-on-surface-variant">Contractor:</span>
+<span class="text-on-surface font-medium">Hospet Electrical Works Corp</span>
+</div>
+</div>
+</div>
+<!-- Progress & Status -->
+<div class="w-full xl:w-56 shrink-0 flex flex-col gap-space-sm pt-space-sm xl:pt-0 border-t xl:border-t-0 border-surface-container">
+<div class="inline-flex items-center gap-1.5 px-space-sm py-1 bg-tertiary-fixed text-on-tertiary-fixed font-label-sm text-label-sm rounded self-start xl:self-end font-semibold">
+<span class="material-symbols-outlined text-[16px] text-on-tertiary-container">fact_check</span>
+                Verification Underway
+              </div>
+<div class="space-y-1">
+<div class="flex justify-between font-label-sm text-label-sm">
+<span class="text-on-surface-variant">Physical Progress</span>
+<span class="font-bold text-primary">80%</span>
+</div>
+<div class="w-full h-2.5 bg-surface-container-high rounded-full overflow-hidden">
+<div class="h-full bg-on-tertiary-container rounded-full" style="width: 80%;"></div>
+</div>
+<span class="font-label-sm text-[11px] text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px]">pin</span>
+                  5 of 6 Poles Electrified
+                </span>
+</div>
+<div class="flex items-center gap-space-xs mt-space-xs">
+<a class="flex-1 text-center py-1.5 bg-primary-container hover:bg-primary text-on-primary rounded font-label-sm text-label-sm font-semibold transition-colors" data-path="projects-explorer" href="#">
+                  Inspect Dossier
+                </a>
+<a class="p-1.5 bg-surface-container-low hover:bg-error-container text-error rounded transition-colors" data-path="report-a-project" href="#" title="Submit Citizen Ground Photo">
+<span class="material-symbols-outlined text-[18px]">add_a_photo</span>
+</a>
+</div>
+</div>
+</article>
+</div>
+<!-- Pagination & Open Data Export Bar -->
+<div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex flex-col md:flex-row items-center justify-between gap-space-md mt-space-sm">
+<!-- Results Range Text -->
+<div class="font-body-sm text-body-sm text-on-surface-variant">
+            Showing <span class="font-bold text-on-surface">1 – 5</span> of <span class="font-bold text-on-surface">248</span> projects in Ballari Constituency
+          </div>
+<!-- Desktop Pagination Numeric Stepper -->
+<nav aria-label="Pagination" class="inline-flex items-center gap-space-2xs">
+<button class="p-2 rounded bg-surface-container-low text-outline cursor-not-allowed" disabled="" type="button">
+<span class="material-symbols-outlined text-[18px]">chevron_left</span>
+</button>
+<button class="w-8 h-8 rounded bg-primary-container text-on-primary font-label-sm text-label-sm font-bold shadow-sm" type="button">1</button>
+<button class="w-8 h-8 rounded hover:bg-surface-container text-on-surface font-label-sm text-label-sm transition-colors" type="button">2</button>
+<button class="w-8 h-8 rounded hover:bg-surface-container text-on-surface font-label-sm text-label-sm transition-colors" type="button">3</button>
+<button class="w-8 h-8 rounded hover:bg-surface-container text-on-surface font-label-sm text-label-sm transition-colors" type="button">4</button>
+<button class="w-8 h-8 rounded hover:bg-surface-container text-on-surface font-label-sm text-label-sm transition-colors" type="button">5</button>
+<span class="px-1 text-outline">...</span>
+<button class="w-8 h-8 rounded hover:bg-surface-container text-on-surface font-label-sm text-label-sm transition-colors" type="button">50</button>
+<button class="p-2 rounded bg-surface-container-low hover:bg-surface-container text-on-surface" type="button">
+<span class="material-symbols-outlined text-[18px]">chevron_right</span>
+</button>
+</nav>
+<!-- Download Dataset Open Data Action -->
+<div class="flex items-center gap-space-xs">
+<button class="inline-flex items-center gap-space-xs px-space-md py-2 bg-surface-container-low hover:bg-surface-container text-on-surface rounded font-label-sm text-label-sm transition-colors shadow-sm" title="Download filtered CSV dataset" type="button">
+<span class="material-symbols-outlined text-[16px] text-primary-container">file_download</span>
+              CSV Export
+            </button>
+<button class="inline-flex items-center gap-space-xs px-space-md py-2 bg-surface-container-low hover:bg-surface-container text-on-surface rounded font-label-sm text-label-sm transition-colors shadow-sm" title="Download GeoJSON Open Data feed" type="button">
+<span class="material-symbols-outlined text-[16px] text-secondary">data_object</span>
+              Open Data JSON
+            </button>
+</div>
+</div>
+<!-- Administrative Audit Notice Banner -->
+<div class="bg-surface-container-low p-space-md rounded-xl flex items-start gap-space-md">
+<span class="material-symbols-outlined text-primary-container text-[24px] shrink-0 mt-0.5">policy</span>
+<div class="flex-1">
+<h3 class="font-title-md text-title-md text-primary font-bold">Public Verification &amp; RTI Disclosure Notice</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1 leading-relaxed">
+              Every project record displayed above is mirrored from the Ministry of Statistics &amp; Programme Implementation (MoSPI) Public Financial Management System (PFMS) and certified by the Ballari Deputy Commissioner’s office. If any facility is non-existent on ground or substandard, citizens can file an instant geo-tagged dispute using the red flag action button or refer to Section 4(1)(b) RTI repository.
+            </p>
+</div>
+<a class="shrink-0 px-space-md py-1.5 bg-surface-container-lowest hover:bg-surface-container text-primary font-label-sm text-label-sm rounded shadow-sm transition-colors" data-path="faq-and-help" href="#">
+            Audit Protocol FAQs
+          </a>
+</div>
+</main>
+</div>
+</div>
+</div></main><footer class="w-full bg-primary-container text-on-primary-container mt-space-3xl border-t-4 border-[#D97706]"><div class="max-w-container-max mx-auto px-gutter-desktop py-space-2xl"><div class="grid grid-cols-1 md:grid-cols-4 gap-space-xl pb-space-xl border-b border-outline-variant/20"><div class="md:col-span-1"><div class="font-headline-sm text-headline-sm text-on-primary mb-space-xs">e-SAKSHI MPLADS</div><p class="font-body-sm text-body-sm text-primary-fixed-dim leading-relaxed mb-space-md">National Public Dashboard for Constituency Development Scheme transparency, tracking citizen funds, sanctions, and physical works verification.</p><div class="flex items-center gap-space-xs text-secondary-fixed font-label-sm text-label-sm"><span class="material-symbols-outlined text-[16px]">verified</span>Certified Public Ledger</div></div><div><div class="font-title-md text-title-md text-on-primary mb-space-sm">National Portals</div><ul class="space-y-space-xs font-body-sm text-body-sm"><li class="hover:text-on-primary transition-colors"><a href="#" class="">India.gov.in</a></li><li class="hover:text-on-primary transition-colors"><a href="#" class="">Ministry of Statistics (MoSPI)</a></li><li class="hover:text-on-primary transition-colors"><a href="#" class="">Public Financial Management System</a></li><li class="hover:text-on-primary transition-colors"><a href="#" class="">National Informatics Centre</a></li></ul></div><div><div class="font-title-md text-title-md text-on-primary mb-space-sm">Citizen Support &amp; RTI</div><ul class="space-y-space-xs font-body-sm text-body-sm"><li class="hover:text-on-primary transition-colors"><a href="#" class="">Citizen Grievance Redressal</a></li><li class="hover:text-on-primary transition-colors"><a href="#" class="">Right to Information (RTI) Cell</a></li><li class="hover:text-on-primary transition-colors"><a href="#" class="">Toll-Free Helpline: 1800-11-2024</a></li><li class="hover:text-on-primary transition-colors"><a href="#" class="">District Nodal Officer Directory</a></li></ul></div><div><div class="font-title-md text-title-md text-on-primary mb-space-sm">Transparency Standards</div><p class="font-body-sm text-body-sm text-primary-fixed-dim leading-relaxed mb-space-sm">All records are synchronized with District Treasury Sanction orders and geo-tagged site images under Open Data License India.</p><div class="inline-flex items-center gap-space-2xs px-space-sm py-1 bg-primary text-on-primary rounded font-label-sm text-label-sm border border-outline/30"><span class="material-symbols-outlined text-[14px]">gavel</span>Compliance: Sec 4(1)(b) RTI Act</div></div></div><div class="pt-space-lg flex flex-col md:flex-row items-center justify-between gap-space-md font-label-sm text-label-sm text-on-primary-container"><p class="text-center md:text-left max-w-2xl">Disclaimer: Information shown is for public transparency and verification. Does not establish wrongdoing without official audit. Maintained by National Informatics Centre.</p><p class="">© 2024 Ministry of Statistics &amp; Programme Implementation. All rights reserved.</p></div></div></footer>
+
+</body></html>

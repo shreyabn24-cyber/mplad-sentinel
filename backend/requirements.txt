@@ -1,0 +1,62 @@
+# MPLADS Sentinel — backend runtime dependencies
+#
+# Split into two tiers on purpose. `requirements.txt` below is the CORE tier:
+# everything needed to boot the FastAPI app and serve routes. The ML/scoring
+# tier is listed separately in `requirements-ml.txt` because the heavy
+# scientific stack is only needed for offline training and batch rescoring —
+# not for serving HTTP requests. Previously these were absent from this file
+# entirely, so a fresh `pip install -r requirements.txt` produced an
+# environment where `import numpy` / `import pandas` / `from sklearn...`
+# failed, and the failure surfaced only when a route happened to import them.
+
+# ── Web framework ─────────────────────────────────────────────────────────────
+fastapi==0.111.0
+uvicorn[standard]==0.29.0
+python-multipart==0.0.9          # required by FastAPI form/file endpoints
+
+# ── Data validation ───────────────────────────────────────────────────────────
+# pydantic 2.x is required: backend/schemas/schemas.py uses field_validator
+# (v2 API). Do not downgrade to 1.x.
+pydantic==2.7.0
+pydantic-settings==2.3.0
+
+# ── Persistence ───────────────────────────────────────────────────────────────
+sqlalchemy==2.0.30
+asyncpg==0.29.0
+alembic==1.13.1
+
+# ── HTTP client (outbound: AWS STAC satellite search, MoSPI, Google APIs) ─────
+# `requests` is used by ml/models/satellite_detector.py for the Sentinel-2
+# Earth Search query. It is imported defensively there, so the API still boots
+# without it, but satellite scene search then reports UNAVAILABLE.
+requests==2.32.3
+httpx==0.27.0
+
+# ── Task queue ─────────────────────────────────────────────────────────────────
+# Declared for completeness. NOTE: no Celery app, worker or task module ships
+# with this repository, so nothing is actually queued by the API. Installing
+# these does not create a running worker.
+celery==5.4.0
+redis==5.0.4
+
+# ── Object storage / cloud SDKs ───────────────────────────────────────────────
+boto3==1.34.0
+minio==7.2.7
+
+# ── AI / LLM ───────────────────────────────────────────────────────────────────
+google-generativeai==0.5.4
+
+# ── Auth ───────────────────────────────────────────────────────────────────────
+# Declared for completeness. NOTE: authentication is currently NOT enforced by
+# the API (see docs/HONESTY.md — "No real auth"). These packages are unused
+# until a real auth flow is implemented; do not read their presence as a
+# security control being in place.
+python-jose[cryptography]==3.3.0
+passlib[bcrypt]==1.7.4
+
+# ── Tabular / numeric core ─────────────────────────────────────────────────────
+# Imported at module scope by ml/models/isolation_forest.py (numpy, pandas,
+# scikit-learn). Keep in the core tier so the ML models import cleanly.
+numpy==1.26.4
+pandas==2.2.2
+scikit-learn==1.5.1
