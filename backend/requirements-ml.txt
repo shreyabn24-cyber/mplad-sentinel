@@ -1,0 +1,45 @@
+# MPLADS Sentinel — ML / scoring extras (OPTIONAL)
+#
+# Install only if you intend to run the offline training and batch rescoring
+# pipeline. The FastAPI server does NOT require these to boot.
+#
+#   pip install -r backend/requirements.txt          # API only
+#   pip install -r backend/requirements.txt -r backend/requirements-ml.txt
+#
+# Every import below is already guarded by a try/except in the calling module,
+# so a missing package degrades a specific capability to "unavailable" instead
+# of crashing the app. The capability each one unlocks is noted inline.
+
+# ── Time-series forecasting ───────────────────────────────────────────────────
+# ml/models/prophet_lapse.py — quarterly spending lapse forecasting.
+# Unlocks the L2 "sanction delay" signal. Largest single install in this file.
+prophet==1.1.5
+
+# ── Graph / community analysis ────────────────────────────────────────────────
+# ml/models/contractor_graph.py — contractor network + Louvain modularity.
+# Unlocks the collusion / cover-bidding graph signal.
+networkx==3.3
+python-louvain==0.16
+
+# ── Fuzzy text matching ───────────────────────────────────────────────────────
+# ml/models/cross_scheme_dedup.py — description similarity for double-invoicing
+# detection. rapidfuzz is the maintained implementation; the code falls back to
+# the unmaintained `fuzzywuzzy`+`python-Levenshtein` pair if rapidfuzz is absent,
+# so those two are listed as the fallback rather than the primary.
+rapidfuzz==3.9.4
+fuzzywuzzy==0.18.0
+python-Levenshtein==0.25.1
+
+# ── Raster IO ─────────────────────────────────────────────────────────────────
+# Reading Sentinel-2 COG bands for per-pixel NDBI/NDVI. The band-read stage is
+# NOT implemented (see ml/models/satellite_detector.py HONESTY NOTE), so
+# installing rasterio does not yet enable index computation.
+rasterio==1.3.10
+
+# ── Experiment tracking ───────────────────────────────────────────────────────
+# ml/models/isolation_forest.py logs model runs when available.
+mlflow==2.15.0
+
+# ── Spreadsheet export ────────────────────────────────────────────────────────
+# Used by the data preparation scripts that read/write .xlsx source files.
+openpyxl==3.1.5

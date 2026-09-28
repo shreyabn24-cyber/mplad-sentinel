@@ -1,0 +1,37 @@
+{
+  "trained_at": "2026-09-27T21:53:33.128562+00:00",
+  "training_data": "data/output/works_real.csv",
+  "records": 46348,
+  "features": [
+    "amount_zscore_state_type",
+    "amount_zscore_constituency_type",
+    "amount_vs_peer_median",
+    "amount_log",
+    "status_unsanctioned",
+    "status_ongoing",
+    "status_completed",
+    "status_sanctioned",
+    "status_unknown",
+    "ida_rejected",
+    "ida_pending",
+    "in_election_window",
+    "days_to_nearest_election",
+    "mp_total_works",
+    "mp_unsanctioned_share",
+    "mp_election_window_share",
+    "mp_amount_zscore",
+    "agency_total_works",
+    "agency_unsanctioned_share",
+    "description_uninformative",
+    "geography_unidentified"
+  ],
+  "source": "github.com/vonter/india-mplads-works (ODbL), scraped from mplads.mospi.gov.in",
+  "source_date_note": "17th Lok Sabha snapshot published on the upstream repository; not a live per-work feed",
+  "contamination": 0.05,
+  "interpretation": "Scores rank works by deviation from peer-group norms. A high score is a prompt for human review, not evidence of wrongdoing.",
+  "not_trained": {
+    "contractor_graph": "no vendor identifier or GSTIN in the open feed",
+    "prophet_lapse": "no district-wise released/spent time series available",
+    "gstin_compliance": "no GSTIN data available"
+  }
+}

@@ -1,0 +1,4889 @@
+[
+  {
+    "mp_id": "MP-AN-001",
+    "full_name": "Bishnu Pada Ray",
+    "party": "IND",
+    "state_code": "AN",
+    "constituency_code": "C-AN-001",
+    "constituency_name": "Andaman And Nicobar Islands",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-AP-001",
+    "full_name": "Ambica G Lakshminarayana Valmiki",
+    "party": "IND",
+    "state_code": "AP",
+    "constituency_code": "C-AP-001",
+    "constituency_name": "Anantapur",
+    "annual_allocation": 201899064.11
+  },
+  {
+    "mp_id": "MP-AP-002",
+    "full_name": "Appalanaidu Kalisetti",
+    "party": "IND",
+    "state_code": "AP",
+    "constituency_code": "C-AP-002",
+    "constituency_name": "Vizianagaram",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-AP-003",
+    "full_name": "B K Parthasarathi",
+    "party": "IND",
+    "state_code": "AP",
+    "constituency_code": "C-AP-003",
+    "constituency_name": "Hindupur",
+    "annual_allocation": 160491894.11
+  },
+  {
+    "mp_id": "MP-AP-004",
+    "full_name": "Balashowry Vallabbhaneni",
+    "party": "IND",
+    "state_code": "AP",
+    "constituency_code": "C-AP-004",
+    "constituency_name": "Machilipatnam",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-AP-005",
+    "full_name": "Bastipati Nagaraju Panchalingala",
+    "party": "IND",
+    "state_code": "AP",
+    "constituency_code": "C-AP-005",
+    "constituency_name": "Kurnool",
+    "annual_allocation": 159998515.11
+  },
+  {
+    "mp_id": "MP-AP-006",
+    "full_name": "Bhupathiraju Srinivasa Varma",
+    "party": "IND",
+    "state_code": "AP",
+    "constituency_code": "C-AP-006",
+    "constituency_name": "Narasapuram",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-AP-007",
+    "full_name": "C.M.Ramesh",
+    "party": "IND",
+    "state_code": "AP",
+    "constituency_code": "C-AP-007",
+    "constituency_name": "Anakapalle",
+    "annual_allocation": 202531656.11
+  },
+  {
+    "mp_id": "MP-AP-008",
+    "full_name": "Daggubati Purandeshwari",
+    "party": "IND",
+    "state_code": "AP",
+    "constituency_code": "C-AP-008",
+    "constituency_name": "Rajahmundry",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-AP-009",
+    "full_name": "Daggumalla Prasada Rao",
+    "party": "IND",
+    "state_code": "AP",
+    "constituency_code": "C-AP-009",
+    "constituency_name": "Chittoor",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-AP-010",
+    "full_name": "Dr Byreddy Shabari",
+    "party": "IND",
+    "state_code": "AP",
+    "constituency_code": "C-AP-010",
+    "constituency_name": "Nandyal",
+    "annual_allocation": 182589107.24
+  },
+  {
+    "mp_id": "MP-AP-011",
+    "full_name": "Dr Chandra Sekhar Pemmasani",
+    "party": "IND",
+    "state_code": "AP",
+    "constituency_code": "C-AP-011",
+    "constituency_name": "Guntur",
+    "annual_allocation": 159774113.11
+  },
+  {
+    "mp_id": "MP-AP-012",
+    "full_name": "Gm Harish Balayogi",
+    "party": "IND",
+    "state_code": "AP",
+    "constituency_code": "C-AP-012",
+    "constituency_name": "Amalapuram(Sc)",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-AP-013",
+    "full_name": "Gumma Thanuja Rani",
+    "party": "IND",
+    "state_code": "AP",
+    "constituency_code": "C-AP-013",
+    "constituency_name": "Araku(St)",
+    "annual_allocation": 149458905.11
+  },
+  {
+    "mp_id": "MP-AP-014",
+    "full_name": "Kinjarapu Ram Mohan Naidu",
+    "party": "IND",
+    "state_code": "AP",
+    "constituency_code": "C-AP-014",
+    "constituency_name": "Srikakulam",
+    "annual_allocation": 171200630.11
+  },
+  {
+    "mp_id": "MP-AP-015",
+    "full_name": "Krishna Prasad Tenneti",
+    "party": "IND",
+    "state_code": "AP",
+    "constituency_code": "C-AP-015",
+    "constituency_name": "Bapatla",
+    "annual_allocation": 167796849.11
+  },
+  {
+    "mp_id": "MP-AP-016",
+    "full_name": "Lavu Sri Krishna Devarayalu",
+    "party": "IND",
+    "state_code": "AP",
+    "constituency_code": "C-AP-016",
+    "constituency_name": "Narasaraopet",
+    "annual_allocation": 174009663.11
+  },
+  {
+    "mp_id": "MP-AP-017",
+    "full_name": "Maddila Gurumoorthy",
+    "party": "IND",
+    "state_code": "AP",
+    "constituency_code": "C-AP-017",
+    "constituency_name": "Tirupati(Sc)",
+    "annual_allocation": 180399007.0
+  },
+  {
+    "mp_id": "MP-AP-018",
+    "full_name": "Magunta Sreenivasulu Reddy",
+    "party": "IND",
+    "state_code": "AP",
+    "constituency_code": "C-AP-018",
+    "constituency_name": "Ongole",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-AP-019",
+    "full_name": "Midhun Reddy",
+    "party": "IND",
+    "state_code": "AP",
+    "constituency_code": "C-AP-019",
+    "constituency_name": "Rajampet",
+    "annual_allocation": 178951477.11
+  },
+  {
+    "mp_id": "MP-AP-020",
+    "full_name": "Prabhakar Reddy Vemireddy",
+    "party": "IND",
+    "state_code": "AP",
+    "constituency_code": "C-AP-020",
+    "constituency_name": "Nellore(Sc)",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-AP-021",
+    "full_name": "Putta Mahesh Kumar",
+    "party": "IND",
+    "state_code": "AP",
+    "constituency_code": "C-AP-021",
+    "constituency_name": "Eluru",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-AP-022",
+    "full_name": "Sivanath Kesineni",
+    "party": "IND",
+    "state_code": "AP",
+    "constituency_code": "C-AP-022",
+    "constituency_name": "Vijayawada",
+    "annual_allocation": 159864032.49
+  },
+  {
+    "mp_id": "MP-AP-023",
+    "full_name": "Sribharat Mathukumli",
+    "party": "IND",
+    "state_code": "AP",
+    "constituency_code": "C-AP-023",
+    "constituency_name": "Visakhapatnam",
+    "annual_allocation": 164841922.0
+  },
+  {
+    "mp_id": "MP-AP-024",
+    "full_name": "Tangella Uday Srinivas",
+    "party": "IND",
+    "state_code": "AP",
+    "constituency_code": "C-AP-024",
+    "constituency_name": "Kakinada",
+    "annual_allocation": 199417886.76
+  },
+  {
+    "mp_id": "MP-AP-025",
+    "full_name": "Y S Avinash Reddy",
+    "party": "IND",
+    "state_code": "AP",
+    "constituency_code": "C-AP-025",
+    "constituency_name": "Kadapa",
+    "annual_allocation": 156430260.11
+  },
+  {
+    "mp_id": "MP-AR-001",
+    "full_name": "Kiren Rijiju",
+    "party": "IND",
+    "state_code": "AR",
+    "constituency_code": "C-AR-001",
+    "constituency_name": "Arunachal West",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-AR-002",
+    "full_name": "Shri Tapir Gao",
+    "party": "IND",
+    "state_code": "AR",
+    "constituency_code": "C-AR-002",
+    "constituency_name": "Arunachal East",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-AS-001",
+    "full_name": "Amarsing Tisso",
+    "party": "IND",
+    "state_code": "AS",
+    "constituency_code": "C-AS-001",
+    "constituency_name": "Diphu (St)",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-AS-002",
+    "full_name": "Bijuli Kalita Medhi",
+    "party": "IND",
+    "state_code": "AS",
+    "constituency_code": "C-AS-002",
+    "constituency_name": "Guwahati",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-AS-003",
+    "full_name": "Dilip Saikia",
+    "party": "IND",
+    "state_code": "AS",
+    "constituency_code": "C-AS-003",
+    "constituency_name": "Darrang-Udalguri",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-AS-004",
+    "full_name": "Gaurav Gogoi",
+    "party": "IND",
+    "state_code": "AS",
+    "constituency_code": "C-AS-004",
+    "constituency_name": "Jorhat",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-AS-005",
+    "full_name": "Joyanta Basumatary",
+    "party": "IND",
+    "state_code": "AS",
+    "constituency_code": "C-AS-005",
+    "constituency_name": "Kokrajhar (St)",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-AS-006",
+    "full_name": "Kamakhya Prasad Tasa",
+    "party": "IND",
+    "state_code": "AS",
+    "constituency_code": "C-AS-006",
+    "constituency_name": "Kaziranga",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-AS-007",
+    "full_name": "Kripanath Mallah",
+    "party": "IND",
+    "state_code": "AS",
+    "constituency_code": "C-AS-007",
+    "constituency_name": "Karimganj (Sc)",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-AS-008",
+    "full_name": "Parimal Suklabaidya",
+    "party": "IND",
+    "state_code": "AS",
+    "constituency_code": "C-AS-008",
+    "constituency_name": "Silchar",
+    "annual_allocation": 148300157.11
+  },
+  {
+    "mp_id": "MP-AS-009",
+    "full_name": "Phani Bhusan Choudhury",
+    "party": "IND",
+    "state_code": "AS",
+    "constituency_code": "C-AS-009",
+    "constituency_name": "Barpeta",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-AS-010",
+    "full_name": "Pradan Baruah",
+    "party": "IND",
+    "state_code": "AS",
+    "constituency_code": "C-AS-010",
+    "constituency_name": "Lakhimpur",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-AS-011",
+    "full_name": "Pradyut Bordoloi",
+    "party": "IND",
+    "state_code": "AS",
+    "constituency_code": "C-AS-011",
+    "constituency_name": "Nowgong",
+    "annual_allocation": 98000000.0
+  },
+  {
+    "mp_id": "MP-AS-012",
+    "full_name": "Rakibul Hussain",
+    "party": "IND",
+    "state_code": "AS",
+    "constituency_code": "C-AS-012",
+    "constituency_name": "Dhubri",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-AS-013",
+    "full_name": "Ranjit Dutta",
+    "party": "IND",
+    "state_code": "AS",
+    "constituency_code": "C-AS-013",
+    "constituency_name": "Sonitpur",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-AS-014",
+    "full_name": "Shri Sarbananda Sonowal (18Ls)",
+    "party": "IND",
+    "state_code": "AS",
+    "constituency_code": "C-AS-014",
+    "constituency_name": "Dibrugarh",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-BR-001",
+    "full_name": "Abhay Kumar Sinha",
+    "party": "IND",
+    "state_code": "BR",
+    "constituency_code": "C-BR-001",
+    "constituency_name": "Aurangabad_Br",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-BR-002",
+    "full_name": "Ajay Kumar Mandal",
+    "party": "IND",
+    "state_code": "BR",
+    "constituency_code": "C-BR-002",
+    "constituency_name": "Bhagalpur",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-BR-003",
+    "full_name": "Alok Kumar Suman",
+    "party": "IND",
+    "state_code": "BR",
+    "constituency_code": "C-BR-003",
+    "constituency_name": "Gopalganj (Sc)",
+    "annual_allocation": 153007928.57
+  },
+  {
+    "mp_id": "MP-BR-004",
+    "full_name": "Arun Bharti",
+    "party": "IND",
+    "state_code": "BR",
+    "constituency_code": "C-BR-004",
+    "constituency_name": "Jamui(Sc)",
+    "annual_allocation": 194924621.11
+  },
+  {
+    "mp_id": "MP-BR-005",
+    "full_name": "Ashok Kumar Yadav",
+    "party": "IND",
+    "state_code": "BR",
+    "constituency_code": "C-BR-005",
+    "constituency_name": "Madhubani",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-BR-006",
+    "full_name": "Chirag Paswan",
+    "party": "IND",
+    "state_code": "BR",
+    "constituency_code": "C-BR-006",
+    "constituency_name": "Hajipur(Sc)",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-BR-007",
+    "full_name": "Devesh Chandra Thakur",
+    "party": "IND",
+    "state_code": "BR",
+    "constituency_code": "C-BR-007",
+    "constituency_name": "Sitamarhi",
+    "annual_allocation": 163809205.11
+  },
+  {
+    "mp_id": "MP-BR-008",
+    "full_name": "Dileshwar Kamait",
+    "party": "IND",
+    "state_code": "BR",
+    "constituency_code": "C-BR-008",
+    "constituency_name": "Supaul",
+    "annual_allocation": 150450930.89
+  },
+  {
+    "mp_id": "MP-BR-009",
+    "full_name": "Dinesh Chandra Yadav",
+    "party": "IND",
+    "state_code": "BR",
+    "constituency_code": "C-BR-009",
+    "constituency_name": "Madhepura",
+    "annual_allocation": 150070866.11
+  },
+  {
+    "mp_id": "MP-BR-010",
+    "full_name": "Dr Mohammad Jawed",
+    "party": "IND",
+    "state_code": "BR",
+    "constituency_code": "C-BR-010",
+    "constituency_name": "Kishanganj",
+    "annual_allocation": 148669229.11
+  },
+  {
+    "mp_id": "MP-BR-011",
+    "full_name": "Giridhari Yadav",
+    "party": "IND",
+    "state_code": "BR",
+    "constituency_code": "C-BR-011",
+    "constituency_name": "Banka",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-BR-012",
+    "full_name": "Giriraj Singh",
+    "party": "IND",
+    "state_code": "BR",
+    "constituency_code": "C-BR-012",
+    "constituency_name": "Begusarai",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-BR-013",
+    "full_name": "Jitan Ram Manjhi",
+    "party": "IND",
+    "state_code": "BR",
+    "constituency_code": "C-BR-013",
+    "constituency_name": "Gaya (Sc)",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-BR-014",
+    "full_name": "Kaushalendra Kumar",
+    "party": "IND",
+    "state_code": "BR",
+    "constituency_code": "C-BR-014",
+    "constituency_name": "Nalanda",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-BR-015",
+    "full_name": "Lovely Anand",
+    "party": "IND",
+    "state_code": "BR",
+    "constituency_code": "C-BR-015",
+    "constituency_name": "Sheohar",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-BR-016",
+    "full_name": "Manoj Kumar",
+    "party": "IND",
+    "state_code": "BR",
+    "constituency_code": "C-BR-016",
+    "constituency_name": "Sasaram(Sc)",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-BR-017",
+    "full_name": "Misha Bharti",
+    "party": "IND",
+    "state_code": "BR",
+    "constituency_code": "C-BR-017",
+    "constituency_name": "Pataliputra",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-BR-018",
+    "full_name": "Mr Gopal Jee Thakur",
+    "party": "IND",
+    "state_code": "BR",
+    "constituency_code": "C-BR-018",
+    "constituency_name": "Darbhanga",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-BR-019",
+    "full_name": "Nityanand Rai",
+    "party": "IND",
+    "state_code": "BR",
+    "constituency_code": "C-BR-019",
+    "constituency_name": "Ujjarpur",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-BR-020",
+    "full_name": "Pradeep Kumar Singh",
+    "party": "IND",
+    "state_code": "BR",
+    "constituency_code": "C-BR-020",
+    "constituency_name": "Araria",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-BR-021",
+    "full_name": "Radha Mohan Singh",
+    "party": "IND",
+    "state_code": "BR",
+    "constituency_code": "C-BR-021",
+    "constituency_name": "Purvi Champaran",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-BR-022",
+    "full_name": "Raj Bhushan Choudhary",
+    "party": "IND",
+    "state_code": "BR",
+    "constituency_code": "C-BR-022",
+    "constituency_name": "Muzaffarpur",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-BR-023",
+    "full_name": "Raja Ram Singh",
+    "party": "IND",
+    "state_code": "BR",
+    "constituency_code": "C-BR-023",
+    "constituency_name": "Karakat",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-BR-024",
+    "full_name": "Rajesh Ranjan Alias Pappu Yadav",
+    "party": "IND",
+    "state_code": "BR",
+    "constituency_code": "C-BR-024",
+    "constituency_name": "Purnea",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-BR-025",
+    "full_name": "Rajesh Verma",
+    "party": "IND",
+    "state_code": "BR",
+    "constituency_code": "C-BR-025",
+    "constituency_name": "Khagaria",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-BR-026",
+    "full_name": "Rajiv Pratap Rudy",
+    "party": "IND",
+    "state_code": "BR",
+    "constituency_code": "C-BR-026",
+    "constituency_name": "Saran",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-BR-027",
+    "full_name": "Rajiv Ranjan (Lalan) Singh",
+    "party": "IND",
+    "state_code": "BR",
+    "constituency_code": "C-BR-027",
+    "constituency_name": "Munger",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-BR-028",
+    "full_name": "Ramprit Mandal",
+    "party": "IND",
+    "state_code": "BR",
+    "constituency_code": "C-BR-028",
+    "constituency_name": "Jhanjharpur",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-BR-029",
+    "full_name": "Ravi Shankar Prasad",
+    "party": "IND",
+    "state_code": "BR",
+    "constituency_code": "C-BR-029",
+    "constituency_name": "Patna Sahib",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-BR-030",
+    "full_name": "Sanjay Jaiswal",
+    "party": "IND",
+    "state_code": "BR",
+    "constituency_code": "C-BR-030",
+    "constituency_name": "Paschim Champaran",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-BR-031",
+    "full_name": "Shambhavi",
+    "party": "IND",
+    "state_code": "BR",
+    "constituency_code": "C-BR-031",
+    "constituency_name": "Samastipur(Sc)",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-BR-032",
+    "full_name": "Shri Janardan Singh Sigriwal",
+    "party": "IND",
+    "state_code": "BR",
+    "constituency_code": "C-BR-032",
+    "constituency_name": "Maharajganj_Br",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-BR-033",
+    "full_name": "Smt Veena Devi",
+    "party": "IND",
+    "state_code": "BR",
+    "constituency_code": "C-BR-033",
+    "constituency_name": "Vaishali",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-BR-034",
+    "full_name": "Sudama Prasad",
+    "party": "IND",
+    "state_code": "BR",
+    "constituency_code": "C-BR-034",
+    "constituency_name": "Arrah",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-BR-035",
+    "full_name": "Sudhakar Singh",
+    "party": "IND",
+    "state_code": "BR",
+    "constituency_code": "C-BR-035",
+    "constituency_name": "Buxar",
+    "annual_allocation": 185211956.54
+  },
+  {
+    "mp_id": "MP-BR-036",
+    "full_name": "Sunil Kumar",
+    "party": "IND",
+    "state_code": "BR",
+    "constituency_code": "C-BR-036",
+    "constituency_name": "Valmiki Nagar",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-BR-037",
+    "full_name": "Surendra Prasad Yadav",
+    "party": "IND",
+    "state_code": "BR",
+    "constituency_code": "C-BR-037",
+    "constituency_name": "Jahanabad",
+    "annual_allocation": 155325714.0
+  },
+  {
+    "mp_id": "MP-BR-038",
+    "full_name": "Tariq Anwar",
+    "party": "IND",
+    "state_code": "BR",
+    "constituency_code": "C-BR-038",
+    "constituency_name": "Katihar",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-BR-039",
+    "full_name": "Vijaylakshmi Devi",
+    "party": "IND",
+    "state_code": "BR",
+    "constituency_code": "C-BR-039",
+    "constituency_name": "Siwan",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-BR-040",
+    "full_name": "Vivek Thakur",
+    "party": "IND",
+    "state_code": "BR",
+    "constituency_code": "C-BR-040",
+    "constituency_name": "Nawada",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-CG-001",
+    "full_name": "Bhojraj Nag",
+    "party": "IND",
+    "state_code": "CG",
+    "constituency_code": "C-CG-001",
+    "constituency_name": "Kanker(St)",
+    "annual_allocation": 164672734.11
+  },
+  {
+    "mp_id": "MP-CG-002",
+    "full_name": "Brijmohan Agrawal",
+    "party": "IND",
+    "state_code": "CG",
+    "constituency_code": "C-CG-002",
+    "constituency_name": "Raipur",
+    "annual_allocation": 153766451.11
+  },
+  {
+    "mp_id": "MP-CG-003",
+    "full_name": "Chintamani Maharaj",
+    "party": "IND",
+    "state_code": "CG",
+    "constituency_code": "C-CG-003",
+    "constituency_name": "Sarguja(St)",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-CG-004",
+    "full_name": "Jyotsna Charandas Mahant",
+    "party": "IND",
+    "state_code": "CG",
+    "constituency_code": "C-CG-004",
+    "constituency_name": "Korba",
+    "annual_allocation": 155153738.11
+  },
+  {
+    "mp_id": "MP-CG-005",
+    "full_name": "Kamlesh Jangde",
+    "party": "IND",
+    "state_code": "CG",
+    "constituency_code": "C-CG-005",
+    "constituency_name": "Janjgir Champa(Sc)",
+    "annual_allocation": 150384382.11
+  },
+  {
+    "mp_id": "MP-CG-006",
+    "full_name": "Mahesh Kashyap",
+    "party": "IND",
+    "state_code": "CG",
+    "constituency_code": "C-CG-006",
+    "constituency_name": "Bastar(St)",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-CG-007",
+    "full_name": "Radhe Shyam Rathiya",
+    "party": "IND",
+    "state_code": "CG",
+    "constituency_code": "C-CG-007",
+    "constituency_name": "Raigarh(St)",
+    "annual_allocation": 159706972.09
+  },
+  {
+    "mp_id": "MP-CG-008",
+    "full_name": "Roop Kumari Choudhary",
+    "party": "IND",
+    "state_code": "CG",
+    "constituency_code": "C-CG-008",
+    "constituency_name": "Mahasamund",
+    "annual_allocation": 153035414.0
+  },
+  {
+    "mp_id": "MP-CG-009",
+    "full_name": "Santosh Pandey",
+    "party": "IND",
+    "state_code": "CG",
+    "constituency_code": "C-CG-009",
+    "constituency_name": "Rajnandgaon",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-CG-010",
+    "full_name": "Tokhan Sahu",
+    "party": "IND",
+    "state_code": "CG",
+    "constituency_code": "C-CG-010",
+    "constituency_name": "Bilaspur",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-CG-011",
+    "full_name": "Vijay Baghel",
+    "party": "IND",
+    "state_code": "CG",
+    "constituency_code": "C-CG-011",
+    "constituency_name": "Durg",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-CH-001",
+    "full_name": "Manish Tewari",
+    "party": "IND",
+    "state_code": "CH",
+    "constituency_code": "C-CH-001",
+    "constituency_name": "Chandigarh",
+    "annual_allocation": 178351443.75
+  },
+  {
+    "mp_id": "MP-DD-001",
+    "full_name": "Kalaben Mohanbhai Delkar",
+    "party": "IND",
+    "state_code": "DD",
+    "constituency_code": "C-DD-001",
+    "constituency_name": "Dadra & Nagar Haveli (St)",
+    "annual_allocation": 269500000.0
+  },
+  {
+    "mp_id": "MP-DD-002",
+    "full_name": "Patel Umeshbhai Babubhai",
+    "party": "IND",
+    "state_code": "DD",
+    "constituency_code": "C-DD-002",
+    "constituency_name": "Daman And Diu",
+    "annual_allocation": 245063957.0
+  },
+  {
+    "mp_id": "MP-DL-001",
+    "full_name": "Bansuri Swaraj",
+    "party": "IND",
+    "state_code": "DL",
+    "constituency_code": "C-DL-001",
+    "constituency_name": "New Delhi",
+    "annual_allocation": 154306950.0
+  },
+  {
+    "mp_id": "MP-DL-002",
+    "full_name": "Harsh Malhotra",
+    "party": "IND",
+    "state_code": "DL",
+    "constituency_code": "C-DL-002",
+    "constituency_name": "East Delhi",
+    "annual_allocation": 147134131.0
+  },
+  {
+    "mp_id": "MP-DL-003",
+    "full_name": "Kamaljeet Sehrawat",
+    "party": "IND",
+    "state_code": "DL",
+    "constituency_code": "C-DL-003",
+    "constituency_name": "West Delhi",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-DL-004",
+    "full_name": "Manoj Tiwari",
+    "party": "IND",
+    "state_code": "DL",
+    "constituency_code": "C-DL-004",
+    "constituency_name": "North East Delhi",
+    "annual_allocation": 225843858.0
+  },
+  {
+    "mp_id": "MP-DL-005",
+    "full_name": "Praveen Khandelwal",
+    "party": "IND",
+    "state_code": "DL",
+    "constituency_code": "C-DL-005",
+    "constituency_name": "Chandini Chowk",
+    "annual_allocation": 147470276.0
+  },
+  {
+    "mp_id": "MP-DL-006",
+    "full_name": "Ramvir Singh Bidhuri",
+    "party": "IND",
+    "state_code": "DL",
+    "constituency_code": "C-DL-006",
+    "constituency_name": "South Delhi",
+    "annual_allocation": 147559100.0
+  },
+  {
+    "mp_id": "MP-DL-007",
+    "full_name": "Yogendra Chandoliya",
+    "party": "IND",
+    "state_code": "DL",
+    "constituency_code": "C-DL-007",
+    "constituency_name": "North West Delhi(Sc)",
+    "annual_allocation": 147876307.0
+  },
+  {
+    "mp_id": "MP-GA-001",
+    "full_name": "Captain Viriato Fernandes",
+    "party": "IND",
+    "state_code": "GA",
+    "constituency_code": "C-GA-001",
+    "constituency_name": "South Goa",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-GA-002",
+    "full_name": "Shripad Yesso Naik",
+    "party": "IND",
+    "state_code": "GA",
+    "constituency_code": "C-GA-002",
+    "constituency_name": "North Goa",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-GJ-001",
+    "full_name": "Bharatbhai Manubhai Sutariya",
+    "party": "IND",
+    "state_code": "GJ",
+    "constituency_code": "C-GJ-001",
+    "constituency_name": "Amreli",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-GJ-002",
+    "full_name": "Bharatsinhji Shankarji Dabhi",
+    "party": "IND",
+    "state_code": "GJ",
+    "constituency_code": "C-GJ-002",
+    "constituency_name": "Patan",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-GJ-003",
+    "full_name": "C R Patil",
+    "party": "IND",
+    "state_code": "GJ",
+    "constituency_code": "C-GJ-003",
+    "constituency_name": "Navsari",
+    "annual_allocation": 158532494.36
+  },
+  {
+    "mp_id": "MP-GJ-004",
+    "full_name": "Chandubhai Chhaganbhai Shihora",
+    "party": "IND",
+    "state_code": "GJ",
+    "constituency_code": "C-GJ-004",
+    "constituency_name": "Surendranagar",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-GJ-005",
+    "full_name": "Devusinh Jesingbhai Chauhan",
+    "party": "IND",
+    "state_code": "GJ",
+    "constituency_code": "C-GJ-005",
+    "constituency_name": "Kheda",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-GJ-006",
+    "full_name": "Dhaval Laxmanbhai Patel",
+    "party": "IND",
+    "state_code": "GJ",
+    "constituency_code": "C-GJ-006",
+    "constituency_name": "Valsad(St)",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-GJ-007",
+    "full_name": "Dineshbhai Makwana",
+    "party": "IND",
+    "state_code": "GJ",
+    "constituency_code": "C-GJ-007",
+    "constituency_name": "Ahmedabad West(Sc)",
+    "annual_allocation": 160434965.11
+  },
+  {
+    "mp_id": "MP-GJ-008",
+    "full_name": "Dr. Hemang Joshi",
+    "party": "IND",
+    "state_code": "GJ",
+    "constituency_code": "C-GJ-008",
+    "constituency_name": "Vadodara",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-GJ-009",
+    "full_name": "Dr. Mansukh Mandaviya",
+    "party": "IND",
+    "state_code": "GJ",
+    "constituency_code": "C-GJ-009",
+    "constituency_name": "Porbandar",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-GJ-010",
+    "full_name": "Geniben Nagaji Thakor",
+    "party": "IND",
+    "state_code": "GJ",
+    "constituency_code": "C-GJ-010",
+    "constituency_name": "Banaskantha",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-GJ-011",
+    "full_name": "Haribhai Patel",
+    "party": "IND",
+    "state_code": "GJ",
+    "constituency_code": "C-GJ-011",
+    "constituency_name": "Mahesana",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-GJ-012",
+    "full_name": "Hasmukh Bhai Soma Bhai Patel",
+    "party": "IND",
+    "state_code": "GJ",
+    "constituency_code": "C-GJ-012",
+    "constituency_name": "Ahmedabad East",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-GJ-013",
+    "full_name": "Jashubhai Bhilubhai Rathva",
+    "party": "IND",
+    "state_code": "GJ",
+    "constituency_code": "C-GJ-013",
+    "constituency_name": "Chhota Udaipur(St)",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-GJ-014",
+    "full_name": "Jaswantsinh Sumanbhai Bhabhor",
+    "party": "IND",
+    "state_code": "GJ",
+    "constituency_code": "C-GJ-014",
+    "constituency_name": "Dahod(St)",
+    "annual_allocation": 163650304.11
+  },
+  {
+    "mp_id": "MP-GJ-015",
+    "full_name": "Mansukhbhai Dhanjibhai Vasava",
+    "party": "IND",
+    "state_code": "GJ",
+    "constituency_code": "C-GJ-015",
+    "constituency_name": "Bharuch",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-GJ-016",
+    "full_name": "Mitesh Rameshbhai Bakabhai Patel",
+    "party": "IND",
+    "state_code": "GJ",
+    "constituency_code": "C-GJ-016",
+    "constituency_name": "Anand",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-GJ-017",
+    "full_name": "Mukeshkumar Chandrakaant Dalal",
+    "party": "IND",
+    "state_code": "GJ",
+    "constituency_code": "C-GJ-017",
+    "constituency_name": "Surat",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-GJ-018",
+    "full_name": "Nimuben Jayantibhai Bambhaniya",
+    "party": "IND",
+    "state_code": "GJ",
+    "constituency_code": "C-GJ-018",
+    "constituency_name": "Bhavnagar",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-GJ-019",
+    "full_name": "Parshottambhai Rupala",
+    "party": "IND",
+    "state_code": "GJ",
+    "constituency_code": "C-GJ-019",
+    "constituency_name": "Rajkot",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-GJ-020",
+    "full_name": "Prabhubhai Nagarbhai Vasava",
+    "party": "IND",
+    "state_code": "GJ",
+    "constituency_code": "C-GJ-020",
+    "constituency_name": "Bardoli(St)",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-GJ-021",
+    "full_name": "Rajeshbhai Naranbhai Chudasama",
+    "party": "IND",
+    "state_code": "GJ",
+    "constituency_code": "C-GJ-021",
+    "constituency_name": "Junagadh",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-GJ-022",
+    "full_name": "Rajpalsinh Mahendrasinh Jadav",
+    "party": "IND",
+    "state_code": "GJ",
+    "constituency_code": "C-GJ-022",
+    "constituency_name": "Panchmahal",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-GJ-023",
+    "full_name": "Shobhanaben Mahendrasinh Baraiya",
+    "party": "IND",
+    "state_code": "GJ",
+    "constituency_code": "C-GJ-023",
+    "constituency_name": "Sabarkantha",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-GJ-024",
+    "full_name": "Shri Amit Shah",
+    "party": "IND",
+    "state_code": "GJ",
+    "constituency_code": "C-GJ-024",
+    "constituency_name": "Gandhinagar",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-GJ-025",
+    "full_name": "Smt Poonamben Hematbhai Maadam",
+    "party": "IND",
+    "state_code": "GJ",
+    "constituency_code": "C-GJ-025",
+    "constituency_name": "Jamnagar",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-GJ-026",
+    "full_name": "Vinod Chavda",
+    "party": "IND",
+    "state_code": "GJ",
+    "constituency_code": "C-GJ-026",
+    "constituency_name": "Kachchh(Sc)",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-HP-001",
+    "full_name": "Anurag Singh Thakur",
+    "party": "IND",
+    "state_code": "HP",
+    "constituency_code": "C-HP-001",
+    "constituency_name": "Hamirpur_Hp",
+    "annual_allocation": 149570117.11
+  },
+  {
+    "mp_id": "MP-HP-002",
+    "full_name": "Kangana Ranaut",
+    "party": "IND",
+    "state_code": "HP",
+    "constituency_code": "C-HP-002",
+    "constituency_name": "Mandi",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-HP-003",
+    "full_name": "Rajeev Bhardwaj",
+    "party": "IND",
+    "state_code": "HP",
+    "constituency_code": "C-HP-003",
+    "constituency_name": "Kangra",
+    "annual_allocation": 179388967.11
+  },
+  {
+    "mp_id": "MP-HP-004",
+    "full_name": "Suresh Kumar Kashyap",
+    "party": "IND",
+    "state_code": "HP",
+    "constituency_code": "C-HP-004",
+    "constituency_name": "Shimla (Sc)",
+    "annual_allocation": 153563957.11
+  },
+  {
+    "mp_id": "MP-HR-001",
+    "full_name": "Deepender Singh Hooda",
+    "party": "IND",
+    "state_code": "HR",
+    "constituency_code": "C-HR-001",
+    "constituency_name": "Rohtak",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-HR-002",
+    "full_name": "Jai Parkash",
+    "party": "IND",
+    "state_code": "HR",
+    "constituency_code": "C-HR-002",
+    "constituency_name": "Hisar",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-HR-003",
+    "full_name": "Krishan Pal Gurjar",
+    "party": "IND",
+    "state_code": "HR",
+    "constituency_code": "C-HR-003",
+    "constituency_name": "Faridabad",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-HR-004",
+    "full_name": "Manohar Lal",
+    "party": "IND",
+    "state_code": "HR",
+    "constituency_code": "C-HR-004",
+    "constituency_name": "Karnal",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-HR-005",
+    "full_name": "Naveen Jindal",
+    "party": "IND",
+    "state_code": "HR",
+    "constituency_code": "C-HR-005",
+    "constituency_name": "Kurukshetra",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-HR-006",
+    "full_name": "Rao Inderjit Singh",
+    "party": "IND",
+    "state_code": "HR",
+    "constituency_code": "C-HR-006",
+    "constituency_name": "Gurgaon",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-HR-007",
+    "full_name": "Satpal Brahamchari",
+    "party": "IND",
+    "state_code": "HR",
+    "constituency_code": "C-HR-007",
+    "constituency_name": "Sonepat",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-HR-008",
+    "full_name": "Selja",
+    "party": "IND",
+    "state_code": "HR",
+    "constituency_code": "C-HR-008",
+    "constituency_name": "Sirsa(Sc)",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-HR-009",
+    "full_name": "Shri  Dharambir Singh",
+    "party": "IND",
+    "state_code": "HR",
+    "constituency_code": "C-HR-009",
+    "constituency_name": "Bhiwani Mahendragarh",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-HR-010",
+    "full_name": "Varun Chaudhry",
+    "party": "IND",
+    "state_code": "HR",
+    "constituency_code": "C-HR-010",
+    "constituency_name": "Ambala (Sc)",
+    "annual_allocation": 255454264.0
+  },
+  {
+    "mp_id": "MP-JH-001",
+    "full_name": "Annpurna Devi",
+    "party": "IND",
+    "state_code": "JH",
+    "constituency_code": "C-JH-001",
+    "constituency_name": "Kodarma",
+    "annual_allocation": 166665931.8
+  },
+  {
+    "mp_id": "MP-JH-002",
+    "full_name": "Bidyut Baran Mahato",
+    "party": "IND",
+    "state_code": "JH",
+    "constituency_code": "C-JH-002",
+    "constituency_name": "Jamshedpur",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-JH-003",
+    "full_name": "Dulu Mahato",
+    "party": "IND",
+    "state_code": "JH",
+    "constituency_code": "C-JH-003",
+    "constituency_name": "Dhanbad",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-JH-004",
+    "full_name": "Joba Majhi",
+    "party": "IND",
+    "state_code": "JH",
+    "constituency_code": "C-JH-004",
+    "constituency_name": "Singhbhum(St)",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-JH-005",
+    "full_name": "Kali Charan Munda",
+    "party": "IND",
+    "state_code": "JH",
+    "constituency_code": "C-JH-005",
+    "constituency_name": "Khunti(St)",
+    "annual_allocation": 151181307.11
+  },
+  {
+    "mp_id": "MP-JH-006",
+    "full_name": "Kali Charan Singh",
+    "party": "IND",
+    "state_code": "JH",
+    "constituency_code": "C-JH-006",
+    "constituency_name": "Chatra",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-JH-007",
+    "full_name": "Manish Jaiswal",
+    "party": "IND",
+    "state_code": "JH",
+    "constituency_code": "C-JH-007",
+    "constituency_name": "Hazaribagh",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-JH-008",
+    "full_name": "Nalin Soren",
+    "party": "IND",
+    "state_code": "JH",
+    "constituency_code": "C-JH-008",
+    "constituency_name": "Dumka(St)",
+    "annual_allocation": 147364097.11
+  },
+  {
+    "mp_id": "MP-JH-009",
+    "full_name": "Nishikant Dubey",
+    "party": "IND",
+    "state_code": "JH",
+    "constituency_code": "C-JH-009",
+    "constituency_name": "Godda",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-JH-010",
+    "full_name": "Sanjay Seth",
+    "party": "IND",
+    "state_code": "JH",
+    "constituency_code": "C-JH-010",
+    "constituency_name": "Ranchi",
+    "annual_allocation": 147064357.11
+  },
+  {
+    "mp_id": "MP-JH-011",
+    "full_name": "Shri Chandra Prakash Choudhary",
+    "party": "IND",
+    "state_code": "JH",
+    "constituency_code": "C-JH-011",
+    "constituency_name": "Giridih",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-JH-012",
+    "full_name": "Sukhdeo Bhagat",
+    "party": "IND",
+    "state_code": "JH",
+    "constituency_code": "C-JH-012",
+    "constituency_name": "Lohardaga(St)",
+    "annual_allocation": 171821957.11
+  },
+  {
+    "mp_id": "MP-JH-013",
+    "full_name": "Vijay Kumar Hansdak",
+    "party": "IND",
+    "state_code": "JH",
+    "constituency_code": "C-JH-013",
+    "constituency_name": "Rajmahal(St)",
+    "annual_allocation": 147223957.11
+  },
+  {
+    "mp_id": "MP-JH-014",
+    "full_name": "Vishnu Dayal Ram",
+    "party": "IND",
+    "state_code": "JH",
+    "constituency_code": "C-JH-014",
+    "constituency_name": "Palamu(Sc)",
+    "annual_allocation": 158176083.11
+  },
+  {
+    "mp_id": "MP-JK-001",
+    "full_name": "Abdul Rashid Sheikh",
+    "party": "IND",
+    "state_code": "JK",
+    "constituency_code": "C-JK-001",
+    "constituency_name": "Baramullah",
+    "annual_allocation": 154773472.11
+  },
+  {
+    "mp_id": "MP-JK-002",
+    "full_name": "Aga Syed Ruhullah Mehdi",
+    "party": "IND",
+    "state_code": "JK",
+    "constituency_code": "C-JK-002",
+    "constituency_name": "Srinagar",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-JK-003",
+    "full_name": "Jitendra Singh",
+    "party": "IND",
+    "state_code": "JK",
+    "constituency_code": "C-JK-003",
+    "constituency_name": "Udhampur",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-JK-004",
+    "full_name": "Mian Altaf Ahmad",
+    "party": "IND",
+    "state_code": "JK",
+    "constituency_code": "C-JK-004",
+    "constituency_name": "Anantnag",
+    "annual_allocation": 154847924.0
+  },
+  {
+    "mp_id": "MP-JK-005",
+    "full_name": "Shri Jugal Kishore Sharma",
+    "party": "IND",
+    "state_code": "JK",
+    "constituency_code": "C-JK-005",
+    "constituency_name": "Jammu",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-KA-001",
+    "full_name": "Basavaraj Bommai",
+    "party": "IND",
+    "state_code": "KA",
+    "constituency_code": "C-KA-001",
+    "constituency_name": "Haveri",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-KA-002",
+    "full_name": "Captain Brijesh Chowta",
+    "party": "IND",
+    "state_code": "KA",
+    "constituency_code": "C-KA-002",
+    "constituency_name": "Dakshina Kannada",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-KA-003",
+    "full_name": "Dr C N Manjunath",
+    "party": "IND",
+    "state_code": "KA",
+    "constituency_code": "C-KA-003",
+    "constituency_name": "Bangalore Rural",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-KA-004",
+    "full_name": "Dr. Prabha Mallikarjun",
+    "party": "IND",
+    "state_code": "KA",
+    "constituency_code": "C-KA-004",
+    "constituency_name": "Davanagere",
+    "annual_allocation": 150232324.0
+  },
+  {
+    "mp_id": "MP-KA-005",
+    "full_name": "Dr.K.Sudhakar",
+    "party": "IND",
+    "state_code": "KA",
+    "constituency_code": "C-KA-005",
+    "constituency_name": "Chikballapur",
+    "annual_allocation": 147083957.11
+  },
+  {
+    "mp_id": "MP-KA-006",
+    "full_name": "E. Tukaram",
+    "party": "IND",
+    "state_code": "KA",
+    "constituency_code": "C-KA-006",
+    "constituency_name": "Bellary(St)",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-KA-007",
+    "full_name": "G. Kumar Naik",
+    "party": "IND",
+    "state_code": "KA",
+    "constituency_code": "C-KA-007",
+    "constituency_name": "Raichur(St)",
+    "annual_allocation": 147066591.11
+  },
+  {
+    "mp_id": "MP-KA-008",
+    "full_name": "Govind Makthappa Karjol",
+    "party": "IND",
+    "state_code": "KA",
+    "constituency_code": "C-KA-008",
+    "constituency_name": "Chitradurga(Sc)",
+    "annual_allocation": 177317841.11
+  },
+  {
+    "mp_id": "MP-KA-009",
+    "full_name": "H.D. Kumaraswamy",
+    "party": "IND",
+    "state_code": "KA",
+    "constituency_code": "C-KA-009",
+    "constituency_name": "Mandya",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-KA-010",
+    "full_name": "Jagadish Shettar",
+    "party": "IND",
+    "state_code": "KA",
+    "constituency_code": "C-KA-010",
+    "constituency_name": "Belgaum",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-KA-011",
+    "full_name": "K. Rajashekar Basavaraj Hitnal",
+    "party": "IND",
+    "state_code": "KA",
+    "constituency_code": "C-KA-011",
+    "constituency_name": "Koppal",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-KA-012",
+    "full_name": "Kota Srinivas Poojary",
+    "party": "IND",
+    "state_code": "KA",
+    "constituency_code": "C-KA-012",
+    "constituency_name": "Udupi Chikmagalur",
+    "annual_allocation": 151126112.11
+  },
+  {
+    "mp_id": "MP-KA-013",
+    "full_name": "M. Mallesh Babu",
+    "party": "IND",
+    "state_code": "KA",
+    "constituency_code": "C-KA-013",
+    "constituency_name": "Kolar(Sc)",
+    "annual_allocation": 147065957.11
+  },
+  {
+    "mp_id": "MP-KA-014",
+    "full_name": "P C Mohan",
+    "party": "IND",
+    "state_code": "KA",
+    "constituency_code": "C-KA-014",
+    "constituency_name": "Bangalore Central",
+    "annual_allocation": 163235612.11
+  },
+  {
+    "mp_id": "MP-KA-015",
+    "full_name": "Parvatagouda Chandanagouda Gaddigoudar",
+    "party": "IND",
+    "state_code": "KA",
+    "constituency_code": "C-KA-015",
+    "constituency_name": "Bagalkot",
+    "annual_allocation": 167541747.11
+  },
+  {
+    "mp_id": "MP-KA-016",
+    "full_name": "Pralhad Venkatesh Joshi",
+    "party": "IND",
+    "state_code": "KA",
+    "constituency_code": "C-KA-016",
+    "constituency_name": "Dharwad",
+    "annual_allocation": 154968555.11
+  },
+  {
+    "mp_id": "MP-KA-017",
+    "full_name": "Priyanka Satish Jarkiholi",
+    "party": "IND",
+    "state_code": "KA",
+    "constituency_code": "C-KA-017",
+    "constituency_name": "Chikkodi",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-KA-018",
+    "full_name": "Radhakrishna",
+    "party": "IND",
+    "state_code": "KA",
+    "constituency_code": "C-KA-018",
+    "constituency_name": "Gulbarga(Sc)",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-KA-019",
+    "full_name": "Ramesh Chandappa Jigajinagi",
+    "party": "IND",
+    "state_code": "KA",
+    "constituency_code": "C-KA-019",
+    "constituency_name": "Bijapur(Sc)",
+    "annual_allocation": 269500000.0
+  },
+  {
+    "mp_id": "MP-KA-020",
+    "full_name": "Sagar Eshwar Khandre",
+    "party": "IND",
+    "state_code": "KA",
+    "constituency_code": "C-KA-020",
+    "constituency_name": "Bidar",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-KA-021",
+    "full_name": "Shobha Karandlaje",
+    "party": "IND",
+    "state_code": "KA",
+    "constituency_code": "C-KA-021",
+    "constituency_name": "Bangalore North",
+    "annual_allocation": 149578176.11
+  },
+  {
+    "mp_id": "MP-KA-022",
+    "full_name": "Shreyas. M. Patel",
+    "party": "IND",
+    "state_code": "KA",
+    "constituency_code": "C-KA-022",
+    "constituency_name": "Hassan",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-KA-023",
+    "full_name": "Shri B Y Raghavendra",
+    "party": "IND",
+    "state_code": "KA",
+    "constituency_code": "C-KA-023",
+    "constituency_name": "Shimoga",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-KA-024",
+    "full_name": "Shri Ls Tejasvi Surya",
+    "party": "IND",
+    "state_code": "KA",
+    "constituency_code": "C-KA-024",
+    "constituency_name": "Bangalore South",
+    "annual_allocation": 169218017.11
+  },
+  {
+    "mp_id": "MP-KA-025",
+    "full_name": "Sunil Bose",
+    "party": "IND",
+    "state_code": "KA",
+    "constituency_code": "C-KA-025",
+    "constituency_name": "Chamarajanagar(Sc)",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-KA-026",
+    "full_name": "V. Somanna",
+    "party": "IND",
+    "state_code": "KA",
+    "constituency_code": "C-KA-026",
+    "constituency_name": "Tumkur",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-KA-027",
+    "full_name": "Vishweshwar Hegde Kageri",
+    "party": "IND",
+    "state_code": "KA",
+    "constituency_code": "C-KA-027",
+    "constituency_name": "Uttara Kannada",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-KA-028",
+    "full_name": "Yaduveer Krishnadatta Chamaraja Wadiyar",
+    "party": "IND",
+    "state_code": "KA",
+    "constituency_code": "C-KA-028",
+    "constituency_name": "Mysore",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-KL-001",
+    "full_name": "Adv Adoor Prakash",
+    "party": "IND",
+    "state_code": "KL",
+    "constituency_code": "C-KL-001",
+    "constituency_name": "Attingal",
+    "annual_allocation": 151320377.11
+  },
+  {
+    "mp_id": "MP-KL-002",
+    "full_name": "Adv Dean Kuriakose",
+    "party": "IND",
+    "state_code": "KL",
+    "constituency_code": "C-KL-002",
+    "constituency_name": "Idukki",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-KL-003",
+    "full_name": "Adv K Francis George",
+    "party": "IND",
+    "state_code": "KL",
+    "constituency_code": "C-KL-003",
+    "constituency_name": "Kottayam",
+    "annual_allocation": 188722256.11
+  },
+  {
+    "mp_id": "MP-KL-004",
+    "full_name": "Anto Antony",
+    "party": "IND",
+    "state_code": "KL",
+    "constituency_code": "C-KL-004",
+    "constituency_name": "Pathanamthitta",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-KL-005",
+    "full_name": "Dr Shashi Tharoor",
+    "party": "IND",
+    "state_code": "KL",
+    "constituency_code": "C-KL-005",
+    "constituency_name": "Thiruvananthapuram",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-KL-006",
+    "full_name": "Dr. M.P Abdussamad Samadani",
+    "party": "IND",
+    "state_code": "KL",
+    "constituency_code": "C-KL-006",
+    "constituency_name": "Ponnani",
+    "annual_allocation": 170434031.11
+  },
+  {
+    "mp_id": "MP-KL-007",
+    "full_name": "E.T. Mohammed Basheer",
+    "party": "IND",
+    "state_code": "KL",
+    "constituency_code": "C-KL-007",
+    "constituency_name": "Malappuram",
+    "annual_allocation": 163895872.11
+  },
+  {
+    "mp_id": "MP-KL-008",
+    "full_name": "K Radhakrishnan",
+    "party": "IND",
+    "state_code": "KL",
+    "constituency_code": "C-KL-008",
+    "constituency_name": "Alathur(Sc)",
+    "annual_allocation": 159431179.87
+  },
+  {
+    "mp_id": "MP-KL-009",
+    "full_name": "K. C Venugopal",
+    "party": "IND",
+    "state_code": "KL",
+    "constituency_code": "C-KL-009",
+    "constituency_name": "Alappuzha",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-KL-010",
+    "full_name": "Priyanka Gandhi Vadra",
+    "party": "IND",
+    "state_code": "KL",
+    "constituency_code": "C-KL-010",
+    "constituency_name": "Wayanad",
+    "annual_allocation": 122500000.0
+  },
+  {
+    "mp_id": "MP-KL-011",
+    "full_name": "Shafi Parambil",
+    "party": "IND",
+    "state_code": "KL",
+    "constituency_code": "C-KL-011",
+    "constituency_name": "Vadakara",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-KL-012",
+    "full_name": "Shri Benny Behanan",
+    "party": "IND",
+    "state_code": "KL",
+    "constituency_code": "C-KL-012",
+    "constituency_name": "Chalakudy",
+    "annual_allocation": 164674770.11
+  },
+  {
+    "mp_id": "MP-KL-013",
+    "full_name": "Shri Hibi Eden",
+    "party": "IND",
+    "state_code": "KL",
+    "constituency_code": "C-KL-013",
+    "constituency_name": "Ernakulam",
+    "annual_allocation": 162177260.11
+  },
+  {
+    "mp_id": "MP-KL-014",
+    "full_name": "Shri Kumbakudi Sudhakaran",
+    "party": "IND",
+    "state_code": "KL",
+    "constituency_code": "C-KL-014",
+    "constituency_name": "Kannur",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-KL-015",
+    "full_name": "Shri M K Raghavan",
+    "party": "IND",
+    "state_code": "KL",
+    "constituency_code": "C-KL-015",
+    "constituency_name": "Kozhikode",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-KL-016",
+    "full_name": "Shri Nk Premachandran",
+    "party": "IND",
+    "state_code": "KL",
+    "constituency_code": "C-KL-016",
+    "constituency_name": "Kollam",
+    "annual_allocation": 171477994.11
+  },
+  {
+    "mp_id": "MP-KL-017",
+    "full_name": "Shri Rajmohan Unnithan",
+    "party": "IND",
+    "state_code": "KL",
+    "constituency_code": "C-KL-017",
+    "constituency_name": "Kasaragod",
+    "annual_allocation": 156754633.11
+  },
+  {
+    "mp_id": "MP-KL-018",
+    "full_name": "Shri Suresh Kodikunnil",
+    "party": "IND",
+    "state_code": "KL",
+    "constituency_code": "C-KL-018",
+    "constituency_name": "Mavelikkara(Sc)",
+    "annual_allocation": 172429519.11
+  },
+  {
+    "mp_id": "MP-KL-019",
+    "full_name": "Suresh Gopi",
+    "party": "IND",
+    "state_code": "KL",
+    "constituency_code": "C-KL-019",
+    "constituency_name": "Thrissur",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-KL-020",
+    "full_name": "Vellalath Kochukrishnan Nair Sreekandan",
+    "party": "IND",
+    "state_code": "KL",
+    "constituency_code": "C-KL-020",
+    "constituency_name": "Palakkad",
+    "annual_allocation": 167807990.11
+  },
+  {
+    "mp_id": "MP-LA-001",
+    "full_name": "Mohamed Haneefa",
+    "party": "IND",
+    "state_code": "LA",
+    "constituency_code": "C-LA-001",
+    "constituency_name": "Ladakh",
+    "annual_allocation": 161114542.0
+  },
+  {
+    "mp_id": "MP-LD-001",
+    "full_name": "Muhammed Hamdullah Sayeed",
+    "party": "IND",
+    "state_code": "LD",
+    "constituency_code": "C-LD-001",
+    "constituency_name": "Lakshadweep(St)",
+    "annual_allocation": 153942460.41
+  },
+  {
+    "mp_id": "MP-MH-001",
+    "full_name": "Aashtikar Patil Nagesh Bapurao",
+    "party": "IND",
+    "state_code": "MH",
+    "constituency_code": "C-MH-001",
+    "constituency_name": "Hingoli",
+    "annual_allocation": 190289442.0
+  },
+  {
+    "mp_id": "MP-MH-002",
+    "full_name": "Adv Gowaal Kagada Padavi",
+    "party": "IND",
+    "state_code": "MH",
+    "constituency_code": "C-MH-002",
+    "constituency_name": "Nandurbar(St)",
+    "annual_allocation": 147816309.11
+  },
+  {
+    "mp_id": "MP-MH-003",
+    "full_name": "Amar Sharadrao Kale",
+    "party": "IND",
+    "state_code": "MH",
+    "constituency_code": "C-MH-003",
+    "constituency_name": "Wardha",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-MH-004",
+    "full_name": "Amol Ramsing Kolhe",
+    "party": "IND",
+    "state_code": "MH",
+    "constituency_code": "C-MH-004",
+    "constituency_name": "Shirur",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-MH-005",
+    "full_name": "Anil Yeshwant Desai",
+    "party": "IND",
+    "state_code": "MH",
+    "constituency_code": "C-MH-005",
+    "constituency_name": "Mumbai South Central",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-MH-006",
+    "full_name": "Anup Sanjay Dhotre",
+    "party": "IND",
+    "state_code": "MH",
+    "constituency_code": "C-MH-006",
+    "constituency_name": "Akola",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-MH-007",
+    "full_name": "Arvind Ganpat Sawant",
+    "party": "IND",
+    "state_code": "MH",
+    "constituency_code": "C-MH-007",
+    "constituency_name": "Mumbai South",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-MH-008",
+    "full_name": "Bachhav Shobha Dinesh",
+    "party": "IND",
+    "state_code": "MH",
+    "constituency_code": "C-MH-008",
+    "constituency_name": "Dhule",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-MH-009",
+    "full_name": "Bajrang Manohar Sonwane",
+    "party": "IND",
+    "state_code": "MH",
+    "constituency_code": "C-MH-009",
+    "constituency_name": "Beed",
+    "annual_allocation": 165899107.19
+  },
+  {
+    "mp_id": "MP-MH-010",
+    "full_name": "Balwant Baswant Wankhade",
+    "party": "IND",
+    "state_code": "MH",
+    "constituency_code": "C-MH-010",
+    "constituency_name": "Amravati(Sc)",
+    "annual_allocation": 198293678.0
+  },
+  {
+    "mp_id": "MP-MH-011",
+    "full_name": "Balya Mama Suresh Gopinath Mhatre",
+    "party": "IND",
+    "state_code": "MH",
+    "constituency_code": "C-MH-011",
+    "constituency_name": "Bhiwandi",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-MH-012",
+    "full_name": "Bhaskar Murlidhar Bhagare",
+    "party": "IND",
+    "state_code": "MH",
+    "constituency_code": "C-MH-012",
+    "constituency_name": "Dindori(St)",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-MH-013",
+    "full_name": "Bhausaheb Rajaram Wakchaure",
+    "party": "IND",
+    "state_code": "MH",
+    "constituency_code": "C-MH-013",
+    "constituency_name": "Shirdi(Sc)",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-MH-014",
+    "full_name": "Bhumare Sandipanrao Asaram",
+    "party": "IND",
+    "state_code": "MH",
+    "constituency_code": "C-MH-014",
+    "constituency_name": "Aurangabad_Mh",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-MH-015",
+    "full_name": "Chavan Vasantrao Balwantrao",
+    "party": "IND",
+    "state_code": "MH",
+    "constituency_code": "C-MH-015",
+    "constituency_name": "Nanded",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-MH-016",
+    "full_name": "Chhatrapati Shahu Shahaji",
+    "party": "IND",
+    "state_code": "MH",
+    "constituency_code": "C-MH-016",
+    "constituency_name": "Kolhapur",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-MH-017",
+    "full_name": "Dhairyasheel Sambhajirao Mane",
+    "party": "IND",
+    "state_code": "MH",
+    "constituency_code": "C-MH-017",
+    "constituency_name": "Hatkanangle",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-MH-018",
+    "full_name": "Dhanorkar Pratibha Suresh Alias Balubhau",
+    "party": "IND",
+    "state_code": "MH",
+    "constituency_code": "C-MH-018",
+    "constituency_name": "Chandrapur",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-MH-019",
+    "full_name": "Dr Kalge Shivaji Bandappa",
+    "party": "IND",
+    "state_code": "MH",
+    "constituency_code": "C-MH-019",
+    "constituency_name": "Latur(Sc)",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-MH-020",
+    "full_name": "Dr. Hemant Vishnu Savara",
+    "party": "IND",
+    "state_code": "MH",
+    "constituency_code": "C-MH-020",
+    "constituency_name": "Palghar(St)",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-MH-021",
+    "full_name": "Dr. Kirsan Namdeo",
+    "party": "IND",
+    "state_code": "MH",
+    "constituency_code": "C-MH-021",
+    "constituency_name": "Gadchiroli-Chimur(St)",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-MH-022",
+    "full_name": "Dr. Prashant Yadaorao Padole",
+    "party": "IND",
+    "state_code": "MH",
+    "constituency_code": "C-MH-022",
+    "constituency_name": "Bhandara-Gondiya",
+    "annual_allocation": 159680283.39
+  },
+  {
+    "mp_id": "MP-MH-023",
+    "full_name": "Gaikwad Varsha Eknath",
+    "party": "IND",
+    "state_code": "MH",
+    "constituency_code": "C-MH-023",
+    "constituency_name": "Mumbai North-Central",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-MH-024",
+    "full_name": "Kalyan Vaijinathrao Kale",
+    "party": "IND",
+    "state_code": "MH",
+    "constituency_code": "C-MH-024",
+    "constituency_name": "Jalna",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-MH-025",
+    "full_name": "Mohite Patil Dhairyasheel Rajsinh",
+    "party": "IND",
+    "state_code": "MH",
+    "constituency_code": "C-MH-025",
+    "constituency_name": "Madha",
+    "annual_allocation": 195613601.7
+  },
+  {
+    "mp_id": "MP-MH-026",
+    "full_name": "Murlidhar Mohol",
+    "party": "IND",
+    "state_code": "MH",
+    "constituency_code": "C-MH-026",
+    "constituency_name": "Pune",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-MH-027",
+    "full_name": "Narayan Tatu Rane",
+    "party": "IND",
+    "state_code": "MH",
+    "constituency_code": "C-MH-027",
+    "constituency_name": "Ratnagiri-Sindhudurg",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-MH-028",
+    "full_name": "Naresh Ganpat Mhaske",
+    "party": "IND",
+    "state_code": "MH",
+    "constituency_code": "C-MH-028",
+    "constituency_name": "Thane",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-MH-029",
+    "full_name": "Nilesh Dnyandev Lanke",
+    "party": "IND",
+    "state_code": "MH",
+    "constituency_code": "C-MH-029",
+    "constituency_name": "Ahmednagar",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-MH-030",
+    "full_name": "Nitin Jairam Gadkari",
+    "party": "IND",
+    "state_code": "MH",
+    "constituency_code": "C-MH-030",
+    "constituency_name": "Nagpur",
+    "annual_allocation": 168195086.11
+  },
+  {
+    "mp_id": "MP-MH-031",
+    "full_name": "Omprakash Bhupalsinh Alias Pawan Rajenimbalkar",
+    "party": "IND",
+    "state_code": "MH",
+    "constituency_code": "C-MH-031",
+    "constituency_name": "Osmanabad",
+    "annual_allocation": 184758519.11
+  },
+  {
+    "mp_id": "MP-MH-032",
+    "full_name": "Piyush Vedprakash Goyal",
+    "party": "IND",
+    "state_code": "MH",
+    "constituency_code": "C-MH-032",
+    "constituency_name": "Mumbai North",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-MH-033",
+    "full_name": "Praniti Sushilkumar Shinde",
+    "party": "IND",
+    "state_code": "MH",
+    "constituency_code": "C-MH-033",
+    "constituency_name": "Solapur(Sc)",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-MH-034",
+    "full_name": "Prataprao Jadhav",
+    "party": "IND",
+    "state_code": "MH",
+    "constituency_code": "C-MH-034",
+    "constituency_name": "Buldhana",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-MH-035",
+    "full_name": "Rajabhau",
+    "party": "IND",
+    "state_code": "MH",
+    "constituency_code": "C-MH-035",
+    "constituency_name": "Nashik",
+    "annual_allocation": 152878682.11
+  },
+  {
+    "mp_id": "MP-MH-036",
+    "full_name": "Ravindra Dattaram Waikar",
+    "party": "IND",
+    "state_code": "MH",
+    "constituency_code": "C-MH-036",
+    "constituency_name": "Mumbai North West",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-MH-037",
+    "full_name": "Ravindra Vasantrao Chavan",
+    "party": "IND",
+    "state_code": "MH",
+    "constituency_code": "C-MH-037",
+    "constituency_name": "Nanded",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-MH-038",
+    "full_name": "Sanjay Dina Patil",
+    "party": "IND",
+    "state_code": "MH",
+    "constituency_code": "C-MH-038",
+    "constituency_name": "Mumbai North East",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-MH-039",
+    "full_name": "Sanjay Haribhau Jadhav",
+    "party": "IND",
+    "state_code": "MH",
+    "constituency_code": "C-MH-039",
+    "constituency_name": "Parbhani",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-MH-040",
+    "full_name": "Sanjay Uttamrao Deshmukh",
+    "party": "IND",
+    "state_code": "MH",
+    "constituency_code": "C-MH-040",
+    "constituency_name": "Yavatmal-Washim",
+    "annual_allocation": 185640423.0
+  },
+  {
+    "mp_id": "MP-MH-041",
+    "full_name": "Shrikant Eknath Shinde",
+    "party": "IND",
+    "state_code": "MH",
+    "constituency_code": "C-MH-041",
+    "constituency_name": "Kalyan",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-MH-042",
+    "full_name": "Shrimant Chh Udayanraje Pratapsinhamaharaj Bhonsle",
+    "party": "IND",
+    "state_code": "MH",
+    "constituency_code": "C-MH-042",
+    "constituency_name": "Satara",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-MH-043",
+    "full_name": "Shrirang Appa Barne",
+    "party": "IND",
+    "state_code": "MH",
+    "constituency_code": "C-MH-043",
+    "constituency_name": "Maval",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-MH-044",
+    "full_name": "Shyamkumar",
+    "party": "IND",
+    "state_code": "MH",
+    "constituency_code": "C-MH-044",
+    "constituency_name": "Ramtek(Sc)",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-MH-045",
+    "full_name": "Smita Uday Wagh",
+    "party": "IND",
+    "state_code": "MH",
+    "constituency_code": "C-MH-045",
+    "constituency_name": "Jalgaon",
+    "annual_allocation": 148107373.11
+  },
+  {
+    "mp_id": "MP-MH-046",
+    "full_name": "Smt Raksha Nikhil Khadse",
+    "party": "IND",
+    "state_code": "MH",
+    "constituency_code": "C-MH-046",
+    "constituency_name": "Raver",
+    "annual_allocation": 153112586.11
+  },
+  {
+    "mp_id": "MP-MH-047",
+    "full_name": "Smt Supriya Sadanand Sule",
+    "party": "IND",
+    "state_code": "MH",
+    "constituency_code": "C-MH-047",
+    "constituency_name": "Baramati",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-MH-048",
+    "full_name": "Sunil Dattatray Tatkare",
+    "party": "IND",
+    "state_code": "MH",
+    "constituency_code": "C-MH-048",
+    "constituency_name": "Raigad",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-MH-049",
+    "full_name": "Vishal",
+    "party": "IND",
+    "state_code": "MH",
+    "constituency_code": "C-MH-049",
+    "constituency_name": "Sangli",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-ML-001",
+    "full_name": "Andrew J. Syngkon",
+    "party": "IND",
+    "state_code": "ML",
+    "constituency_code": "C-ML-001",
+    "constituency_name": "Shillong",
+    "annual_allocation": 98000000.0
+  },
+  {
+    "mp_id": "MP-ML-002",
+    "full_name": "Saleng A Sangma",
+    "party": "IND",
+    "state_code": "ML",
+    "constituency_code": "C-ML-002",
+    "constituency_name": "Tura",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-MN-001",
+    "full_name": "Alfred Kanngam S Arthur",
+    "party": "IND",
+    "state_code": "MN",
+    "constituency_code": "C-MN-001",
+    "constituency_name": "Outer Manipur(St)",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-MN-002",
+    "full_name": "Angomcha Bimol Akoijam",
+    "party": "IND",
+    "state_code": "MN",
+    "constituency_code": "C-MN-002",
+    "constituency_name": "Inner Manipur",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-MP-001",
+    "full_name": "Alok Sharma",
+    "party": "IND",
+    "state_code": "MP",
+    "constituency_code": "C-MP-001",
+    "constituency_name": "Bhopal",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-MP-002",
+    "full_name": "Anita Nagarsingh Chouhan",
+    "party": "IND",
+    "state_code": "MP",
+    "constituency_code": "C-MP-002",
+    "constituency_name": "Ratlam(St)",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-MP-003",
+    "full_name": "Ashish Dubey",
+    "party": "IND",
+    "state_code": "MP",
+    "constituency_code": "C-MP-003",
+    "constituency_name": "Jabalpur",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-MP-004",
+    "full_name": "Bharat Singh Kushwah",
+    "party": "IND",
+    "state_code": "MP",
+    "constituency_code": "C-MP-004",
+    "constituency_name": "Gwalior",
+    "annual_allocation": 151455276.04
+  },
+  {
+    "mp_id": "MP-MP-005",
+    "full_name": "Bharti Pardhi",
+    "party": "IND",
+    "state_code": "MP",
+    "constituency_code": "C-MP-005",
+    "constituency_name": "Balaghat",
+    "annual_allocation": 154398389.01
+  },
+  {
+    "mp_id": "MP-MP-006",
+    "full_name": "Bunty Vivek Sahu",
+    "party": "IND",
+    "state_code": "MP",
+    "constituency_code": "C-MP-006",
+    "constituency_name": "Chhindwara",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-MP-007",
+    "full_name": "Darshan Singh Choudhary",
+    "party": "IND",
+    "state_code": "MP",
+    "constituency_code": "C-MP-007",
+    "constituency_name": "Hoshangabad",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-MP-008",
+    "full_name": "Dr. Lata Wankhede",
+    "party": "IND",
+    "state_code": "MP",
+    "constituency_code": "C-MP-008",
+    "constituency_name": "Sagar",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-MP-009",
+    "full_name": "Dr. Rajesh Mishra",
+    "party": "IND",
+    "state_code": "MP",
+    "constituency_code": "C-MP-009",
+    "constituency_name": "Sidhi",
+    "annual_allocation": 262724510.35
+  },
+  {
+    "mp_id": "MP-MP-010",
+    "full_name": "Durga Das Uikey",
+    "party": "IND",
+    "state_code": "MP",
+    "constituency_code": "C-MP-010",
+    "constituency_name": "Betul(St)",
+    "annual_allocation": 151569502.91
+  },
+  {
+    "mp_id": "MP-MP-011",
+    "full_name": "Faggan Singh Kulaste",
+    "party": "IND",
+    "state_code": "MP",
+    "constituency_code": "C-MP-011",
+    "constituency_name": "Mandla(St)",
+    "annual_allocation": 151861648.41
+  },
+  {
+    "mp_id": "MP-MP-012",
+    "full_name": "Gajendra Singh Patel",
+    "party": "IND",
+    "state_code": "MP",
+    "constituency_code": "C-MP-012",
+    "constituency_name": "Khargone(St)",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-MP-013",
+    "full_name": "Ganesh Singh",
+    "party": "IND",
+    "state_code": "MP",
+    "constituency_code": "C-MP-013",
+    "constituency_name": "Satna",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-MP-014",
+    "full_name": "Gyaneshwar Patil",
+    "party": "IND",
+    "state_code": "MP",
+    "constituency_code": "C-MP-014",
+    "constituency_name": "Khandwa",
+    "annual_allocation": 155690684.77
+  },
+  {
+    "mp_id": "MP-MP-015",
+    "full_name": "Janardan Mishra",
+    "party": "IND",
+    "state_code": "MP",
+    "constituency_code": "C-MP-015",
+    "constituency_name": "Rewa",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-MP-016",
+    "full_name": "Jyotiraditya M. Scindia",
+    "party": "IND",
+    "state_code": "MP",
+    "constituency_code": "C-MP-016",
+    "constituency_name": "Guna",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-MP-017",
+    "full_name": "Mahendra Singh Solanky",
+    "party": "IND",
+    "state_code": "MP",
+    "constituency_code": "C-MP-017",
+    "constituency_name": "Dewas(Sc)",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-MP-018",
+    "full_name": "Rahul Singh Lodhi",
+    "party": "IND",
+    "state_code": "MP",
+    "constituency_code": "C-MP-018",
+    "constituency_name": "Damoh",
+    "annual_allocation": 163058785.37
+  },
+  {
+    "mp_id": "MP-MP-019",
+    "full_name": "Rodmal Nagar",
+    "party": "IND",
+    "state_code": "MP",
+    "constituency_code": "C-MP-019",
+    "constituency_name": "Rajgarh",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-MP-020",
+    "full_name": "Savitri Thakur",
+    "party": "IND",
+    "state_code": "MP",
+    "constituency_code": "C-MP-020",
+    "constituency_name": "Dhar(St)",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-MP-021",
+    "full_name": "Shankar Lalwani",
+    "party": "IND",
+    "state_code": "MP",
+    "constituency_code": "C-MP-021",
+    "constituency_name": "Indore",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-MP-022",
+    "full_name": "Shivmangal Singh Tomar",
+    "party": "IND",
+    "state_code": "MP",
+    "constituency_code": "C-MP-022",
+    "constituency_name": "Morena",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-MP-023",
+    "full_name": "Shivraj Singh Chouhan",
+    "party": "IND",
+    "state_code": "MP",
+    "constituency_code": "C-MP-023",
+    "constituency_name": "Vidisha",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-MP-024",
+    "full_name": "Shri Anil Firojiya",
+    "party": "IND",
+    "state_code": "MP",
+    "constituency_code": "C-MP-024",
+    "constituency_name": "Ujjain(Sc)",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-MP-025",
+    "full_name": "Shri Sudheer Gupta",
+    "party": "IND",
+    "state_code": "MP",
+    "constituency_code": "C-MP-025",
+    "constituency_name": "Mandsour",
+    "annual_allocation": 148988014.83
+  },
+  {
+    "mp_id": "MP-MP-026",
+    "full_name": "Smt Himadri Singh",
+    "party": "IND",
+    "state_code": "MP",
+    "constituency_code": "C-MP-026",
+    "constituency_name": "Shahdol (St)",
+    "annual_allocation": 150724861.11
+  },
+  {
+    "mp_id": "MP-MP-027",
+    "full_name": "Smt Sandhya Ray",
+    "party": "IND",
+    "state_code": "MP",
+    "constituency_code": "C-MP-027",
+    "constituency_name": "Bhind(Sc)",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-MP-028",
+    "full_name": "Virendra Kumar",
+    "party": "IND",
+    "state_code": "MP",
+    "constituency_code": "C-MP-028",
+    "constituency_name": "Tikamgarh(Sc)",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-MP-029",
+    "full_name": "Vishnu Dutt Sharma",
+    "party": "IND",
+    "state_code": "MP",
+    "constituency_code": "C-MP-029",
+    "constituency_name": "Khajuraho",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-MZ-001",
+    "full_name": "Richard Vanlalhmangaiha",
+    "party": "IND",
+    "state_code": "MZ",
+    "constituency_code": "C-MZ-001",
+    "constituency_name": "Mizoram (St)",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-NL-001",
+    "full_name": "S Supongmeren Jamir",
+    "party": "IND",
+    "state_code": "NL",
+    "constituency_code": "C-NL-001",
+    "constituency_name": "Nagaland",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-OR-001",
+    "full_name": "Ananta Nayak",
+    "party": "IND",
+    "state_code": "OR",
+    "constituency_code": "C-OR-001",
+    "constituency_name": "Keonjhar(St)",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-OR-002",
+    "full_name": "Anita Subhadarshini",
+    "party": "IND",
+    "state_code": "OR",
+    "constituency_code": "C-OR-002",
+    "constituency_name": "Aska",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-OR-003",
+    "full_name": "Avimanyu Sethi",
+    "party": "IND",
+    "state_code": "OR",
+    "constituency_code": "C-OR-003",
+    "constituency_name": "Bhadrak(Sc)",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-OR-004",
+    "full_name": "Baijayant Panda",
+    "party": "IND",
+    "state_code": "OR",
+    "constituency_code": "C-OR-004",
+    "constituency_name": "Kendrapara",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-OR-005",
+    "full_name": "Balabhadra Majhi",
+    "party": "IND",
+    "state_code": "OR",
+    "constituency_code": "C-OR-005",
+    "constituency_name": "Nabarangpur(St)",
+    "annual_allocation": 147413962.11
+  },
+  {
+    "mp_id": "MP-OR-006",
+    "full_name": "Bibhu Prasad Tarai",
+    "party": "IND",
+    "state_code": "OR",
+    "constituency_code": "C-OR-006",
+    "constituency_name": "Jagatsinghpur(Sc)",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-OR-007",
+    "full_name": "Dharmendra Pradhan",
+    "party": "IND",
+    "state_code": "OR",
+    "constituency_code": "C-OR-007",
+    "constituency_name": "Sambalpur",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-OR-008",
+    "full_name": "Dr. Pradeep Kumar Panigrahy",
+    "party": "IND",
+    "state_code": "OR",
+    "constituency_code": "C-OR-008",
+    "constituency_name": "Berhampur",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-OR-009",
+    "full_name": "Malvika Devi",
+    "party": "IND",
+    "state_code": "OR",
+    "constituency_code": "C-OR-009",
+    "constituency_name": "Kalahandi",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-OR-010",
+    "full_name": "Naba Charan Majhi",
+    "party": "IND",
+    "state_code": "OR",
+    "constituency_code": "C-OR-010",
+    "constituency_name": "Mayurbhanj (St)",
+    "annual_allocation": 147563957.11
+  },
+  {
+    "mp_id": "MP-OR-011",
+    "full_name": "Pradeep Purohit",
+    "party": "IND",
+    "state_code": "OR",
+    "constituency_code": "C-OR-011",
+    "constituency_name": "Bargarh",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-OR-012",
+    "full_name": "Pratap Chandra Sarangi",
+    "party": "IND",
+    "state_code": "OR",
+    "constituency_code": "C-OR-012",
+    "constituency_name": "Balasore",
+    "annual_allocation": 147064254.11
+  },
+  {
+    "mp_id": "MP-OR-013",
+    "full_name": "Rabindra Narayan Behera",
+    "party": "IND",
+    "state_code": "OR",
+    "constituency_code": "C-OR-013",
+    "constituency_name": "Jajpur(Sc)",
+    "annual_allocation": 147064617.11
+  },
+  {
+    "mp_id": "MP-OR-014",
+    "full_name": "Rudra Narayan Pany",
+    "party": "IND",
+    "state_code": "OR",
+    "constituency_code": "C-OR-014",
+    "constituency_name": "Dhenkanal",
+    "annual_allocation": 155013957.11
+  },
+  {
+    "mp_id": "MP-OR-015",
+    "full_name": "Sambit Patra",
+    "party": "IND",
+    "state_code": "OR",
+    "constituency_code": "C-OR-015",
+    "constituency_name": "Puri",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-OR-016",
+    "full_name": "Saptagiri Sankar Ulaka",
+    "party": "IND",
+    "state_code": "OR",
+    "constituency_code": "C-OR-016",
+    "constituency_name": "Koraput(St)",
+    "annual_allocation": 269500000.0
+  },
+  {
+    "mp_id": "MP-OR-017",
+    "full_name": "Shri Bhartruhari Mahtab",
+    "party": "IND",
+    "state_code": "OR",
+    "constituency_code": "C-OR-017",
+    "constituency_name": "Cuttack",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-OR-018",
+    "full_name": "Shri Jual Oram",
+    "party": "IND",
+    "state_code": "OR",
+    "constituency_code": "C-OR-018",
+    "constituency_name": "Sundargarh (St)",
+    "annual_allocation": 173096756.91
+  },
+  {
+    "mp_id": "MP-OR-019",
+    "full_name": "Smt Aparajita Sarangi",
+    "party": "IND",
+    "state_code": "OR",
+    "constituency_code": "C-OR-019",
+    "constituency_name": "Bhubaneswar",
+    "annual_allocation": 147420861.41
+  },
+  {
+    "mp_id": "MP-OR-020",
+    "full_name": "Smt Sangeeta Kumari Singh Deo",
+    "party": "IND",
+    "state_code": "OR",
+    "constituency_code": "C-OR-020",
+    "constituency_name": "Bolangir",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-OR-021",
+    "full_name": "Sukanta Kumar Panigrahi",
+    "party": "IND",
+    "state_code": "OR",
+    "constituency_code": "C-OR-021",
+    "constituency_name": "Kandhamal",
+    "annual_allocation": 190712424.11
+  },
+  {
+    "mp_id": "MP-PB-001",
+    "full_name": "Amrinder Singh Raja Warring",
+    "party": "IND",
+    "state_code": "PB",
+    "constituency_code": "C-PB-001",
+    "constituency_name": "Ludhiana",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-PB-002",
+    "full_name": "Charanjit Singh Channi",
+    "party": "IND",
+    "state_code": "PB",
+    "constituency_code": "C-PB-002",
+    "constituency_name": "Jalandhar(Sc)",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-PB-003",
+    "full_name": "Dr Dharamvira Gandhi",
+    "party": "IND",
+    "state_code": "PB",
+    "constituency_code": "C-PB-003",
+    "constituency_name": "Patiala",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-PB-004",
+    "full_name": "Dr. Raj Kumar Chabbewal",
+    "party": "IND",
+    "state_code": "PB",
+    "constituency_code": "C-PB-004",
+    "constituency_name": "Hoshiarpur(Sc)",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-PB-005",
+    "full_name": "Gurmeet Singh Meet Hayer",
+    "party": "IND",
+    "state_code": "PB",
+    "constituency_code": "C-PB-005",
+    "constituency_name": "Sangrur",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-PB-006",
+    "full_name": "Malvinder Singh Kang",
+    "party": "IND",
+    "state_code": "PB",
+    "constituency_code": "C-PB-006",
+    "constituency_name": "Anandpur Sahib",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-PB-007",
+    "full_name": "Sarabjeet Singh Khalsa",
+    "party": "IND",
+    "state_code": "PB",
+    "constituency_code": "C-PB-007",
+    "constituency_name": "Faridkot(Sc)",
+    "annual_allocation": 150850348.15
+  },
+  {
+    "mp_id": "MP-PB-008",
+    "full_name": "Sher Singh Ghubaya",
+    "party": "IND",
+    "state_code": "PB",
+    "constituency_code": "C-PB-008",
+    "constituency_name": "Firozpur",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-PB-009",
+    "full_name": "Shri Amar Singh",
+    "party": "IND",
+    "state_code": "PB",
+    "constituency_code": "C-PB-009",
+    "constituency_name": "Fatehgarh Sahib(Sc)",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-PB-010",
+    "full_name": "Shri Gurjeet Singh Aujla",
+    "party": "IND",
+    "state_code": "PB",
+    "constituency_code": "C-PB-010",
+    "constituency_name": "Amritsar",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-PB-011",
+    "full_name": "Smt Harsimrat Kaur Badal",
+    "party": "IND",
+    "state_code": "PB",
+    "constituency_code": "C-PB-011",
+    "constituency_name": "Bhatinda",
+    "annual_allocation": 159775982.39
+  },
+  {
+    "mp_id": "MP-PB-012",
+    "full_name": "Sukhjinder Singh Randhawa",
+    "party": "IND",
+    "state_code": "PB",
+    "constituency_code": "C-PB-012",
+    "constituency_name": "Gurdaspur",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-PY-001",
+    "full_name": "Vaithilingam Ve",
+    "party": "IND",
+    "state_code": "PY",
+    "constituency_code": "C-PY-001",
+    "constituency_name": "Puducherry",
+    "annual_allocation": 209368972.11
+  },
+  {
+    "mp_id": "MP-RJ-001",
+    "full_name": "Amraram",
+    "party": "IND",
+    "state_code": "RJ",
+    "constituency_code": "C-RJ-001",
+    "constituency_name": "Sikar",
+    "annual_allocation": 165691544.11
+  },
+  {
+    "mp_id": "MP-RJ-002",
+    "full_name": "Bhagirath Chaudhary",
+    "party": "IND",
+    "state_code": "RJ",
+    "constituency_code": "C-RJ-002",
+    "constituency_name": "Ajmer",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-RJ-003",
+    "full_name": "Bhajan Lal Jatav",
+    "party": "IND",
+    "state_code": "RJ",
+    "constituency_code": "C-RJ-003",
+    "constituency_name": "Karauli-Dholpur(Sc)",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-RJ-004",
+    "full_name": "Bhupender Yadav",
+    "party": "IND",
+    "state_code": "RJ",
+    "constituency_code": "C-RJ-004",
+    "constituency_name": "Alwar",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-RJ-005",
+    "full_name": "Brijendra Singh Ola",
+    "party": "IND",
+    "state_code": "RJ",
+    "constituency_code": "C-RJ-005",
+    "constituency_name": "Jhunjhunu",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-RJ-006",
+    "full_name": "Chandra Prakash Joshi",
+    "party": "IND",
+    "state_code": "RJ",
+    "constituency_code": "C-RJ-006",
+    "constituency_name": "Chittorgarh",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-RJ-007",
+    "full_name": "Damodar Agarwal",
+    "party": "IND",
+    "state_code": "RJ",
+    "constituency_code": "C-RJ-007",
+    "constituency_name": "Bhilwara",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-RJ-008",
+    "full_name": "Dushyant Singh",
+    "party": "IND",
+    "state_code": "RJ",
+    "constituency_code": "C-RJ-008",
+    "constituency_name": "Jhalawar-Baran",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-RJ-009",
+    "full_name": "Gajendra Singh Shekhawat",
+    "party": "IND",
+    "state_code": "RJ",
+    "constituency_code": "C-RJ-009",
+    "constituency_name": "Jodhpur",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-RJ-010",
+    "full_name": "Harish Chandra Meena",
+    "party": "IND",
+    "state_code": "RJ",
+    "constituency_code": "C-RJ-010",
+    "constituency_name": "Tonk-Sawai Madhopur",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-RJ-011",
+    "full_name": "Kuldeep Indora",
+    "party": "IND",
+    "state_code": "RJ",
+    "constituency_code": "C-RJ-011",
+    "constituency_name": "Ganganagar(Sc)",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-RJ-012",
+    "full_name": "Lumbaram",
+    "party": "IND",
+    "state_code": "RJ",
+    "constituency_code": "C-RJ-012",
+    "constituency_name": "Jalore",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-RJ-013",
+    "full_name": "Mahima Kumari Mewar",
+    "party": "IND",
+    "state_code": "RJ",
+    "constituency_code": "C-RJ-013",
+    "constituency_name": "Rajsamand",
+    "annual_allocation": 183892143.0
+  },
+  {
+    "mp_id": "MP-RJ-014",
+    "full_name": "Manju Sharma",
+    "party": "IND",
+    "state_code": "RJ",
+    "constituency_code": "C-RJ-014",
+    "constituency_name": "Jaipur",
+    "annual_allocation": 167082901.11
+  },
+  {
+    "mp_id": "MP-RJ-015",
+    "full_name": "Manna Lal Rawat",
+    "party": "IND",
+    "state_code": "RJ",
+    "constituency_code": "C-RJ-015",
+    "constituency_name": "Udaipur(St)",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-RJ-016",
+    "full_name": "Murari Lal Meena",
+    "party": "IND",
+    "state_code": "RJ",
+    "constituency_code": "C-RJ-016",
+    "constituency_name": "Dausa(St)",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-RJ-017",
+    "full_name": "Om Birla",
+    "party": "IND",
+    "state_code": "RJ",
+    "constituency_code": "C-RJ-017",
+    "constituency_name": "Kota",
+    "annual_allocation": 163906956.6
+  },
+  {
+    "mp_id": "MP-RJ-018",
+    "full_name": "Rahul Kaswan",
+    "party": "IND",
+    "state_code": "RJ",
+    "constituency_code": "C-RJ-018",
+    "constituency_name": "Churu",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-RJ-019",
+    "full_name": "Raj Kumar Roat",
+    "party": "IND",
+    "state_code": "RJ",
+    "constituency_code": "C-RJ-019",
+    "constituency_name": "Banswara(St)",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-RJ-020",
+    "full_name": "Rao Rajendra Singh",
+    "party": "IND",
+    "state_code": "RJ",
+    "constituency_code": "C-RJ-020",
+    "constituency_name": "Jaipur Rural",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-RJ-021",
+    "full_name": "Sanjna Jatav",
+    "party": "IND",
+    "state_code": "RJ",
+    "constituency_code": "C-RJ-021",
+    "constituency_name": "Bharatpur(Sc)",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-RJ-022",
+    "full_name": "Shri Arjun Ram Meghwal",
+    "party": "IND",
+    "state_code": "RJ",
+    "constituency_code": "C-RJ-022",
+    "constituency_name": "Bikaner(Sc)",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-RJ-023",
+    "full_name": "Shri Hanuman Beniwal",
+    "party": "IND",
+    "state_code": "RJ",
+    "constituency_code": "C-RJ-023",
+    "constituency_name": "Nagaur",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-RJ-024",
+    "full_name": "Shri Pp Chaudhary",
+    "party": "IND",
+    "state_code": "RJ",
+    "constituency_code": "C-RJ-024",
+    "constituency_name": "Pali",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-RJ-025",
+    "full_name": "Ummeda Ram Beniwal",
+    "party": "IND",
+    "state_code": "RJ",
+    "constituency_code": "C-RJ-025",
+    "constituency_name": "Barmer",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-SK-001",
+    "full_name": "Indra Hang Subba",
+    "party": "IND",
+    "state_code": "SK",
+    "constituency_code": "C-SK-001",
+    "constituency_name": "Sikkim",
+    "annual_allocation": 152003923.11
+  },
+  {
+    "mp_id": "MP-TN-001",
+    "full_name": "Andimuthu Raja",
+    "party": "IND",
+    "state_code": "TN",
+    "constituency_code": "C-TN-001",
+    "constituency_name": "Nilgiris(Sc)",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-TN-002",
+    "full_name": "Arun Nehru",
+    "party": "IND",
+    "state_code": "TN",
+    "constituency_code": "C-TN-002",
+    "constituency_name": "Perambalur",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-TN-003",
+    "full_name": "Cn Annadurai",
+    "party": "IND",
+    "state_code": "TN",
+    "constituency_code": "C-TN-003",
+    "constituency_name": "Tiruvannamalai",
+    "annual_allocation": 148579509.11
+  },
+  {
+    "mp_id": "MP-TN-004",
+    "full_name": "D M Kathir Anand",
+    "party": "IND",
+    "state_code": "TN",
+    "constituency_code": "C-TN-004",
+    "constituency_name": "Vellore",
+    "annual_allocation": 160196941.11
+  },
+  {
+    "mp_id": "MP-TN-005",
+    "full_name": "D Ravikumar",
+    "party": "IND",
+    "state_code": "TN",
+    "constituency_code": "C-TN-005",
+    "constituency_name": "Viluppuram(Sc)",
+    "annual_allocation": 197598306.11
+  },
+  {
+    "mp_id": "MP-TN-006",
+    "full_name": "Dr Rani Sri Kumar",
+    "party": "IND",
+    "state_code": "TN",
+    "constituency_code": "C-TN-006",
+    "constituency_name": "Tenkasi(Sc)",
+    "annual_allocation": 153060922.82
+  },
+  {
+    "mp_id": "MP-TN-007",
+    "full_name": "Durai Vaiko",
+    "party": "IND",
+    "state_code": "TN",
+    "constituency_code": "C-TN-007",
+    "constituency_name": "Tiruchirappalli",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-TN-008",
+    "full_name": "Eswarasamy K",
+    "party": "IND",
+    "state_code": "TN",
+    "constituency_code": "C-TN-008",
+    "constituency_name": "Pollachi",
+    "annual_allocation": 162315106.11
+  },
+  {
+    "mp_id": "MP-TN-009",
+    "full_name": "Ganapathy Rajkumar P",
+    "party": "IND",
+    "state_code": "TN",
+    "constituency_code": "C-TN-009",
+    "constituency_name": "Coimbatore",
+    "annual_allocation": 147370490.11
+  },
+  {
+    "mp_id": "MP-TN-010",
+    "full_name": "Ganesan Selvam",
+    "party": "IND",
+    "state_code": "TN",
+    "constituency_code": "C-TN-010",
+    "constituency_name": "Kancheepuram(Sc)",
+    "annual_allocation": 186508749.11
+  },
+  {
+    "mp_id": "MP-TN-011",
+    "full_name": "Gopinath K",
+    "party": "IND",
+    "state_code": "TN",
+    "constituency_code": "C-TN-011",
+    "constituency_name": "Krishnagiri",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-TN-012",
+    "full_name": "K E Prakash",
+    "party": "IND",
+    "state_code": "TN",
+    "constituency_code": "C-TN-012",
+    "constituency_name": "Erode",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-TN-013",
+    "full_name": "K Subbarayan",
+    "party": "IND",
+    "state_code": "TN",
+    "constituency_code": "C-TN-013",
+    "constituency_name": "Tiruppur",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-TN-014",
+    "full_name": "Kalanidhi Veeraswamy",
+    "party": "IND",
+    "state_code": "TN",
+    "constituency_code": "C-TN-014",
+    "constituency_name": "Chennai North",
+    "annual_allocation": 171500000.0
+  },
+  {
+    "mp_id": "MP-TN-015",
+    "full_name": "Kani K Navas",
+    "party": "IND",
+    "state_code": "TN",
+    "constituency_code": "C-TN-015",
+    "constituency_name": "Ramanathapuram",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-TN-016",
+    "full_name": "Kanimozhi Karunanidhi",
+    "party": "IND",
+    "state_code": "TN",
+    "constituency_code": "C-TN-016",
+    "constituency_name": "Thoothukkudi",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-TN-017",
+    "full_name": "M.K. Vishnuprasad",
+    "party": "IND",
+    "state_code": "TN",
+    "constituency_code": "C-TN-017",
+    "constituency_name": "Cuddalore",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-TN-018",
+    "full_name": "Malaiyarasan D",
+    "party": "IND",
+    "state_code": "TN",
+    "constituency_code": "C-TN-018",
+    "constituency_name": "Kallakurichi",
+    "annual_allocation": 201599593.0
+  },
+  {
+    "mp_id": "MP-TN-019",
+    "full_name": "Mani. A.",
+    "party": "IND",
+    "state_code": "TN",
+    "constituency_code": "C-TN-019",
+    "constituency_name": "Dharamapuri",
+    "annual_allocation": 164515071.11
+  },
+  {
+    "mp_id": "MP-TN-020",
+    "full_name": "Manickam Tagore B",
+    "party": "IND",
+    "state_code": "TN",
+    "constituency_code": "C-TN-020",
+    "constituency_name": "Virudhunagar",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-TN-021",
+    "full_name": "Murasoli S",
+    "party": "IND",
+    "state_code": "TN",
+    "constituency_code": "C-TN-021",
+    "constituency_name": "Thanjavur",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-TN-022",
+    "full_name": "Robert Bruce C",
+    "party": "IND",
+    "state_code": "TN",
+    "constituency_code": "C-TN-022",
+    "constituency_name": "Tirunelveli",
+    "annual_allocation": 147475440.11
+  },
+  {
+    "mp_id": "MP-TN-023",
+    "full_name": "S Venkatesan",
+    "party": "IND",
+    "state_code": "TN",
+    "constituency_code": "C-TN-023",
+    "constituency_name": "Madurai",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-TN-024",
+    "full_name": "S. Jagathrakshakan",
+    "party": "IND",
+    "state_code": "TN",
+    "constituency_code": "C-TN-024",
+    "constituency_name": "Arakkonam",
+    "annual_allocation": 180589332.34
+  },
+  {
+    "mp_id": "MP-TN-025",
+    "full_name": "Sachithanantham R",
+    "party": "IND",
+    "state_code": "TN",
+    "constituency_code": "C-TN-025",
+    "constituency_name": "Dindigul",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-TN-026",
+    "full_name": "Sasikanth Senthil",
+    "party": "IND",
+    "state_code": "TN",
+    "constituency_code": "C-TN-026",
+    "constituency_name": "Tiruvallur(Sc)",
+    "annual_allocation": 171500000.0
+  },
+  {
+    "mp_id": "MP-TN-027",
+    "full_name": "Selvaganapathi T M",
+    "party": "IND",
+    "state_code": "TN",
+    "constituency_code": "C-TN-027",
+    "constituency_name": "Salem",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-TN-028",
+    "full_name": "Selvaraj V",
+    "party": "IND",
+    "state_code": "TN",
+    "constituency_code": "C-TN-028",
+    "constituency_name": "Nagapattinam(Sc)",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-TN-029",
+    "full_name": "Shri Karti P Chidambaram",
+    "party": "IND",
+    "state_code": "TN",
+    "constituency_code": "C-TN-029",
+    "constituency_name": "Sivaganga",
+    "annual_allocation": 159049284.11
+  },
+  {
+    "mp_id": "MP-TN-030",
+    "full_name": "Shri Vijayakumar Vasanth",
+    "party": "IND",
+    "state_code": "TN",
+    "constituency_code": "C-TN-030",
+    "constituency_name": "Kanniyakumari",
+    "annual_allocation": 171500000.0
+  },
+  {
+    "mp_id": "MP-TN-031",
+    "full_name": "Smt S Jothimani",
+    "party": "IND",
+    "state_code": "TN",
+    "constituency_code": "C-TN-031",
+    "constituency_name": "Karur",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-TN-032",
+    "full_name": "Sudha R",
+    "party": "IND",
+    "state_code": "TN",
+    "constituency_code": "C-TN-032",
+    "constituency_name": "Mayiladuthurai",
+    "annual_allocation": 147332315.11
+  },
+  {
+    "mp_id": "MP-TN-033",
+    "full_name": "T Sumathy (A) Thamizhachi Thangapandian",
+    "party": "IND",
+    "state_code": "TN",
+    "constituency_code": "C-TN-033",
+    "constituency_name": "Chennai South",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-TN-034",
+    "full_name": "Thalikkottai Rajuthevar Baalu",
+    "party": "IND",
+    "state_code": "TN",
+    "constituency_code": "C-TN-034",
+    "constituency_name": "Sriperumbudur",
+    "annual_allocation": 196905535.11
+  },
+  {
+    "mp_id": "MP-TN-035",
+    "full_name": "Thanga Tamilselvan",
+    "party": "IND",
+    "state_code": "TN",
+    "constituency_code": "C-TN-035",
+    "constituency_name": "Theni",
+    "annual_allocation": 167755939.81
+  },
+  {
+    "mp_id": "MP-TN-036",
+    "full_name": "Tharaniventhan M S",
+    "party": "IND",
+    "state_code": "TN",
+    "constituency_code": "C-TN-036",
+    "constituency_name": "Arani",
+    "annual_allocation": 168337124.35
+  },
+  {
+    "mp_id": "MP-TN-037",
+    "full_name": "Thiru Dayanidhi Maran",
+    "party": "IND",
+    "state_code": "TN",
+    "constituency_code": "C-TN-037",
+    "constituency_name": "Chennai Central",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-TN-038",
+    "full_name": "Thirumaa Valavan Thol",
+    "party": "IND",
+    "state_code": "TN",
+    "constituency_code": "C-TN-038",
+    "constituency_name": "Chidambaram(Sc)",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-TN-039",
+    "full_name": "V S Matheswaran",
+    "party": "IND",
+    "state_code": "TN",
+    "constituency_code": "C-TN-039",
+    "constituency_name": "Namakkal",
+    "annual_allocation": 162539930.11
+  },
+  {
+    "mp_id": "MP-TR-001",
+    "full_name": "Biplab Kumar Deb",
+    "party": "IND",
+    "state_code": "TR",
+    "constituency_code": "C-TR-001",
+    "constituency_name": "Tripura West",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-TR-002",
+    "full_name": "Kriti Devi Debbarman",
+    "party": "IND",
+    "state_code": "TR",
+    "constituency_code": "C-TR-002",
+    "constituency_name": "Tripura East(St)",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-TS-001",
+    "full_name": "Aruna. D. K",
+    "party": "IND",
+    "state_code": "TS",
+    "constituency_code": "C-TS-001",
+    "constituency_name": "Mahabubnagar",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-TS-002",
+    "full_name": "Arvind Dharmapuri",
+    "party": "IND",
+    "state_code": "TS",
+    "constituency_code": "C-TS-002",
+    "constituency_name": "Nizamabad",
+    "annual_allocation": 281396355.11
+  },
+  {
+    "mp_id": "MP-TS-003",
+    "full_name": "Asaduddin Owaisi",
+    "party": "IND",
+    "state_code": "TS",
+    "constituency_code": "C-TS-003",
+    "constituency_name": "Hyderabad",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-TS-004",
+    "full_name": "Balram Naik Porika",
+    "party": "IND",
+    "state_code": "TS",
+    "constituency_code": "C-TS-004",
+    "constituency_name": "Mahabubabad",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-TS-005",
+    "full_name": "Chamala Kiran Kumar Reddy",
+    "party": "IND",
+    "state_code": "TS",
+    "constituency_code": "C-TS-005",
+    "constituency_name": "Bhongir",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-TS-006",
+    "full_name": "Dr.Mallu Ravi",
+    "party": "IND",
+    "state_code": "TS",
+    "constituency_code": "C-TS-006",
+    "constituency_name": "Nagarkurnool(Sc)",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-TS-007",
+    "full_name": "Eatala Rajender",
+    "party": "IND",
+    "state_code": "TS",
+    "constituency_code": "C-TS-007",
+    "constituency_name": "Malkajgiri",
+    "annual_allocation": 327477390.86
+  },
+  {
+    "mp_id": "MP-TS-008",
+    "full_name": "Godam Nagesh",
+    "party": "IND",
+    "state_code": "TS",
+    "constituency_code": "C-TS-008",
+    "constituency_name": "Adilabad(St)",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-TS-009",
+    "full_name": "Kadiyam Kavya",
+    "party": "IND",
+    "state_code": "TS",
+    "constituency_code": "C-TS-009",
+    "constituency_name": "Warangel(Sc)",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-TS-010",
+    "full_name": "Kishan Reddy Gangapuram",
+    "party": "IND",
+    "state_code": "TS",
+    "constituency_code": "C-TS-010",
+    "constituency_name": "Secunderabad",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-TS-011",
+    "full_name": "Konda Vishweshwar Reddy",
+    "party": "IND",
+    "state_code": "TS",
+    "constituency_code": "C-TS-011",
+    "constituency_name": "Chelvella",
+    "annual_allocation": 233721420.96
+  },
+  {
+    "mp_id": "MP-TS-012",
+    "full_name": "Kunduru Raghuveer",
+    "party": "IND",
+    "state_code": "TS",
+    "constituency_code": "C-TS-012",
+    "constituency_name": "Nalgonda",
+    "annual_allocation": 162952022.0
+  },
+  {
+    "mp_id": "MP-TS-013",
+    "full_name": "Madhavaneni Raghunandan Rao",
+    "party": "IND",
+    "state_code": "TS",
+    "constituency_code": "C-TS-013",
+    "constituency_name": "Medak",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-TS-014",
+    "full_name": "Ramasahayam Raghuram Reddy",
+    "party": "IND",
+    "state_code": "TS",
+    "constituency_code": "C-TS-014",
+    "constituency_name": "Khammam",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-TS-015",
+    "full_name": "Sanjay Kumar Bandi",
+    "party": "IND",
+    "state_code": "TS",
+    "constituency_code": "C-TS-015",
+    "constituency_name": "Karimnagar",
+    "annual_allocation": 172775317.11
+  },
+  {
+    "mp_id": "MP-TS-016",
+    "full_name": "Suresh Kumar Shetkar",
+    "party": "IND",
+    "state_code": "TS",
+    "constituency_code": "C-TS-016",
+    "constituency_name": "Zahirabad",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-TS-017",
+    "full_name": "Vamsi Krishna Gaddam",
+    "party": "IND",
+    "state_code": "TS",
+    "constituency_code": "C-TS-017",
+    "constituency_name": "Peddapalle",
+    "annual_allocation": 148451721.11
+  },
+  {
+    "mp_id": "MP-UK-001",
+    "full_name": "Ajay Bhatt",
+    "party": "IND",
+    "state_code": "UK",
+    "constituency_code": "C-UK-001",
+    "constituency_name": "Nainital Udham Singh Nag.",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-UK-002",
+    "full_name": "Ajay Tamta",
+    "party": "IND",
+    "state_code": "UK",
+    "constituency_code": "C-UK-002",
+    "constituency_name": "Almora(Sc)",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-UK-003",
+    "full_name": "Anil Baluni",
+    "party": "IND",
+    "state_code": "UK",
+    "constituency_code": "C-UK-003",
+    "constituency_name": "Garhwal",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-UK-004",
+    "full_name": "Mala Rajya Laxmi Shah",
+    "party": "IND",
+    "state_code": "UK",
+    "constituency_code": "C-UK-004",
+    "constituency_name": "Tehri Garhwal",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-UK-005",
+    "full_name": "Trivendra Singh Rawat",
+    "party": "IND",
+    "state_code": "UK",
+    "constituency_code": "C-UK-005",
+    "constituency_name": "Hardwar",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-UP-001",
+    "full_name": "Aditya Yadav",
+    "party": "IND",
+    "state_code": "UP",
+    "constituency_code": "C-UP-001",
+    "constituency_name": "Badaun",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-UP-002",
+    "full_name": "Afzal Ansari",
+    "party": "IND",
+    "state_code": "UP",
+    "constituency_code": "C-UP-002",
+    "constituency_name": "Ghazipur",
+    "annual_allocation": 220500000.0
+  },
+  {
+    "mp_id": "MP-UP-003",
+    "full_name": "Ajendra Singh Lodhi",
+    "party": "IND",
+    "state_code": "UP",
+    "constituency_code": "C-UP-003",
+    "constituency_name": "Hamirpur_Up",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-UP-004",
+    "full_name": "Akhilesh Yadav",
+    "party": "IND",
+    "state_code": "UP",
+    "constituency_code": "C-UP-004",
+    "constituency_name": "Kannauj",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-UP-005",
+    "full_name": "Akshaya Yadav",
+    "party": "IND",
+    "state_code": "UP",
+    "constituency_code": "C-UP-005",
+    "constituency_name": "Firozabad",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-UP-006",
+    "full_name": "Anand Bhadauriya",
+    "party": "IND",
+    "state_code": "UP",
+    "constituency_code": "C-UP-006",
+    "constituency_name": "Dhaurahra",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-UP-007",
+    "full_name": "Anand Kumar",
+    "party": "IND",
+    "state_code": "UP",
+    "constituency_code": "C-UP-007",
+    "constituency_name": "Bahraich(Sc)",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-UP-008",
+    "full_name": "Anoop Pradhan Balmiki",
+    "party": "IND",
+    "state_code": "UP",
+    "constituency_code": "C-UP-008",
+    "constituency_name": "Hathras (Sc)",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-UP-009",
+    "full_name": "Anurag Sharma",
+    "party": "IND",
+    "state_code": "UP",
+    "constituency_code": "C-UP-009",
+    "constituency_name": "Jhansi",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-UP-010",
+    "full_name": "Arun Govil",
+    "party": "IND",
+    "state_code": "UP",
+    "constituency_code": "C-UP-010",
+    "constituency_name": "Meerut",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-UP-011",
+    "full_name": "Ashok Kumar Rawat",
+    "party": "IND",
+    "state_code": "UP",
+    "constituency_code": "C-UP-011",
+    "constituency_name": "Misrikh(Sc)",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-UP-012",
+    "full_name": "Atul Garg",
+    "party": "IND",
+    "state_code": "UP",
+    "constituency_code": "C-UP-012",
+    "constituency_name": "Ghaziabad",
+    "annual_allocation": 155336470.0
+  },
+  {
+    "mp_id": "MP-UP-013",
+    "full_name": "Awadhesh Prasad",
+    "party": "IND",
+    "state_code": "UP",
+    "constituency_code": "C-UP-013",
+    "constituency_name": "Faizabad",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-UP-014",
+    "full_name": "Babu Singh Kushwaha",
+    "party": "IND",
+    "state_code": "UP",
+    "constituency_code": "C-UP-014",
+    "constituency_name": "Jaunpur",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-UP-015",
+    "full_name": "Bhola Singh",
+    "party": "IND",
+    "state_code": "UP",
+    "constituency_code": "C-UP-015",
+    "constituency_name": "Bulandshahr(Sc)",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-UP-016",
+    "full_name": "Chandan Chauhan",
+    "party": "IND",
+    "state_code": "UP",
+    "constituency_code": "C-UP-016",
+    "constituency_name": "Bijnor",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-UP-017",
+    "full_name": "Chandra Shekhar",
+    "party": "IND",
+    "state_code": "UP",
+    "constituency_code": "C-UP-017",
+    "constituency_name": "Nagina(Sc)",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-UP-018",
+    "full_name": "Chhatra Pal Singh Gangwar",
+    "party": "IND",
+    "state_code": "UP",
+    "constituency_code": "C-UP-018",
+    "constituency_name": "Bareilly",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-UP-019",
+    "full_name": "Chhotelal",
+    "party": "IND",
+    "state_code": "UP",
+    "constituency_code": "C-UP-019",
+    "constituency_name": "Robertsganj(Sc)",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-UP-020",
+    "full_name": "Daroga Prasad Saroj",
+    "party": "IND",
+    "state_code": "UP",
+    "constituency_code": "C-UP-020",
+    "constituency_name": "Lalganj (Sc)",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-UP-021",
+    "full_name": "Devendra Alias Bhole Singh",
+    "party": "IND",
+    "state_code": "UP",
+    "constituency_code": "C-UP-021",
+    "constituency_name": "Akbarpur",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-UP-022",
+    "full_name": "Devesh Shakya",
+    "party": "IND",
+    "state_code": "UP",
+    "constituency_code": "C-UP-022",
+    "constituency_name": "Etah",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-UP-023",
+    "full_name": "Dharmendra Yadav",
+    "party": "IND",
+    "state_code": "UP",
+    "constituency_code": "C-UP-023",
+    "constituency_name": "Azamgarh",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-UP-024",
+    "full_name": "Dr Rajkumar Sangwan",
+    "party": "IND",
+    "state_code": "UP",
+    "constituency_code": "C-UP-024",
+    "constituency_name": "Baghpat",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-UP-025",
+    "full_name": "Dr. S P Singh",
+    "party": "IND",
+    "state_code": "UP",
+    "constituency_code": "C-UP-025",
+    "constituency_name": "Pratapgarh",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-UP-026",
+    "full_name": "Harendra Singh Malik",
+    "party": "IND",
+    "state_code": "UP",
+    "constituency_code": "C-UP-026",
+    "constituency_name": "Muzaffarnagar",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-UP-027",
+    "full_name": "Imran Masood",
+    "party": "IND",
+    "state_code": "UP",
+    "constituency_code": "C-UP-027",
+    "constituency_name": "Saharanpur",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-UP-028",
+    "full_name": "Iqra Choudhary",
+    "party": "IND",
+    "state_code": "UP",
+    "constituency_code": "C-UP-028",
+    "constituency_name": "Kairana",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-UP-029",
+    "full_name": "Jagdambika Pal",
+    "party": "IND",
+    "state_code": "UP",
+    "constituency_code": "C-UP-029",
+    "constituency_name": "Domariyaganj",
+    "annual_allocation": 160643957.11
+  },
+  {
+    "mp_id": "MP-UP-030",
+    "full_name": "Jai Prakash",
+    "party": "IND",
+    "state_code": "UP",
+    "constituency_code": "C-UP-030",
+    "constituency_name": "Hardoi (Sc)",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-UP-031",
+    "full_name": "Jitendra Kumar Dohare",
+    "party": "IND",
+    "state_code": "UP",
+    "constituency_code": "C-UP-031",
+    "constituency_name": "Etawah(Sc)",
+    "annual_allocation": 188747306.26
+  },
+  {
+    "mp_id": "MP-UP-032",
+    "full_name": "Jitin Prasada",
+    "party": "IND",
+    "state_code": "UP",
+    "constituency_code": "C-UP-032",
+    "constituency_name": "Pilibhit",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-UP-033",
+    "full_name": "Kamlesh Paswan",
+    "party": "IND",
+    "state_code": "UP",
+    "constituency_code": "C-UP-033",
+    "constituency_name": "Bansgaon(Sc)",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-UP-034",
+    "full_name": "Kanwar Singh Tanwar",
+    "party": "IND",
+    "state_code": "UP",
+    "constituency_code": "C-UP-034",
+    "constituency_name": "Amroha",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-UP-035",
+    "full_name": "Karan Bhushan Singh",
+    "party": "IND",
+    "state_code": "UP",
+    "constituency_code": "C-UP-035",
+    "constituency_name": "Kaiserganj",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-UP-036",
+    "full_name": "Kirti Vardhan Singh",
+    "party": "IND",
+    "state_code": "UP",
+    "constituency_code": "C-UP-036",
+    "constituency_name": "Gonda",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-UP-037",
+    "full_name": "Kishori Lal",
+    "party": "IND",
+    "state_code": "UP",
+    "constituency_code": "C-UP-037",
+    "constituency_name": "Amethi",
+    "annual_allocation": 171500000.0
+  },
+  {
+    "mp_id": "MP-UP-038",
+    "full_name": "Krishna Devi Shivshanker Patel",
+    "party": "IND",
+    "state_code": "UP",
+    "constituency_code": "C-UP-038",
+    "constituency_name": "Banda",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-UP-039",
+    "full_name": "Lalji Verma",
+    "party": "IND",
+    "state_code": "UP",
+    "constituency_code": "C-UP-039",
+    "constituency_name": "Ambedkar Nagar",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-UP-040",
+    "full_name": "Laxmikant Pappu Nishad",
+    "party": "IND",
+    "state_code": "UP",
+    "constituency_code": "C-UP-040",
+    "constituency_name": "Sant Kabir Nagar",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-UP-041",
+    "full_name": "Mahesh Sharma",
+    "party": "IND",
+    "state_code": "UP",
+    "constituency_code": "C-UP-041",
+    "constituency_name": "Gautam Buddha Nagar",
+    "annual_allocation": 148816284.11
+  },
+  {
+    "mp_id": "MP-UP-042",
+    "full_name": "Mohibbullah",
+    "party": "IND",
+    "state_code": "UP",
+    "constituency_code": "C-UP-042",
+    "constituency_name": "Rampur",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-UP-043",
+    "full_name": "Mukesh Rajput",
+    "party": "IND",
+    "state_code": "UP",
+    "constituency_code": "C-UP-043",
+    "constituency_name": "Farrukhabad",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-UP-044",
+    "full_name": "Narayan Das Ahirwar",
+    "party": "IND",
+    "state_code": "UP",
+    "constituency_code": "C-UP-044",
+    "constituency_name": "Jalaun(Sc)",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-UP-045",
+    "full_name": "Naresh Chandra Uttam Patel",
+    "party": "IND",
+    "state_code": "UP",
+    "constituency_code": "C-UP-045",
+    "constituency_name": "Fatehpur",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-UP-046",
+    "full_name": "Neeraj Maurya",
+    "party": "IND",
+    "state_code": "UP",
+    "constituency_code": "C-UP-046",
+    "constituency_name": "Aonla",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-UP-047",
+    "full_name": "Pankaj Chowdhary",
+    "party": "IND",
+    "state_code": "UP",
+    "constituency_code": "C-UP-047",
+    "constituency_name": "Maharajganj_Up",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-UP-048",
+    "full_name": "Praveen Patel",
+    "party": "IND",
+    "state_code": "UP",
+    "constituency_code": "C-UP-048",
+    "constituency_name": "Phulpur",
+    "annual_allocation": 151559884.09
+  },
+  {
+    "mp_id": "MP-UP-049",
+    "full_name": "Priya Saroj",
+    "party": "IND",
+    "state_code": "UP",
+    "constituency_code": "C-UP-049",
+    "constituency_name": "Machhlishahr(Sc)",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-UP-050",
+    "full_name": "Prof Sp Singh Baghel",
+    "party": "IND",
+    "state_code": "UP",
+    "constituency_code": "C-UP-050",
+    "constituency_name": "Agra(Sc)",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-UP-051",
+    "full_name": "Pushpendra Saroj",
+    "party": "IND",
+    "state_code": "UP",
+    "constituency_code": "C-UP-051",
+    "constituency_name": "Kaushambi(Sc)",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-UP-052",
+    "full_name": "R.K. Chaudhary",
+    "party": "IND",
+    "state_code": "UP",
+    "constituency_code": "C-UP-052",
+    "constituency_name": "Mohanlalganj(Sc)",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-UP-053",
+    "full_name": "Rahul Gandhi",
+    "party": "IND",
+    "state_code": "UP",
+    "constituency_code": "C-UP-053",
+    "constituency_name": "Rae Bareli",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-UP-054",
+    "full_name": "Rajeev Rai",
+    "party": "IND",
+    "state_code": "UP",
+    "constituency_code": "C-UP-054",
+    "constituency_name": "Ghosi",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-UP-055",
+    "full_name": "Rajkumar Chahar",
+    "party": "IND",
+    "state_code": "UP",
+    "constituency_code": "C-UP-055",
+    "constituency_name": "Fatehpur Sikri",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-UP-056",
+    "full_name": "Rajnath Singh",
+    "party": "IND",
+    "state_code": "UP",
+    "constituency_code": "C-UP-056",
+    "constituency_name": "Lucknow",
+    "annual_allocation": 154808797.11
+  },
+  {
+    "mp_id": "MP-UP-057",
+    "full_name": "Rakesh Rathor",
+    "party": "IND",
+    "state_code": "UP",
+    "constituency_code": "C-UP-057",
+    "constituency_name": "Sitapur",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-UP-058",
+    "full_name": "Ram Prasad Chaudhary",
+    "party": "IND",
+    "state_code": "UP",
+    "constituency_code": "C-UP-058",
+    "constituency_name": "Basti",
+    "annual_allocation": 204176957.11
+  },
+  {
+    "mp_id": "MP-UP-059",
+    "full_name": "Ram Shiromani",
+    "party": "IND",
+    "state_code": "UP",
+    "constituency_code": "C-UP-059",
+    "constituency_name": "Shrawasti",
+    "annual_allocation": 151746878.11
+  },
+  {
+    "mp_id": "MP-UP-060",
+    "full_name": "Ramashankar Rajbhar",
+    "party": "IND",
+    "state_code": "UP",
+    "constituency_code": "C-UP-060",
+    "constituency_name": "Salempur",
+    "annual_allocation": 160056927.07
+  },
+  {
+    "mp_id": "MP-UP-061",
+    "full_name": "Rambhual Nishad",
+    "party": "IND",
+    "state_code": "UP",
+    "constituency_code": "C-UP-061",
+    "constituency_name": "Sultanpur",
+    "annual_allocation": 151231957.11
+  },
+  {
+    "mp_id": "MP-UP-062",
+    "full_name": "Ramesh Awasthi",
+    "party": "IND",
+    "state_code": "UP",
+    "constituency_code": "C-UP-062",
+    "constituency_name": "Kanpur",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-UP-063",
+    "full_name": "Ravindra Shyamnarayan Alias Ravi Kishan Shukla",
+    "party": "IND",
+    "state_code": "UP",
+    "constituency_code": "C-UP-063",
+    "constituency_name": "Gorakhpur",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-UP-064",
+    "full_name": "Ruchi Vira",
+    "party": "IND",
+    "state_code": "UP",
+    "constituency_code": "C-UP-064",
+    "constituency_name": "Moradabad",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-UP-065",
+    "full_name": "Sanatan Pandey",
+    "party": "IND",
+    "state_code": "UP",
+    "constituency_code": "C-UP-065",
+    "constituency_name": "Ballia",
+    "annual_allocation": 180420041.4
+  },
+  {
+    "mp_id": "MP-UP-066",
+    "full_name": "Shashank Mani",
+    "party": "IND",
+    "state_code": "UP",
+    "constituency_code": "C-UP-066",
+    "constituency_name": "Deoria",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-UP-067",
+    "full_name": "Shri Arun Kumar Sagar",
+    "party": "IND",
+    "state_code": "UP",
+    "constituency_code": "C-UP-067",
+    "constituency_name": "Shahjahanpur(Sc)",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-UP-068",
+    "full_name": "Shri Narendra Modi",
+    "party": "IND",
+    "state_code": "UP",
+    "constituency_code": "C-UP-068",
+    "constituency_name": "Varanasi",
+    "annual_allocation": 162070276.11
+  },
+  {
+    "mp_id": "MP-UP-069",
+    "full_name": "Shri Satish Kumar Gautam",
+    "party": "IND",
+    "state_code": "UP",
+    "constituency_code": "C-UP-069",
+    "constituency_name": "Aligarh",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-UP-070",
+    "full_name": "Smt Anupriya Patel",
+    "party": "IND",
+    "state_code": "UP",
+    "constituency_code": "C-UP-070",
+    "constituency_name": "Mirzapur",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-UP-071",
+    "full_name": "Smt Dimple Yadav",
+    "party": "IND",
+    "state_code": "UP",
+    "constituency_code": "C-UP-071",
+    "constituency_name": "Mainpuri",
+    "annual_allocation": 192042469.11
+  },
+  {
+    "mp_id": "MP-UP-072",
+    "full_name": "Smt Hema Malini",
+    "party": "IND",
+    "state_code": "UP",
+    "constituency_code": "C-UP-072",
+    "constituency_name": "Mathura",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-UP-073",
+    "full_name": "Swami Sachchidanandhari Sakshi Ji Maharaj",
+    "party": "IND",
+    "state_code": "UP",
+    "constituency_code": "C-UP-073",
+    "constituency_name": "Unnao",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-UP-074",
+    "full_name": "Tanuj Punia",
+    "party": "IND",
+    "state_code": "UP",
+    "constituency_code": "C-UP-074",
+    "constituency_name": "Barabanki(Sc)",
+    "annual_allocation": 148198170.11
+  },
+  {
+    "mp_id": "MP-UP-075",
+    "full_name": "Ujjwal Raman Singh",
+    "party": "IND",
+    "state_code": "UP",
+    "constituency_code": "C-UP-075",
+    "constituency_name": "Allahabad",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-UP-076",
+    "full_name": "Utkarsh Verma Madhur",
+    "party": "IND",
+    "state_code": "UP",
+    "constituency_code": "C-UP-076",
+    "constituency_name": "Kheri",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-UP-077",
+    "full_name": "Vijay Kumar Dubey",
+    "party": "IND",
+    "state_code": "UP",
+    "constituency_code": "C-UP-077",
+    "constituency_name": "Kushi Nagar",
+    "annual_allocation": 148900000.0
+  },
+  {
+    "mp_id": "MP-UP-078",
+    "full_name": "Vinod Kumar Bind",
+    "party": "IND",
+    "state_code": "UP",
+    "constituency_code": "C-UP-078",
+    "constituency_name": "Bhadohi",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-UP-079",
+    "full_name": "Virendra Singh",
+    "party": "IND",
+    "state_code": "UP",
+    "constituency_code": "C-UP-079",
+    "constituency_name": "Chandauli",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-UP-080",
+    "full_name": "Zia Ur Rehman",
+    "party": "IND",
+    "state_code": "UP",
+    "constituency_code": "C-UP-080",
+    "constituency_name": "Sambhal",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-WB-001",
+    "full_name": "Abhijit Gangopadhyay",
+    "party": "IND",
+    "state_code": "WB",
+    "constituency_code": "C-WB-001",
+    "constituency_name": "Tamluk",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-WB-002",
+    "full_name": "Abu Taher Khan",
+    "party": "IND",
+    "state_code": "WB",
+    "constituency_code": "C-WB-002",
+    "constituency_name": "Murshidabad",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-WB-003",
+    "full_name": "Adhikari Soumendu",
+    "party": "IND",
+    "state_code": "WB",
+    "constituency_code": "C-WB-003",
+    "constituency_name": "Kanthi",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-WB-004",
+    "full_name": "Arup Chakraborty",
+    "party": "IND",
+    "state_code": "WB",
+    "constituency_code": "C-WB-004",
+    "constituency_name": "Bankura",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-WB-005",
+    "full_name": "Asit Kumar Mal",
+    "party": "IND",
+    "state_code": "WB",
+    "constituency_code": "C-WB-005",
+    "constituency_name": "Bolpur(Sc)",
+    "annual_allocation": 275694456.74
+  },
+  {
+    "mp_id": "MP-WB-006",
+    "full_name": "Azad Kirti Jha",
+    "party": "IND",
+    "state_code": "WB",
+    "constituency_code": "C-WB-006",
+    "constituency_name": "Bardhaman-Durgapur",
+    "annual_allocation": 179658399.98
+  },
+  {
+    "mp_id": "MP-WB-007",
+    "full_name": "Bag Mitali",
+    "party": "IND",
+    "state_code": "WB",
+    "constituency_code": "C-WB-007",
+    "constituency_name": "Arambag(Sc)",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-WB-008",
+    "full_name": "Bapi Haldar",
+    "party": "IND",
+    "state_code": "WB",
+    "constituency_code": "C-WB-008",
+    "constituency_name": "Mathurapur(Sc)",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-WB-009",
+    "full_name": "Dr Jayanta Kumar Roy",
+    "party": "IND",
+    "state_code": "WB",
+    "constituency_code": "C-WB-009",
+    "constituency_name": "Jalpaiguri(Sc)",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-WB-010",
+    "full_name": "Dr Sukanta Majumdar",
+    "party": "IND",
+    "state_code": "WB",
+    "constituency_code": "C-WB-010",
+    "constituency_name": "Balurghat",
+    "annual_allocation": 157085364.9
+  },
+  {
+    "mp_id": "MP-WB-011",
+    "full_name": "Dr. Sharmila Sarkar",
+    "party": "IND",
+    "state_code": "WB",
+    "constituency_code": "C-WB-011",
+    "constituency_name": "Bardhaman Purba(Sc)",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-WB-012",
+    "full_name": "Isha Khan Choudhury",
+    "party": "IND",
+    "state_code": "WB",
+    "constituency_code": "C-WB-012",
+    "constituency_name": "Maldaha Dakshin",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-WB-013",
+    "full_name": "Jagadish Chandra Barma Basunia",
+    "party": "IND",
+    "state_code": "WB",
+    "constituency_code": "C-WB-013",
+    "constituency_name": "Coochbehar(Sc)",
+    "annual_allocation": 168604641.11
+  },
+  {
+    "mp_id": "MP-WB-014",
+    "full_name": "Jagannath Sarkar",
+    "party": "IND",
+    "state_code": "WB",
+    "constituency_code": "C-WB-014",
+    "constituency_name": "Ranaghat(Sc)",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-WB-015",
+    "full_name": "June Maliah",
+    "party": "IND",
+    "state_code": "WB",
+    "constituency_code": "C-WB-015",
+    "constituency_name": "Medinipur",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-WB-016",
+    "full_name": "Kakoli Ghosh Dastidar",
+    "party": "IND",
+    "state_code": "WB",
+    "constituency_code": "C-WB-016",
+    "constituency_name": "Barasat",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-WB-017",
+    "full_name": "Kalipada Saren",
+    "party": "IND",
+    "state_code": "WB",
+    "constituency_code": "C-WB-017",
+    "constituency_name": "Jhargram(St)",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-WB-018",
+    "full_name": "Kalyan Banerjee",
+    "party": "IND",
+    "state_code": "WB",
+    "constituency_code": "C-WB-018",
+    "constituency_name": "Sreerampur",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-WB-019",
+    "full_name": "Kartick Chandra Paul",
+    "party": "IND",
+    "state_code": "WB",
+    "constituency_code": "C-WB-019",
+    "constituency_name": "Raiganj",
+    "annual_allocation": 202677986.56
+  },
+  {
+    "mp_id": "MP-WB-020",
+    "full_name": "Khagen Murmu",
+    "party": "IND",
+    "state_code": "WB",
+    "constituency_code": "C-WB-020",
+    "constituency_name": "Maldaha Uttar",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-WB-021",
+    "full_name": "Khalilur Rahaman",
+    "party": "IND",
+    "state_code": "WB",
+    "constituency_code": "C-WB-021",
+    "constituency_name": "Jangipur",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-WB-022",
+    "full_name": "Mala Roy",
+    "party": "IND",
+    "state_code": "WB",
+    "constituency_code": "C-WB-022",
+    "constituency_name": "Kolkata Dakshin",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-WB-023",
+    "full_name": "Manoj Tigga",
+    "party": "IND",
+    "state_code": "WB",
+    "constituency_code": "C-WB-023",
+    "constituency_name": "Alipurduars(St)",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-WB-024",
+    "full_name": "Ms Mahua Moitra",
+    "party": "IND",
+    "state_code": "WB",
+    "constituency_code": "C-WB-024",
+    "constituency_name": "Krishnanagar",
+    "annual_allocation": 159865046.0
+  },
+  {
+    "mp_id": "MP-WB-025",
+    "full_name": "Partha Bhowmick",
+    "party": "IND",
+    "state_code": "WB",
+    "constituency_code": "C-WB-025",
+    "constituency_name": "Barrackpur",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-WB-026",
+    "full_name": "Pathan Yusuf",
+    "party": "IND",
+    "state_code": "WB",
+    "constituency_code": "C-WB-026",
+    "constituency_name": "Baharampur",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-WB-027",
+    "full_name": "Prasun Banerjee",
+    "party": "IND",
+    "state_code": "WB",
+    "constituency_code": "C-WB-027",
+    "constituency_name": "Howrah",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-WB-028",
+    "full_name": "Pratima Mondal",
+    "party": "IND",
+    "state_code": "WB",
+    "constituency_code": "C-WB-028",
+    "constituency_name": "Joynagar(Sc)",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-WB-029",
+    "full_name": "Prof Sougata Ray",
+    "party": "IND",
+    "state_code": "WB",
+    "constituency_code": "C-WB-029",
+    "constituency_name": "Dum Dum",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-WB-030",
+    "full_name": "Rachna Banerjee",
+    "party": "IND",
+    "state_code": "WB",
+    "constituency_code": "C-WB-030",
+    "constituency_name": "Hooghly",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-WB-031",
+    "full_name": "Raju Bista",
+    "party": "IND",
+    "state_code": "WB",
+    "constituency_code": "C-WB-031",
+    "constituency_name": "Darjeeling",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-WB-032",
+    "full_name": "Saumitra Khan",
+    "party": "IND",
+    "state_code": "WB",
+    "constituency_code": "C-WB-032",
+    "constituency_name": "Bishnupur(Sc)",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-WB-033",
+    "full_name": "Sayani Ghosh",
+    "party": "IND",
+    "state_code": "WB",
+    "constituency_code": "C-WB-033",
+    "constituency_name": "Jadavpur",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-WB-034",
+    "full_name": "Shatrughan Sinha",
+    "party": "IND",
+    "state_code": "WB",
+    "constituency_code": "C-WB-034",
+    "constituency_name": "Asansol",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-WB-035",
+    "full_name": "Shri Abhishek Banerjee",
+    "party": "IND",
+    "state_code": "WB",
+    "constituency_code": "C-WB-035",
+    "constituency_name": "Diamond Harbour",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-WB-036",
+    "full_name": "Shri Deepak (Dev) Adhikari",
+    "party": "IND",
+    "state_code": "WB",
+    "constituency_code": "C-WB-036",
+    "constituency_name": "Ghatal",
+    "annual_allocation": 200747364.0
+  },
+  {
+    "mp_id": "MP-WB-037",
+    "full_name": "Shri Jyotirmay Singh Mahato",
+    "party": "IND",
+    "state_code": "WB",
+    "constituency_code": "C-WB-037",
+    "constituency_name": "Purulia",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-WB-038",
+    "full_name": "Shri Shantanu Thakur",
+    "party": "IND",
+    "state_code": "WB",
+    "constituency_code": "C-WB-038",
+    "constituency_name": "Bangaon(Sc)",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-WB-039",
+    "full_name": "Sk Nurul Islam",
+    "party": "IND",
+    "state_code": "WB",
+    "constituency_code": "C-WB-039",
+    "constituency_name": "Basirhat",
+    "annual_allocation": 49000000.0
+  },
+  {
+    "mp_id": "MP-WB-040",
+    "full_name": "Smt Sajda Ahmed",
+    "party": "IND",
+    "state_code": "WB",
+    "constituency_code": "C-WB-040",
+    "constituency_name": "Uluberia",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-WB-041",
+    "full_name": "Smt Satabdi Roy (Banerjee)",
+    "party": "IND",
+    "state_code": "WB",
+    "constituency_code": "C-WB-041",
+    "constituency_name": "Birbhum",
+    "annual_allocation": 147000000.0
+  },
+  {
+    "mp_id": "MP-WB-042",
+    "full_name": "Sudip Bandyopadhyay",
+    "party": "IND",
+    "state_code": "WB",
+    "constituency_code": "C-WB-042",
+    "constituency_name": "Kolkata Uttar",
+    "annual_allocation": 147000000.0
+  }
+]
