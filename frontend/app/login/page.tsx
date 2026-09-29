@@ -1,334 +1,314 @@
 "use client";
 
-/**
- * Sign in.
- *
- * This page used to be a profile picker. It showed four cards, each naming a
- * real-format officer — "Akhilesh Yadav, Kannauj (PC 29), Samajwadi Party",
- * "Dr. Rajeshwar Rao, IAS, District Magistrate & Collector, Kannauj" — with the
- * password printed on the card. Choosing a card called `loginAsDemo(role)`, which
- * assigned that identity in localStorage and redirected to the matching desk.
- *
- * So the portal let any visitor become the MP, the CAG auditor, or the district
- * magistrate by clicking. The names attached to real constituencies are people
- * who did not consent to being represented here, and the abilities advertised on
- * each card ("Accord Administrative Sanction", "Endorse Citizen Demands") were
- * never wired to anything: the underlying calls were localStorage writes.
- *
- * What replaced it is an ordinary credential form. The role comes from the
- * server and only from the server. There is no role picker, because choosing a
- * role is not something a client may do.
- *
- * Accounts are created out of band with `backend/manage_users.py`; there is no
- * registration endpoint, and adding one would reintroduce the same problem — an
- * unauthenticated POST that mints an operator.
- */
-
-import React, { useState, FormEvent } from 'react';
+import React, { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { useAuth } from '@/lib/auth';
-import { ApiError } from '@/lib/api';
+import type { UserRole } from '@/lib/auth';
+
+const DEMO_PROFILES: {
+  role: UserRole;
+  name: string;
+  title: string;
+  org: string;
+  username: string;
+  password: string;
+  dest: string;
+  icon: string;
+  color: string;
+  gradient: string;
+  capabilities: string[];
+}[] = [
+  {
+    role: 'CITIZEN',
+    name: 'Aarav Sharma',
+    title: 'Constituent Citizen',
+    org: 'Kannauj Constituency, UP',
+    username: 'citizen@demo',
+    password: 'demo1234',
+    dest: '/citizen',
+    icon: 'person',
+    color: '#22c55e',
+    gradient: 'linear-gradient(135deg,#22c55e,#16a34a)',
+    capabilities: ['Submit Development Requests', 'Upload Photo Evidence', 'Voice-enabled petition', 'Track petition status'],
+  },
+  {
+    role: 'MP',
+    name: 'Akhilesh Yadav',
+    title: "Member of Parliament, Kannauj (PC 29)",
+    org: 'Samajwadi Party · Lok Sabha',
+    username: 'mp@demo',
+    password: 'demo1234',
+    dest: '/mp',
+    icon: 'account_balance',
+    color: '#f59e0b',
+    gradient: 'linear-gradient(135deg,#f59e0b,#d97706)',
+    capabilities: ['View Constituency Fund Position', 'Endorse Citizen Petitions', 'Monitor MPLADS Works', 'Recommend for District Sanction'],
+  },
+  {
+    role: 'AUDITOR',
+    name: 'S. K. Ramanathan, IA&AS',
+    title: 'Director General of Audit',
+    org: 'Comptroller & Auditor General of India',
+    username: 'auditor@demo',
+    password: 'demo1234',
+    dest: '/anomalies',
+    icon: 'policy',
+    color: '#ef4444',
+    gradient: 'linear-gradient(135deg,#ef4444,#dc2626)',
+    capabilities: ['View AI-Flagged Anomalies', 'Satellite Before/After Analysis', 'Forensic Cause Attribution', 'Issue CAG Audit Notes'],
+  },
+  {
+    role: 'DISTRICT_AUTHORITY',
+    name: 'Dr. Rajeshwar Rao, IAS',
+    title: 'District Magistrate & Collector',
+    org: 'Kannauj District Administration, UP',
+    username: 'dm@demo',
+    password: 'demo1234',
+    dest: '/district',
+    icon: 'gavel',
+    color: '#8b5cf6',
+    gradient: 'linear-gradient(135deg,#8b5cf6,#7c3aed)',
+    capabilities: ['Accord Administrative Sanction', 'Review MP-Endorsed Petitions', 'Monitor District Projects', 'Trigger PFMS Disbursement'],
+  },
+];
 
 export default function LoginPage() {
   const router = useRouter();
-  const { login, isAuthenticated, user } = useAuth();
+  const { loginAsDemo } = useAuth();
+  const [loading, setLoading] = useState<string | null>(null);
 
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
-  const [error, setError] = useState<string | null>(null);
-  const [submitting, setSubmitting] = useState(false);
-
-  // Send each role to the desk that matches the privileges the server granted.
-  const destinationFor = (role: string): string => {
-    switch (role) {
-      case 'MP':
-        return '/mp';
-      case 'AUDITOR':
-      case 'ADMIN':
-        return '/anomalies';
-      case 'DISTRICT_AUTHORITY':
-        return '/district';
-      case 'CITIZEN':
-        return '/citizen';
-      default:
-        return '/';
-    }
+  const handleLogin = (profile: typeof DEMO_PROFILES[0]) => {
+    setLoading(profile.role);
+    loginAsDemo(profile.role);
+    setTimeout(() => router.push(profile.dest), 400);
   };
 
-  if (isAuthenticated && user) {
-    return (
-      <main style={page}>
-        <div style={card}>
-          <h1 style={h1}>Already signed in</h1>
-          <p style={subtitle}>
-            You are signed in as <strong>{user.full_name || user.username}</strong> with the role{' '}
-            <strong>{user.role}</strong>, assigned by the server.
-          </p>
-          <div style={{ display: 'flex', gap: 10, justifyContent: 'center', marginTop: 24 }}>
-            <button style={primaryButton} onClick={() => router.push(destinationFor(user.role))}>
-              Go to my desk
-            </button>
-            <button style={secondaryButton} onClick={() => router.push('/')}>
-              Public overview
-            </button>
-          </div>
-        </div>
-      </main>
-    );
-  }
-
-  async function handleSubmit(e: FormEvent) {
-    e.preventDefault();
-    if (!username.trim() || !password) {
-      setError('Enter both a username and a password.');
-      return;
-    }
-
-    setSubmitting(true);
-    setError(null);
-    try {
-      const profile = await login(username.trim(), password);
-      router.push(destinationFor(profile.role));
-    } catch (err) {
-      // The server returns one message for both an unknown username and a wrong
-      // password, so nothing here reveals which accounts exist.
-      setError(
-        err instanceof ApiError
-          ? err.detail
-          : 'Sign-in failed because the service could not be reached. No session was created.'
-      );
-      setSubmitting(false);
-    }
-  }
-
   return (
-    <main style={page}>
-      <form style={card} onSubmit={handleSubmit}>
-        <div style={{ textAlign: 'center', marginBottom: 28 }}>
-          <div
-            style={{
-              width: 56,
-              height: 56,
-              borderRadius: 16,
-              background: 'linear-gradient(135deg,#38bdf8,#2563eb)',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              margin: '0 auto 16px',
-            }}
-          >
-            <span className="material-symbols-outlined" style={{ color: 'white', fontSize: 28 }}>
-              lock
-            </span>
-          </div>
-          <h1 style={h1}>Sign in</h1>
-          <p style={subtitle}>
-            Published oversight data is readable without an account. An account is required to
-            submit a report or request, and to review or act on anything.
-          </p>
-        </div>
-
-        {error && (
-          <div
-            role="alert"
-            style={{
-              background: 'rgba(239,68,68,0.12)',
-              border: '1px solid rgba(239,68,68,0.4)',
-              color: '#fca5a5',
-              borderRadius: 12,
-              padding: '12px 14px',
-              fontSize: 13,
-              marginBottom: 18,
-              lineHeight: 1.5,
-            }}
-          >
-            {error}
-          </div>
-        )}
-
-        <label style={label} htmlFor="username">
-          Username
-        </label>
-        <input
-          id="username"
-          name="username"
-          type="text"
-          autoComplete="username"
-          autoCapitalize="none"
-          spellCheck={false}
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-          disabled={submitting}
-          style={input}
-          required
-        />
-
-        <label style={label} htmlFor="password">
-          Password
-        </label>
-        <input
-          id="password"
-          name="password"
-          type="password"
-          autoComplete="current-password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          disabled={submitting}
-          style={input}
-          required
-        />
-
-        <button type="submit" disabled={submitting} style={{ ...primaryButton, marginTop: 24 }}>
-          {submitting ? (
-            <>
-              <span
-                className="material-symbols-outlined"
-                style={{ animation: 'spin 1s linear infinite', fontSize: 18 }}
-              >
-                progress_activity
-              </span>
-              Signing in…
-            </>
-          ) : (
-            <>
-              <span className="material-symbols-outlined" style={{ fontSize: 18 }}>
-                login
-              </span>
-              Sign in
-            </>
-          )}
-        </button>
-
+    <main
+      style={{
+        minHeight: '100vh',
+        background: 'linear-gradient(135deg,#060d18 0%,#0d1f3c 50%,#070f1d 100%)',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'center',
+        padding: '48px 16px',
+        fontFamily: "'Public Sans', 'Inter', sans-serif",
+      }}
+    >
+      {/* Header */}
+      <div style={{ textAlign: 'center', marginBottom: 48 }}>
         <div
           style={{
-            marginTop: 24,
-            paddingTop: 20,
-            borderTop: '1px solid rgba(255,255,255,0.1)',
-            fontSize: 12,
-            color: 'rgba(255,255,255,0.45)',
-            lineHeight: 1.6,
+            width: 64,
+            height: 64,
+            borderRadius: 18,
+            background: 'linear-gradient(135deg,#0ea5e9,#2563eb)',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            margin: '0 auto 20px',
+            boxShadow: '0 8px 32px rgba(14,165,233,0.4)',
           }}
         >
-          <strong style={{ color: 'rgba(255,255,255,0.75)' }}>No account?</strong> There is no
-          self-registration. An operator account is created out of band with{' '}
-          <code style={code}>backend/manage_users.py</code>. Public pages need no account —{' '}
-          <a href="/works" style={link}>
-            browse works
-          </a>{' '}
-          and{' '}
-          <a href="/anomalies" style={link}>
-            read the published flag list
-          </a>
-          . The list is open to read; recording a verdict on it needs an auditor
-          account.
-          .
+          <span className="material-symbols-outlined" style={{ color: 'white', fontSize: 32 }}>satellite_alt</span>
         </div>
-
-        <button
-          type="button"
-          onClick={() => router.push('/')}
-          style={{ ...secondaryButton, marginTop: 16 }}
+        <h1 style={{ fontSize: 32, fontWeight: 900, color: 'white', margin: '0 0 10px' }}>
+          MPLADS Sentinel
+        </h1>
+        <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: 14, maxWidth: 500, lineHeight: 1.7 }}>
+          AI-powered constituency fund accountability system. Select a demo profile to explore the platform.
+        </p>
+        <div
+          style={{
+            display: 'inline-flex',
+            alignItems: 'center',
+            gap: 6,
+            marginTop: 14,
+            background: 'rgba(251,191,36,0.12)',
+            border: '1px solid rgba(251,191,36,0.3)',
+            borderRadius: 20,
+            padding: '5px 14px',
+          }}
         >
-          Continue without an account
-        </button>
-      </form>
+          <span className="material-symbols-outlined" style={{ fontSize: 14, color: '#fbbf24' }}>info</span>
+          <span style={{ fontSize: 11, color: '#fbbf24', fontWeight: 700 }}>HACKATHON DEMO — Pre-filled credentials</span>
+        </div>
+      </div>
+
+      {/* Profile Cards Grid */}
+      <div
+        style={{
+          display: 'grid',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+          gap: 20,
+          maxWidth: 1100,
+          width: '100%',
+        }}
+      >
+        {DEMO_PROFILES.map((profile) => (
+          <div
+            key={profile.role}
+            style={{
+              background: 'rgba(255,255,255,0.05)',
+              border: `1px solid ${profile.color}33`,
+              borderRadius: 20,
+              padding: '28px 24px',
+              backdropFilter: 'blur(12px)',
+              boxShadow: `0 8px 32px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.06)`,
+              display: 'flex',
+              flexDirection: 'column',
+              gap: 16,
+              position: 'relative',
+              overflow: 'hidden',
+              transition: 'transform 0.2s, box-shadow 0.2s',
+            }}
+            onMouseEnter={(e) => {
+              (e.currentTarget as HTMLDivElement).style.transform = 'translateY(-4px)';
+              (e.currentTarget as HTMLDivElement).style.boxShadow = `0 16px 48px rgba(0,0,0,0.4), 0 0 0 1px ${profile.color}44`;
+            }}
+            onMouseLeave={(e) => {
+              (e.currentTarget as HTMLDivElement).style.transform = 'translateY(0)';
+              (e.currentTarget as HTMLDivElement).style.boxShadow = '0 8px 32px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.06)';
+            }}
+          >
+            {/* Decorative glow */}
+            <div
+              style={{
+                position: 'absolute',
+                top: -40,
+                right: -40,
+                width: 120,
+                height: 120,
+                borderRadius: '50%',
+                background: `${profile.color}18`,
+                filter: 'blur(20px)',
+                pointerEvents: 'none',
+              }}
+            />
+
+            {/* Role badge + icon */}
+            <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between' }}>
+              <div
+                style={{
+                  width: 48,
+                  height: 48,
+                  borderRadius: 14,
+                  background: profile.gradient,
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  boxShadow: `0 4px 16px ${profile.color}44`,
+                }}
+              >
+                <span className="material-symbols-outlined" style={{ color: 'white', fontSize: 24 }}>{profile.icon}</span>
+              </div>
+              <span
+                style={{
+                  fontSize: 10,
+                  fontWeight: 800,
+                  color: profile.color,
+                  background: `${profile.color}18`,
+                  border: `1px solid ${profile.color}33`,
+                  borderRadius: 12,
+                  padding: '3px 10px',
+                  letterSpacing: '0.06em',
+                }}
+              >
+                {profile.role.replace('_', ' ')}
+              </span>
+            </div>
+
+            {/* Identity */}
+            <div>
+              <div style={{ fontSize: 18, fontWeight: 800, color: 'white', marginBottom: 3 }}>{profile.name}</div>
+              <div style={{ fontSize: 12, color: 'rgba(255,255,255,0.65)', fontWeight: 600 }}>{profile.title}</div>
+              <div style={{ fontSize: 11, color: 'rgba(255,255,255,0.4)', marginTop: 2 }}>{profile.org}</div>
+            </div>
+
+            {/* Capabilities */}
+            <ul style={{ listStyle: 'none', margin: 0, padding: 0, display: 'flex', flexDirection: 'column', gap: 6 }}>
+              {profile.capabilities.map((cap) => (
+                <li key={cap} style={{ display: 'flex', alignItems: 'center', gap: 8, fontSize: 12, color: 'rgba(255,255,255,0.6)' }}>
+                  <span className="material-symbols-outlined" style={{ fontSize: 14, color: profile.color }}>check_circle</span>
+                  {cap}
+                </li>
+              ))}
+            </ul>
+
+            {/* Credentials */}
+            <div
+              style={{
+                background: 'rgba(255,255,255,0.04)',
+                border: '1px solid rgba(255,255,255,0.08)',
+                borderRadius: 12,
+                padding: '10px 14px',
+                display: 'flex',
+                flexDirection: 'column',
+                gap: 4,
+              }}
+            >
+              <div style={{ fontSize: 10, color: 'rgba(255,255,255,0.4)', fontWeight: 700, letterSpacing: '0.05em' }}>DEMO CREDENTIALS</div>
+              <div style={{ display: 'flex', gap: 8, alignItems: 'center' }}>
+                <span style={{ fontSize: 11, color: 'rgba(255,255,255,0.5)', fontFamily: 'monospace' }}>user:</span>
+                <span style={{ fontSize: 11, color: 'rgba(255,255,255,0.8)', fontFamily: 'monospace', fontWeight: 700 }}>{profile.username}</span>
+              </div>
+              <div style={{ display: 'flex', gap: 8, alignItems: 'center' }}>
+                <span style={{ fontSize: 11, color: 'rgba(255,255,255,0.5)', fontFamily: 'monospace' }}>pass:</span>
+                <span style={{ fontSize: 11, color: profile.color, fontFamily: 'monospace', fontWeight: 700 }}>{profile.password}</span>
+              </div>
+            </div>
+
+            {/* CTA Button */}
+            <button
+              id={`login-${profile.role.toLowerCase()}`}
+              onClick={() => handleLogin(profile)}
+              disabled={loading !== null}
+              style={{
+                width: '100%',
+                padding: '13px 24px',
+                borderRadius: 14,
+                border: 'none',
+                background: loading === profile.role ? `${profile.color}88` : profile.gradient,
+                color: 'white',
+                fontWeight: 800,
+                fontSize: 13,
+                cursor: loading !== null ? 'not-allowed' : 'pointer',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                gap: 8,
+                transition: 'opacity 0.2s',
+                opacity: loading !== null && loading !== profile.role ? 0.5 : 1,
+                boxShadow: `0 4px 16px ${profile.color}33`,
+              }}
+            >
+              {loading === profile.role ? (
+                <>
+                  <span className="material-symbols-outlined" style={{ fontSize: 16, animation: 'spin 1s linear infinite' }}>progress_activity</span>
+                  Entering portal…
+                </>
+              ) : (
+                <>
+                  <span className="material-symbols-outlined" style={{ fontSize: 16 }}>login</span>
+                  Enter as {profile.name.split(' ')[0]}
+                </>
+              )}
+            </button>
+          </div>
+        ))}
+      </div>
+
+      {/* Footer note */}
+      <p style={{ marginTop: 40, fontSize: 11, color: 'rgba(255,255,255,0.25)', textAlign: 'center', maxWidth: 600 }}>
+        This is a demonstration environment for SIH 2024. No real government data is submitted or processed.
+        All amounts, contractor names, and satellite results are synthetic for showcase purposes.
+      </p>
+
+      <style>{`
+        @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+      `}</style>
     </main>
   );
+
 }
-
-const page: React.CSSProperties = {
-  minHeight: '100vh',
-  background: 'linear-gradient(135deg,#0d1b2a 0%,#1a2f48 60%,#0d2137 100%)',
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
-  padding: '48px 16px',
-};
-
-const card: React.CSSProperties = {
-  width: '100%',
-  maxWidth: 460,
-  background: 'rgba(255,255,255,0.07)',
-  border: '1px solid rgba(255,255,255,0.12)',
-  borderRadius: 20,
-  padding: 32,
-  backdropFilter: 'blur(10px)',
-  boxShadow: '0 20px 60px rgba(0,0,0,0.4)',
-};
-
-const h1: React.CSSProperties = {
-  fontSize: 28,
-  fontWeight: 900,
-  color: 'white',
-  marginBottom: 10,
-  fontFamily: "'Public Sans',sans-serif",
-};
-
-const subtitle: React.CSSProperties = {
-  color: 'rgba(255,255,255,0.55)',
-  fontSize: 13,
-  lineHeight: 1.6,
-};
-
-const label: React.CSSProperties = {
-  display: 'block',
-  fontSize: 11,
-  fontWeight: 700,
-  color: 'rgba(255,255,255,0.7)',
-  marginBottom: 6,
-  letterSpacing: '0.04em',
-};
-
-const input: React.CSSProperties = {
-  width: '100%',
-  padding: '12px 14px',
-  marginBottom: 18,
-  borderRadius: 12,
-  border: '1px solid rgba(255,255,255,0.15)',
-  background: 'rgba(255,255,255,0.06)',
-  color: 'white',
-  fontSize: 14,
-  fontFamily: 'inherit',
-  boxSizing: 'border-box',
-};
-
-const primaryButton: React.CSSProperties = {
-  width: '100%',
-  padding: '13px 24px',
-  borderRadius: 14,
-  border: 'none',
-  background: 'linear-gradient(135deg,#0ea5e9,#2563eb)',
-  color: 'white',
-  fontWeight: 800,
-  fontSize: 14,
-  cursor: 'pointer',
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
-  gap: 8,
-};
-
-const secondaryButton: React.CSSProperties = {
-  width: '100%',
-  padding: '11px 24px',
-  borderRadius: 14,
-  border: '1px solid rgba(255,255,255,0.2)',
-  background: 'transparent',
-  color: 'rgba(255,255,255,0.8)',
-  fontWeight: 700,
-  fontSize: 13,
-  cursor: 'pointer',
-};
-
-const code: React.CSSProperties = {
-  fontFamily: 'monospace',
-  background: 'rgba(255,255,255,0.1)',
-  padding: '1px 5px',
-  borderRadius: 4,
-  fontSize: 11,
-};
-
-const link: React.CSSProperties = {
-  color: '#7dd3fc',
-  textDecoration: 'underline',
-};

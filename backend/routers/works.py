@@ -29,8 +29,15 @@ from fastapi import status as http_status
 from sqlalchemy import and_, exists, func, or_, select
 from sqlalchemy.ext.asyncio import AsyncSession
 
+from sqlalchemy.orm import selectinload
 from auth import ROLES_AUDIT, Principal, require_roles, viewer, write_audit_log
 from database import get_db
+from ml_catalog_loader import (
+    context_rules_for,
+    has_unevaluated,
+    matched_rules_for,
+    not_computed,
+)
 from models.models import RiskScore, SatelliteCheck, Work
 from schemas.schemas import (
     AuditNoteResponse,
@@ -41,6 +48,21 @@ from schemas.schemas import (
 from services.audit_note_service import audit_note_service
 
 router = APIRouter()
+STATE_CODE_ALIASES: dict[str, list[str]] = {
+    "OD": ["OD", "OR"],
+    "OR": ["OD", "OR"],
+    "TG": ["TG", "TS"],
+    "TS": ["TG", "TS"],
+    "CG": ["CG", "CT"],
+    "CT": ["CG", "CT"],
+    "UT": ["UT", "UK"],
+    "UK": ["UT", "UK"],
+}
+
+def _resolve_state_codes(code: str) -> list[str]:
+    c = code.strip().upper()
+    return STATE_CODE_ALIASES.get(c, [c])
+
 
 # Columns needed to build a WorkListItem. Selecting them explicitly (rather
 # than `select(Work)`) keeps the list response from pulling every heavy column.
@@ -83,6 +105,10 @@ def _as_float(value) -> Optional[float]:
     return float(value) if value is not None else None
 
 
+# Next's rewrite normalizes API paths without a trailing slash. Accept both
+# forms so that the frontend proxy cannot turn the documented slash form into
+# a FastAPI 307 redirect loop.
+@router.get("", response_model=list[WorkListItem], include_in_schema=False)
 @router.get("/", response_model=list[WorkListItem])
 async def list_works(
     state_code: Optional[str] = None,
@@ -127,7 +153,7 @@ async def list_works(
 
     filters = []
     if state_code:
-        filters.append(func.upper(Work.state_code) == state_code.strip().upper())
+        filters.append(func.upper(Work.state_code).in_(_resolve_state_codes(state_code)))
     if district_code:
         filters.append(Work.district_code == district_code)
     if district_name:
@@ -276,20 +302,25 @@ async def get_work(
     db: AsyncSession = Depends(get_db),
 ):
     """Get single work with full detail and risk score evidence chain."""
-    result = await db.execute(select(Work).where(Work.work_id == work_id))
+    result = await db.execute(
+        select(Work).options(selectinload(Work.risk_score)).where(Work.work_id == work_id)
+    )
     work = result.scalar_one_or_none()
     if not work:
         raise HTTPException(status_code=404, detail=f"Work {work_id} not found")
 
-    # Attach the risk score explicitly. The response model declares it as a
-    # nested object, and relying on lazy loading would raise in async.
-    score_result = await db.execute(
-        select(RiskScore).where(RiskScore.work_id == work_id)
-    )
-    risk = score_result.scalar_one_or_none()
+    risk = work.risk_score
 
     response = WorkResponse.model_validate(work)
     response.risk_score = RiskScoreResponse.model_validate(risk) if risk else None
+    # The catalog rules that matched, and the analyses that could not run, travel
+    # with the work. A detail page previously asked the client to explain the
+    # signals from a hardcoded map, so the explanation could assert measurements
+    # the scoring pass never made.
+    response.matched_rules = matched_rules_for(risk.evidence_chain if risk else None)
+    response.context_rules = context_rules_for(risk.evidence_chain if risk else None)
+    response.not_computed = not_computed()
+    response.incomplete_evaluation = has_unevaluated(risk.evidence_chain if risk else None)
     return response
 
 
@@ -333,10 +364,6 @@ async def get_audit_note(
         "composite_score": risk.composite_score,
         "confidence_tier": risk.confidence_tier,
         "isolation_score": risk.isolation_score,
-        "satellite_score": risk.satellite_score,
-        "weather_score": risk.weather_score,
-        "gstin_score": risk.gstin_score,
-        "cross_scheme_score": risk.cross_scheme_score,
     }
 
     note = await audit_note_service.generate(

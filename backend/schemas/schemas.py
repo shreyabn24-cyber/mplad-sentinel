@@ -85,6 +85,10 @@ class WorkBase(BaseModel):
 
 class WorkResponse(WorkBase):
     risk_score: Optional["RiskScoreResponse"] = None
+    matched_rules: list[dict[str, Any]] = []
+    context_rules: list[dict[str, Any]] = []
+    not_computed: list[dict[str, Any]] = []
+    incomplete_evaluation: bool = False
     model_config = {"from_attributes": True}
 
 
@@ -123,6 +127,14 @@ class WorkListItem(BaseModel):
     composite_score: Optional[float] = None
     confidence_tier: Optional[str] = None
     has_satellite_audit: bool = False
+    # Catalog rules that matched this work, each with the value that triggered
+    # it. The API serves the rule text at GET /anomalies/catalog; the explanation
+    # used to live in a hardcoded frontend map, which let the UI assert
+    # measurements the scoring pass never made.
+    matched_rules: list[dict[str, Any]] = []
+    context_rules: list[dict[str, Any]] = []
+    not_computed: list[dict[str, Any]] = []
+    incomplete_evaluation: bool = False
     model_config = {"from_attributes": True}
 
 
@@ -175,6 +187,27 @@ class AuditorReviewRequest(BaseModel):
 # Anomalies
 # ─────────────────────────────────────────────
 
+class RuleExplanation(BaseModel):
+    """The canonical anomaly catalog, served so the UI cannot invent one.
+
+    Rule text used to live in a hardcoded frontend map, which let the interface
+    describe measurements the backend never made. The catalog is a data
+    structure now: one file defines the rule, the test that evaluates it and the
+    wording shown to a reader, and the API serves that same file.
+
+    ``not_computed`` is part of the response on purpose. An analysis that cannot
+    run has to say so, because an absent check reads as a passed one.
+    """
+
+    schema_version: str
+    frozen_at: str
+    purpose: str
+    interpretation_contract: dict[str, str]
+    vocabulary: dict[str, str]
+    rules: list[dict[str, Any]]
+    not_computed: list[dict[str, Any]]
+
+
 class AnomalyCard(BaseModel):
     work_id: str
     official_work_ref: Optional[str] = None
@@ -187,6 +220,20 @@ class AnomalyCard(BaseModel):
     sanction_amount: Optional[float] = None
     composite_score: float
     confidence_tier: str
+    # Catalog rule ids that matched, each with the value that triggered it. Read
+    # this together with GET /anomalies/catalog, which defines what each rule
+    # means and what it does not mean.
+    matched_rules: list[dict[str, Any]] = []
+    # Rule ids excluded from candidacy because they are non-discriminative on
+    # this feed, e.g. most works are unsanctioned. Kept separate from
+    # matched_rules so a reviewer can see what matched without being misled that
+    # it made a work a candidate.
+    context_rules: list[dict[str, Any]] = []
+    # Analyses that could not run for any work, with the reason. Reported
+    # alongside the matches so their absence is never read as a clean result.
+    not_computed: list[dict[str, Any]] = []
+    # True when a rule could not be evaluated for this work at all.
+    incomplete_evaluation: bool = False
     active_signals: list[str] = []
     # Always masked in L1/L2, revealed in L3 after review
     mp_id_masked: Optional[str] = None
@@ -369,6 +416,7 @@ class CitizenDemandResponse(BaseModel):
     decided_by: Optional[str] = None
     decided_at: Optional[datetime] = None
     created_at: datetime
+    attachments: list[EvidenceAttachmentResponse] = Field(default_factory=list)
     model_config = {"from_attributes": True}
 
 
@@ -487,6 +535,9 @@ class NotificationMessage(BaseModel):
     severity: str = Field(default="INFO", pattern="^(INFO|WARNING|CRITICAL|SUCCESS)$")
     timestamp: str = ""
     target_roles: list[str] = Field(default_factory=list)
+    target_state_code: Optional[str] = Field(default=None, max_length=2)
+    target_district_name: Optional[str] = Field(default=None, max_length=100)
+    target_constituency_name: Optional[str] = Field(default=None, max_length=150)
 
     def is_broadcast(self) -> bool:
         """True when no specific audience was named, i.e. deliver to everyone.

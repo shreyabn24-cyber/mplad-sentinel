@@ -139,7 +139,9 @@ class Work(Base):
     state_name = Column(String(100))
     work_category = Column(String(60))
     city = Column(String(100))
-    ward = Column(String(50))
+    # The public feed sometimes stores full ward/locality descriptions here,
+    # not a short ward number; retain the source value without truncation.
+    ward = Column(Text)
     block = Column(String(100))
     village = Column(String(150))
     recommended_date = Column(Date)

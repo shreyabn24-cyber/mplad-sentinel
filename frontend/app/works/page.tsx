@@ -11,6 +11,7 @@ import Link from 'next/link';
 import { fetchWorks } from '@/lib/api';
 import { Work } from '@/lib/types';
 import { STATES } from '@/lib/states';
+import { useLanguage } from '@/lib/languageContext';
 
 const WORK_TYPES = [
   'ROAD',
@@ -76,6 +77,7 @@ function formatLakh(n?: number | null) {
 }
 
 export default function ProjectsExplorerPage() {
+  const { t } = useLanguage();
   const [works, setWorks] = useState<Work[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -173,10 +175,10 @@ export default function ProjectsExplorerPage() {
             className="text-[32px] leading-[40px] font-bold text-on-surface tracking-tight"
             style={{ fontFamily: "'Public Sans', sans-serif" }}
           >
-            MPLADS Projects Explorer
+            {t('projects_explorer', 'MPLADS Projects Explorer')}
           </h1>
           <p className="text-on-surface-variant mt-1">
-            Browse, search and filter all MPLADS-funded public works across India.
+            {t('browse_projects', 'Browse, search and filter all MPLADS-funded public works across India.')}
           </p>
         </div>
       </section>
@@ -192,7 +194,7 @@ export default function ProjectsExplorerPage() {
               <span className="material-symbols-outlined text-outline ml-space-md text-[24px]">search</span>
               <input
                 className="w-full px-space-md py-3 bg-transparent text-on-surface placeholder:text-outline focus:outline-none text-sm"
-                placeholder="Search by work ID, type, district, or state..."
+                placeholder={t('search_placeholder', 'Search by work ID, type, district, or state...')}
                 type="text"
                 value={search}
                 onChange={(e) => { setSearch(e.target.value); setPage(0); }}
@@ -235,7 +237,7 @@ export default function ProjectsExplorerPage() {
                 value={stateCode}
                 onChange={(e) => { setStateCode(e.target.value); setPage(0); }}
               >
-                <option value="">State: All States</option>
+                <option value="">{t('all_states', 'State: All States')}</option>
                 {STATES.map((s) => (
                   <option key={s.code} value={s.code}>{s.name}</option>
                 ))}
@@ -249,7 +251,7 @@ export default function ProjectsExplorerPage() {
                 value={status}
                 onChange={(e) => { setStatus(e.target.value); setPage(0); }}
               >
-                <option value="">Status: All</option>
+                <option value="">{t('all_status', 'Status: All')}</option>
                 {STATUSES.map((s) => (
                   <option key={s.value} value={s.value}>{s.label}</option>
                 ))}
@@ -263,9 +265,9 @@ export default function ProjectsExplorerPage() {
                 value={workType}
                 onChange={(e) => { setWorkType(e.target.value); setPage(0); }}
               >
-                <option value="">Type: All Sectors</option>
-                {WORK_TYPES.map((t) => (
-                  <option key={t} value={t}>{t.replace(/_/g, ' ')}</option>
+                <option value="">{t('all_types', 'Type: All Sectors')}</option>
+                {WORK_TYPES.map((wt) => (
+                  <option key={wt} value={wt}>{wt.replace(/_/g, ' ')}</option>
                 ))}
               </select>
               <span className="material-symbols-outlined absolute right-2 top-1.5 pointer-events-none text-outline text-[16px]">expand_more</span>
@@ -277,7 +279,7 @@ export default function ProjectsExplorerPage() {
                 value={schemeYear}
                 onChange={(e) => { setSchemeYear(e.target.value); setPage(0); }}
               >
-                <option value="">FY: All Years</option>
+                <option value="">{t('all_years', 'FY: All Years')}</option>
                 <option value="2026">FY 2025-2026</option>
                 <option value="2025">FY 2024-2025</option>
                 <option value="2024">FY 2023-2024</option>
@@ -290,7 +292,7 @@ export default function ProjectsExplorerPage() {
               onClick={resetFilters}
             >
               <span className="material-symbols-outlined text-[14px]">restart_alt</span>
-              Reset Filters
+              {t('reset_filters', 'Reset Filters')}
             </button>
           </div>
 

@@ -1,0 +1,475 @@
+{
+  "$schema_version": "1.0.0",
+  "frozen_at": "2026-09-28",
+  "title": "MPLADS Sentinel anomaly catalog",
+  "purpose": "Single source of truth for every rule the system can evaluate. Each entry states the fields it reads, how it is computed, what a match means, and — where the analysis cannot run — why not. The API serves this file at GET /api/v1/anomalies/catalog and the frontend renders from it, so a rule cannot be described one way in the API and another way in the UI.",
+  "interpretation_contract": {
+    "score_is_not_a_finding": "Every rule produces a review prompt. No rule establishes wrongdoing, and no combination of rules does either.",
+    "tiers_are_score_bands": "L1/L2/L3 are score bands produced by a ranking model. They are not confidence in a conclusion, not a severity of any offence, and not an audit classification.",
+    "not_computed_is_not_clean": "A rule with status NOT_COMPUTED has produced no evidence. It is never reported as a pass, and its absence from a work's rule list means nothing was looked for.",
+    "no_ground_truth": "This project has no labelled fraud dataset, so no rule here has a measured recall or precision. Thresholds are set from the observed distribution of the real feed, and are explicitly provisional.",
+    "coordinates_are_centroids": "reported_lat/reported_lon are OSM place centroids for a village, block, city or constituency. They are not surveyed work-site positions, so no rule may treat a coordinate as a precise site."
+  },
+  "vocabulary": {
+    "flag": "A record that matched at least one rule. Preferred over 'anomaly' or 'finding' in all user-facing text.",
+    "rule": "One named, testable condition over specific fields.",
+    "matched rule": "A rule whose condition held for a given work. Reported with the value that triggered it.",
+    "trigger value": "The measured value of the rule's field, recorded with the match so a reviewer can see why it fired.",
+    "not computed": "The analysis cannot run for want of a source. Distinct from 'no match' and from 'analysed, nothing found'.",
+    "review candidate": "A work a reviewer should look at. Not an allegation.",
+    "score band": "L1/L2/L3, a ranking band.",
+    "peer group": "The set of works a value is compared against — same state and work type, or same constituency and work type, as the rule states."
+  },
+  "rules": [
+    {
+      "id": "AMOUNT_OUTLIER_PEER_STATE",
+      "title": "Sanction amount far above comparable works in the same state",
+      "status": "COMPUTED",
+      "category": "AMOUNT",
+      "fields": [
+        "sanction_amount",
+        "state_name",
+        "work_type"
+      ],
+      "method": "Z-score of sanction_amount within the peer group formed by (state_name, work_type), where work_type is derived from the work description by keyword match. Peer groups with zero variance are excluded.",
+      "trigger": "z >= 2.0",
+      "threshold": 2.0,
+      "value_field": "amount_zscore_state_type",
+      "calibration": "On the 46,348-row feed: p90 = 0.92, p99 = 3.61, max = 31.06. A 2.0 cut selects roughly the top 2-3%.",
+      "means": "The sanctioned amount is far larger than works of the same type in the same state. Peer groups are small in some states and types, so a high z can also mean a thin comparison set.",
+      "does_not_mean": "That the amount is wrong. MPLADS works legitimately range from a few thousand rupees to over 1 crore in the same category, and no official per-work ceiling is available in the open feed to check against.",
+      "available_since": "2026-09-28",
+      "test": {
+        "feature": "amount_zscore_state_type",
+        "op": ">=",
+        "value": 2.0,
+        "format": "z_score"
+      },
+      "ranking_use": true
+    },
+    {
+      "id": "AMOUNT_OUTLIER_PEER_CONSTITUENCY",
+      "title": "Sanction amount far above comparable works in the same constituency",
+      "status": "COMPUTED",
+      "category": "AMOUNT",
+      "fields": [
+        "sanction_amount",
+        "constituency",
+        "work_type"
+      ],
+      "method": "Z-score of sanction_amount within the peer group formed by (constituency, work_type).",
+      "trigger": "z >= 2.0",
+      "threshold": 2.0,
+      "value_field": "amount_zscore_constituency_type",
+      "calibration": "p90 = 1.02, p99 = 3.36, max = 17.86.",
+      "means": "The amount stands out against works of the same type attributed to the same constituency in the feed. The comparison is within the dataset, which is a 17th Lok Sabha snapshot, so it is not a complete record of what a constituency spent.",
+      "does_not_mean": "That the constituency overspent. No per-constituency allocation is present in the work feed to compare the amount against.",
+      "available_since": "2026-09-28",
+      "test": {
+        "feature": "amount_zscore_constituency_type",
+        "op": ">=",
+        "value": 2.0,
+        "format": "z_score"
+      },
+      "ranking_use": true
+    },
+    {
+      "id": "AMOUNT_RATIO_PEER_MEDIAN",
+      "title": "Sanction amount many times the median for its state and type",
+      "status": "COMPUTED",
+      "category": "AMOUNT",
+      "fields": [
+        "sanction_amount",
+        "state_name",
+        "work_type"
+      ],
+      "method": "sanction_amount divided by the median sanction_amount of the (state_name, work_type) peer group, clipped at 50x. Reported alongside the z-scores because a ratio reads more directly than a z-score.",
+      "trigger": "ratio >= 5.0",
+      "threshold": 5.0,
+      "value_field": "amount_vs_peer_median",
+      "calibration": "median = 1.0, p90 = 2.07, p99 = 7.00. The clip is visible in the trigger value: a reported 50.0 means the true ratio is 50 or more.",
+      "means": "The work is several times larger than the typical work of its type and state.",
+      "does_not_mean": "That the work should have been split. MPLADS explicitly contemplates works of varying size, and a large single work is a normal outcome.",
+      "available_since": "2026-09-28",
+      "test": {
+        "feature": "amount_vs_peer_median",
+        "op": ">=",
+        "value": 5.0,
+        "format": "ratio"
+      },
+      "ranking_use": true
+    },
+    {
+      "id": "MP_AMOUNT_OUTLIER",
+      "title": "Sanction amount far above the MP's other works",
+      "status": "COMPUTED",
+      "category": "AMOUNT",
+      "fields": [
+        "sanction_amount",
+        "mp_name"
+      ],
+      "method": "Z-score of sanction_amount within all works attributed to the same MP in the feed.",
+      "trigger": "z >= 2.0",
+      "threshold": 2.0,
+      "value_field": "mp_amount_zscore",
+      "calibration": "p90 = 1.03, p99 = 3.89, max = 15.92.",
+      "means": "This work is much larger than the MP's other works in this dataset.",
+      "does_not_mean": "That the amount exceeded an entitlement or a cap. Entitlement figures exist separately in the MP roster feed and are not cross-checked against individual work amounts here.",
+      "available_since": "2026-09-28",
+      "test": {
+        "feature": "mp_amount_zscore",
+        "op": ">=",
+        "value": 2.0,
+        "format": "z_score"
+      },
+      "ranking_use": true
+    },
+    {
+      "id": "SANCTIONED_WITHOUT_IDA_APPROVAL",
+      "title": "Work recorded as sanctioned while IDA approval is still pending",
+      "status": "COMPUTED",
+      "category": "PROCESS",
+      "fields": [
+        "status",
+        "ida_approval"
+      ],
+      "method": "status == 'Sanctioned' and ida_approval contains 'action pending' (case-insensitive).",
+      "trigger": "status == Sanctioned AND ida_approval contains 'action pending'",
+      "threshold": 1,
+      "value_field": "sanctioned_without_ida_approval",
+      "calibration": "Zero matches across all 46,348 rows.",
+      "means": "The feed reports the work as sanctioned while its own approval field says the Implementing Development Agency's action is pending.",
+      "does_not_mean": "That an improper sanction occurred. The two fields are populated independently by the portal and may simply be updated at different times. Zero matches in this snapshot is consistent with either correct process or simply no such combination occurring.",
+      "available_since": "2026-09-28",
+      "test": {
+        "feature": "sanctioned_without_ida_approval",
+        "op": "==",
+        "value": 1,
+        "format": "flag"
+      },
+      "ranking_use": true
+    },
+    {
+      "id": "IDA_REJECTED",
+      "title": "Implementing Development Agency rejected the proposal",
+      "status": "COMPUTED",
+      "category": "PROCESS",
+      "fields": [
+        "ida_approval"
+      ],
+      "method": "ida_approval contains 'rejected' (case-insensitive).",
+      "trigger": "ida_approval contains 'rejected'",
+      "threshold": 1,
+      "value_field": "ida_rejected",
+      "calibration": "2.31% of rows (1,070 of 46,348).",
+      "means": "The agency's response recorded in the feed was a rejection.",
+      "does_not_mean": "That the work is fraudulent. A rejection is a normal administrative outcome, and the feed does not record why it was rejected. This is a status to read, not a suspicion to act on.",
+      "available_since": "2026-09-28",
+      "test": {
+        "feature": "ida_rejected",
+        "op": "==",
+        "value": 1,
+        "format": "flag"
+      },
+      "ranking_use": true
+    },
+    {
+      "id": "IDA_APPROVAL_PENDING",
+      "title": "Implementing Development Agency response still pending",
+      "status": "COMPUTED",
+      "category": "PROCESS",
+      "fields": [
+        "ida_approval"
+      ],
+      "method": "ida_approval contains 'pending' (case-insensitive).",
+      "trigger": "ida_approval contains 'pending'",
+      "threshold": 1,
+      "value_field": "ida_pending",
+      "calibration": "63.35% of rows. This is the single most common value in the field, so it carries no discriminating information and is shown for context only.",
+      "means": "No agency decision is recorded yet.",
+      "does_not_mean": "Anything about the work. At this prevalence the field describes the population, not an exception, and it should not influence a ranking on its own.",
+      "available_since": "2026-09-28",
+      "test": {
+        "feature": "ida_pending",
+        "op": "==",
+        "value": 1,
+        "format": "flag"
+      },
+      "ranking_use": false,
+      "ranking_use_note": "Measured against the real feed: 63.35% of rows. The field is more often pending than not, so a match describes the population."
+    },
+    {
+      "id": "RECOMMENDATION_NEAR_ELECTION",
+      "title": "Recommended within 180 days of a general election",
+      "status": "COMPUTED",
+      "category": "TIMING",
+      "fields": [
+        "recommended_date"
+      ],
+      "method": "Absolute day difference between recommended_date and the nearest of the 2019-05-23 and 2024-05-04 general elections, threshold 180 days.",
+      "trigger": "days_to_nearest_election <= 180",
+      "threshold": 180,
+      "value_field": "days_to_nearest_election",
+      "calibration": "49.03% of rows. The window covers roughly one electoral cycle of a multi-year scheme, so it is a descriptive label rather than an exception.",
+      "means": "The recommendation date falls close to a general election.",
+      "does_not_mean": "That timing was irregular. Spending near an election is a documented and legal pattern in constituency development funds, and no rule in this project encodes an irregularity standard for it.",
+      "available_since": "2026-09-28",
+      "test": {
+        "feature": "days_to_nearest_election",
+        "op": "<=",
+        "value": 180,
+        "format": "days"
+      },
+      "ranking_use": false,
+      "ranking_use_note": "Measured against the real feed: 49.03% of rows. A 180-day window spans about one electoral cycle of a multi-year scheme."
+    },
+    {
+      "id": "STATUS_UNSANCTIONED",
+      "title": "Recommended but not sanctioned",
+      "status": "COMPUTED",
+      "category": "PROCESS",
+      "fields": [
+        "status"
+      ],
+      "method": "status == 'Unsanctioned'.",
+      "trigger": "status == Unsanctioned",
+      "threshold": 1,
+      "value_field": "status_unsanctioned",
+      "calibration": "84.48% of rows.",
+      "means": "The work was recommended and the feed does not record a sanction.",
+      "does_not_mean": "That money was diverted. Unsanctioned recommendations are the normal state of a backlog and are the majority of the feed.",
+      "available_since": "2026-09-28",
+      "test": {
+        "feature": "status_unsanctioned",
+        "op": "==",
+        "value": 1,
+        "format": "flag"
+      },
+      "ranking_use": false,
+      "ranking_use_note": "Measured against the real feed: 84.48% of rows. The unsanctioned backlog is the scheme's normal state, not an exception."
+    },
+    {
+      "id": "MP_HIGH_UNSANCTIONED_SHARE",
+      "title": "MP has an unusually high share of unsanctioned recommendations",
+      "status": "COMPUTED",
+      "category": "AGGREGATE",
+      "fields": [
+        "status",
+        "mp_name"
+      ],
+      "method": "Share of an MP's works with status 'Unsanctioned', compared against the feed-wide distribution of those shares.",
+      "trigger": "share is in the top decile of MP-level shares",
+      "threshold": 1.0,
+      "value_field": "mp_unsanctioned_share",
+      "calibration": "Mean share across MPs = 0.845, median = 0.962. The distribution is extremely skewed because the unsanctioned backlog is widespread.",
+      "means": "Relative to other MPs in this dataset, a larger share of this MP's recommended works are unsanctioned.",
+      "does_not_mean": "That the MP obstructed the works or that funds were misused. The unsanctioned backlog is a scheme-wide condition, and the feed carries no reason field explaining any individual sanction delay.",
+      "available_since": "2026-09-28",
+      "test": {
+        "feature": "mp_unsanctioned_share",
+        "op": ">=",
+        "value": 1.0,
+        "format": "ratio_of_works"
+      },
+      "ranking_use": false,
+      "ranking_use_note": "Measured against the real feed: median MP share is 0.975 and 191 of 456 MPs sit at 1.000, covering 15,215 works. A 'top decile' cut is 1.000 and therefore matches a third of all works, so it carries no discriminating information."
+    },
+    {
+      "id": "AGENCY_UNIDENTIFIED",
+      "title": "Implementing agency not named in the record",
+      "status": "COMPUTED",
+      "category": "ACCOUNTABILITY",
+      "fields": [
+        "implementing_agency"
+      ],
+      "method": "implementing_agency is empty after trimming.",
+      "trigger": "implementing_agency is empty",
+      "threshold": 1,
+      "value_field": "agency_unidentified",
+      "calibration": "Zero matches: the feed populates the field for all 46,348 rows.",
+      "means": "No implementing body is recorded, so responsibility cannot be read from the record.",
+      "does_not_mean": "That the work is unaccountable. The field is fully populated in this snapshot; the rule exists because a future feed might not be.",
+      "available_since": "2026-09-28",
+      "test": {
+        "feature": "agency_unidentified",
+        "op": "==",
+        "value": 1,
+        "format": "flag"
+      },
+      "ranking_use": true
+    },
+    {
+      "id": "DESCRIPTION_UNINFORMATIVE",
+      "title": "Work description carries no project detail",
+      "status": "COMPUTED",
+      "category": "RECORD_QUALITY",
+      "fields": [
+        "work_description"
+      ],
+      "method": "work_description matches /^\\s*NA\\s*[-–:]\\s*\\S/i — a description that is only 'NA' plus a generic phrase.",
+      "trigger": "description matches the NA-prefix pattern",
+      "threshold": 1,
+      "value_field": "description_uninformative",
+      "calibration": "65.66% of rows, so this describes the majority of the feed and is not an exception by itself.",
+      "means": "A reviewer cannot assess the record on its merits, because it does not say what was built.",
+      "does_not_mean": "That no work exists. Many of these are the placeholder the portal used while a real description was pending.",
+      "available_since": "2026-09-28",
+      "test": {
+        "feature": "description_uninformative",
+        "op": "==",
+        "value": 1,
+        "format": "flag"
+      },
+      "ranking_use": false,
+      "ranking_use_note": "Measured against the real feed: 65.66% of rows."
+    },
+    {
+      "id": "GEOGRAPHY_UNIDENTIFIED",
+      "title": "No city, ward, block or village recorded",
+      "status": "COMPUTED",
+      "category": "RECORD_QUALITY",
+      "fields": [
+        "city",
+        "ward",
+        "block",
+        "village"
+      ],
+      "method": "All four place fields are empty after trimming.",
+      "trigger": "count of non-empty place fields == 0",
+      "threshold": 1,
+      "value_field": "geography_unidentified",
+      "calibration": "1.02% of rows (473 of 46,348).",
+      "means": "The record has no locatable place name, so it cannot be geocoded or checked against anything local.",
+      "does_not_mean": "That the work is missing. The work row is present; only its location is.",
+      "available_since": "2026-09-28",
+      "test": {
+        "feature": "geography_unidentified",
+        "op": "==",
+        "value": 1,
+        "format": "flag"
+      },
+      "ranking_use": true
+    },
+    {
+      "id": "NO_COORDINATE",
+      "title": "No coordinate resolved for the work",
+      "status": "COMPUTED",
+      "category": "RECORD_QUALITY",
+      "fields": [
+        "reported_lat",
+        "reported_lon"
+      ],
+      "method": "reported_lat or reported_lon is null. Coordinates are OSM place centroids from geocoding the place name, not surveyed positions.",
+      "trigger": "coordinate is absent",
+      "threshold": null,
+      "value_field": "has_coordinate",
+      "calibration": "97.41% of rows carry a coordinate, 42,829 of 46,348 as of 2026-09-28. Geocoding is rate-limited and still incomplete.",
+      "means": "The work cannot be placed on the map or compared to a specific settlement.",
+      "does_not_mean": "That the work does not exist. It is a gap in geocoding, and a gap in this project's coverage rather than in the underlying record.",
+      "available_since": "2026-09-28",
+      "test": {
+        "feature": "has_coordinate",
+        "op": "==",
+        "value": 0,
+        "format": "flag"
+      },
+      "ranking_use": true
+    },
+    {
+      "id": "ISOLATION_FOREST_OUTLIER",
+      "title": "Record is unusual against the whole dataset",
+      "status": "COMPUTED",
+      "category": "MODEL",
+      "fields": [
+        "all 25 columns in REAL_FEATURE_COLUMNS"
+      ],
+      "method": "Isolation Forest, 300 trees, contamination 0.05, random_state 42, over the standardised 25-feature matrix from ml/features/real_features.py. The raw decision function is min-max normalised to 0-1. The score is a ranking aid, not a probability.",
+      "value_field_note": "anomaly_score is the model output, not an input feature. It is deliberately absent from REAL_FEATURE_COLUMNS so a model output can never feed back into its own training matrix.",
+      "trigger": "anomaly_score >= 0.90 (rank band)",
+      "threshold": 0.9,
+      "value_field": "anomaly_score",
+      "calibration": "Contamination 0.05 is an assumption that about 5% of records are anomalous. It is not derived from any labelled sample, because no such sample exists. Features with zero variance in this feed were dropped at build time and are named in the training manifest.",
+      "means": "This record sits further from the centre of the dataset than most, across several fields at once.",
+      "does_not_mean": "That the work is irregular, and not that it is sound either. The model is unsupervised, has no false-positive rate, and was not evaluated against known cases because none are labelled.",
+      "available_since": "2026-09-28",
+      "test": {
+        "feature": "anomaly_score",
+        "op": ">=",
+        "value": 0.9,
+        "format": "score",
+        "note": "Rank-based. The Isolation Forest output is min-max normalised over the whole feed, so a cut selects a share of rows rather than an absolute threshold. 0.90 selects roughly the top decile; the composite band is what a reviewer sees."
+      },
+      "ranking_use": true
+    }
+  ],
+  "not_computed": [
+    {
+      "id": "SATELLITE_NDBI",
+      "title": "Built-up change from Sentinel-2 imagery",
+      "status": "NOT_COMPUTED",
+      "reason": "The backend performs a STAC scene search only. A search returns scene metadata — which tile covers a location, on what date, with what cloud cover — and no pixel values. The spectral index fields in the database exist and are always null. Reading Sentinel-2 surface reflectance bands and computing NDBI per pixel would require a raster-processing stack that is not part of this deployment, and the thumbnails the UI once displayed were stock photographs rather than acquisitions of the site.",
+      "user_facing_text": "Not computed. The system records which Sentinel-2 scenes cover this location. It does not read those images, so construction can be neither confirmed nor ruled out here.",
+      "what_it_would_need": "Raster access to Sentinel-2 L2A surface reflectance for the work's coordinate, band maths for NDBI, and a second acquisition on a different date to compare against.",
+      "replaces_removed_claim": "The frontend previously showed an 'NDBI Delta' tile, a 'Change Score' tile, a before/after image pair captioned with a hardcoded scene id, and a 'Cross-Verification Status' of 'Verified OK'. None of those values is computed. The NDBI tile also rendered a null value in an error colour, presenting an unmeasured quantity as a failed measurement."
+    },
+    {
+      "id": "WEATHER_FEASIBILITY",
+      "title": "Weather-impossible construction window",
+      "status": "NOT_COMPUTED",
+      "reason": "No weather data source is integrated. The analysis would need dated precipitation for the work's location and construction window; the open MPLADS feed carries no construction start or end date, so the window itself is unknown.",
+      "user_facing_text": "Not computed. No weather data is used in this system.",
+      "what_it_would_need": "A gridded or station precipitation source, plus construction start and completion dates, which the open feed does not publish.",
+      "replaces_removed_claim": "The frontend described IMD-recorded deluges and 18-day rain windows during specific reported asphalt paving. No such measurement exists in this project."
+    },
+    {
+      "id": "CONTRACTOR_CARTEL",
+      "title": "Vendor concentration and shared-director network",
+      "status": "NOT_COMPUTED",
+      "reason": "The open MPLADS feed publishes no vendor name and no GSTIN for any work. A bipartite contractor-MP graph, an HHI concentration measure and a common-director analysis all require vendor identity. The contractor_gstin column exists and is empty for all 46,348 rows.",
+      "user_facing_text": "Not computed. The open feed names no vendor and no GSTIN, so there is nothing to analyse. This is not a clean result.",
+      "what_it_would_need": "An authoritative vendor-level source: GeM award data, a procurement register, or GST filings matched to works.",
+      "replaces_removed_claim": "The frontend rendered named vendors, bid-ring edges, '68% HHI' and shared ROC director numbers, and a 'Contractor Cartel Graph' with cluster detection. All of it came from a graph model trained on fabricated vendor data, which is quarantined in data/quarantine_synthetic/contractor_graph.pkl. The artefact is also no longer unpickled at all: loading a pickle executes arbitrary code, so the route returns an empty graph with a reason."
+    },
+    {
+      "id": "GSTIN_COMPLIANCE",
+      "title": "GST registration status at time of disbursement",
+      "status": "NOT_COMPUTED",
+      "reason": "No GSTIN exists to check and no GSTN integration is present. The CGST Act 2017 text that accompanied this rule in the UI was decorative: it described a legal test the system had no data to apply.",
+      "user_facing_text": "Not computed. No GSTIN is available for any work in the open feed.",
+      "what_it_would_need": "Vendor GSTINs from an authoritative source and GSTN return data for the period.",
+      "replaces_removed_claim": "The frontend described 'GSTR-3B default for 6 consecutive tax periods', 'registration cancelled ab-initio for fictitious billing' and a notice under Section 73/74. No GST data was ever fetched."
+    },
+    {
+      "id": "CROSS_SCHEME_DUPLICATE",
+      "title": "Same asset funded under two schemes",
+      "status": "NOT_COMPUTED",
+      "reason": "No comparison scheme is integrated. The MGNREGA and PMGSY files this rule was built on were generated from the synthetic works file with np.random seeds and jittered coordinates; they are quarantined. Matching a real MPLADS work against them would produce fictional duplicate funding against real records.",
+      "user_facing_text": "Not computed. No cross-scheme comparison data is available.",
+      "what_it_would_need": "Authoritative georeferenced asset registers for MGNREGA, PMGSY and state schemes, with identifiers that can be matched to MPLADS works.",
+      "replaces_removed_claim": "The frontend described '88% title similarity within 110 metres' against a MGNREGA/PMGSY database and recommended recovering duplicate funds to the Consolidated Fund of India. The comparison data was synthetic and the recovery recommendation is not this project's to make."
+    },
+    {
+      "id": "CITIZEN_CORROBORATION",
+      "title": "Citizen observation contradicting the record",
+      "status": "NOT_COMPUTED",
+      "reason": "Citizens can submit reports through this portal, and they are stored and shown to auditors. What is not computed is corroboration: nothing verifies that a report was written by someone at the location, nothing aggregates reports into a signal, and no report is cross-checked against an independent source. A distance field exists between the reported coordinate and the work centroid; it is arithmetic on two unverified points, not a proximity finding.",
+      "user_facing_text": "Submitted citizen reports are recorded and shown to auditors. No citizen signal feeds any score, and no report is treated as verified.",
+      "what_it_would_need": "An attestation or identity-verification path for submitters, a geofence that can be trusted, and a policy on how many reports constitute a signal.",
+      "replaces_removed_claim": "The frontend described 'EXIF GPS within 45m' and '3 independent resident testimonies corroborate zero civil activity' for individual works, and scheduled a formal Gram Sabha social audit. No EXIF check exists and no independent corroboration count is computed."
+    }
+  ],
+  "ranking_use_contract": "ranking_use=false marks a rule that is computed and shown but does not count towards a work's review candidacy. On this feed such a rule matches a large share of all rows, so counting it would rank works by whether they are ordinary. A work whose only matches are non-discriminative rules is not thereby a review candidate, and a rule is never removed from the catalog to hide a match.",
+  "test_operators": {
+    ">=": "value is at or above the threshold",
+    "<=": "value is at or below the threshold",
+    "==": "value equals the given number"
+  },
+  "trigger_value_formats": {
+    "z_score": "standard deviations above the peer-group mean; the peer group is named in the rule method",
+    "ratio": "multiple of the peer-group median; the series is clipped at 50, so a reported 50.0 means 50 or more",
+    "ratio_of_works": "share of that MP's works in the feed, from 0 to 1",
+    "flag": "1 when the condition held and 0 when it did not; a match reports 1",
+    "days": "calendar days to the nearest general election",
+    "score": "min-max normalised model output, a rank and not a probability"
+  }
+}

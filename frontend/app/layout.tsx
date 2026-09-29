@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Link from 'next/link';
 import './globals.css';
 import StitchHeader from '@/components/StitchHeader';
 import LegalNoticeBanner from '@/components/LegalNoticeBanner';
@@ -118,11 +119,11 @@ export default function RootLayout({
               <div>
                 <h3 className="font-label-md text-label-md text-primary-fixed mb-space-md">Quick Links</h3>
                 <ul className="space-y-2 text-xs text-primary-fixed-dim">
-                  <li><a href="/works" className="hover:text-on-primary transition-colors">Browse Projects</a></li>
-                  <li><a href="/map" className="hover:text-on-primary transition-colors">Constituency Map</a></li>
-                  <li><a href="/reports" className="hover:text-on-primary transition-colors">Data Sources</a></li>
-                  <li><a href="/citizen" className="hover:text-on-primary transition-colors">Submit Citizen Report</a></li>
-                  <li><a href="/help" className="hover:text-on-primary transition-colors">Help &amp; FAQ</a></li>
+                  <li><Link href="/works" className="hover:text-on-primary transition-colors">Browse Projects</Link></li>
+                  <li><Link href="/map" className="hover:text-on-primary transition-colors">Constituency Map</Link></li>
+                  <li><Link href="/reports" className="hover:text-on-primary transition-colors">Data Sources</Link></li>
+                  <li><Link href="/citizen" className="hover:text-on-primary transition-colors">Submit Citizen Report</Link></li>
+                  <li><Link href="/help" className="hover:text-on-primary transition-colors">Help &amp; FAQ</Link></li>
                 </ul>
               </div>
               <div>

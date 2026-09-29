@@ -1,5 +1,5 @@
 {
-  "trained_at": "2026-09-27T21:53:33.128562+00:00",
+  "trained_at": "2026-09-28T13:14:11.476163+00:00",
   "training_data": "data/output/works_real.csv",
   "records": 46348,
   "features": [
@@ -23,7 +23,8 @@
     "agency_total_works",
     "agency_unsanctioned_share",
     "description_uninformative",
-    "geography_unidentified"
+    "geography_unidentified",
+    "has_coordinate"
   ],
   "source": "github.com/vonter/india-mplads-works (ODbL), scraped from mplads.mospi.gov.in",
   "source_date_note": "17th Lok Sabha snapshot published on the upstream repository; not a live per-work feed",

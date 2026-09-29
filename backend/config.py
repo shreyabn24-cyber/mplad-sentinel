@@ -79,6 +79,8 @@ class Settings(BaseSettings):
 
     # App
     ENVIRONMENT: str = "development"
+    # Enables explicitly synthetic demo identities only for local development.
+    DEMO_MODE: bool = False
     LOG_LEVEL: str = "INFO"
 
     # ML

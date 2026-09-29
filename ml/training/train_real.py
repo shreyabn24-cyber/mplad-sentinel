@@ -47,6 +47,7 @@ sys.path.insert(0, str(ROOT / "ml"))
 
 from ml.features.real_features import build_real_feature_matrix, engineer_real_features
 from ml.models.isolation_forest import IsolationForestDetector
+from ml.scoring import build_work_evidence, summary
 
 MODEL_DIR = ROOT / "ml" / "saved_models"
 MODEL_DIR.mkdir(parents=True, exist_ok=True)
@@ -158,7 +159,52 @@ def save_artifacts(
     scored_path = ROOT / "data" / "output" / "works_scored.csv"
     scored.to_csv(scored_path, index=False)
     print(f"Wrote {len(scored):,} scored works to {scored_path.relative_to(ROOT)}")
+
+    # Persist the catalog rule matches. This is the evidence the API serves, and
+    # it is written to its own file rather than folded into works_scored.csv so
+    # that the stored JSON per work stays inspectable and so the ingestion step
+    # has a single artifact to read.
+    evidence_path = write_evidence(featured)
+    print(f"Wrote rule matches to {evidence_path.relative_to(ROOT)}")
     return path
+
+
+def write_evidence(featured: pd.DataFrame) -> Path:
+    """Evaluate every catalog rule and write the per-work evidence records."""
+    records = build_work_evidence(featured)
+    stats = summary(records)
+
+    out_path = ROOT / "data" / "output" / "work_rule_matches.jsonl"
+    with out_path.open("w", encoding="utf-8") as fh:
+        for rec in records:
+            fh.write(json.dumps(rec, ensure_ascii=False) + "\n")
+
+    stats_path = ROOT / "data" / "output" / "rule_match_summary.json"
+    stats_path.write_text(json.dumps(stats, indent=2), encoding="utf-8")
+
+    print("\n  Catalog rule matches")
+    print(f"    works scored              : {stats['works']:,}")
+    print(f"    review candidates         : {stats['review_candidates']:,}")
+    print(f"    tier bands                : {stats['tier_bands']}")
+    print("    matched, and counted towards candidacy:")
+    for rid, info in stats["matched_by_rule"].items():
+        if info["count"]:
+            print(f"      {rid:34} {info['count']:6,}  ({info['share']:.2%})")
+    print("    matched, but not counted (non-discriminative on this feed):")
+    for rid, info in stats["context_by_rule"].items():
+        if info["count"]:
+            print(f"      {rid:34} {info['count']:6,}  ({info['share']:.2%})")
+    print("    could not be evaluated:")
+    any_unevaluated = False
+    for rid, info in stats["unevaluated_by_rule"].items():
+        if info["count"]:
+            any_unevaluated = True
+            print(f"      {rid:34} {info['count']:6,}  ({info['share']:.2%})")
+    if not any_unevaluated:
+        print("      none: every rule was evaluated for every work")
+    print(f"    not computed at all       : "
+          f"{', '.join(e['id'] for e in stats['not_computed'])}")
+    return out_path
 
 
 def main() -> int:

@@ -254,6 +254,7 @@ export interface CitizenDemand {
   decided_at?: string | null;
   created_at?: string;
   attachment_count?: number;
+  attachments?: EvidenceAttachment[];
 }
 
 export interface DemandAcknowledgement {

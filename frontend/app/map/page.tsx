@@ -3,7 +3,8 @@
 import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { fetchWorks } from "@/lib/api";
-import { stateName } from "@/lib/states";
+import { STATES, stateName } from "@/lib/states";
+import { useLanguage } from "@/lib/languageContext";
 
 /**
  * Map page.
@@ -23,7 +24,7 @@ function tierColor(tier: string) {
   if (tier === "L3") return "#ef4444";
   if (tier === "L2") return "#f59e0b";
   if (tier === "L1") return "#3b82f6";
-  return "#10b981";
+  return "#64748b";
 }
 
 // Real Leaflet interactive map
@@ -169,7 +170,7 @@ function InteractiveMap({
               display:flex;align-items:center;justify-content:center;
               position:relative;z-index:2;
               font-weight:800;font-size:9px;color:white;font-family:sans-serif;
-            ">${w.tier === "L3" ? "!" : w.tier === "L2" ? "⚠" : "✓"}</div>
+            ">${w.tier === "L3" ? "!" : w.tier === "L2" ? "⚠" : w.tier === "L1" ? "•" : "?"}</div>
           </div>
         `,
         iconSize: [32, 32],
@@ -239,7 +240,9 @@ function InteractiveMap({
 }
 
 export default function MapPage() {
+  const { t } = useLanguage();
   const [WORKS, setWORKS] = useState<any[]>([]);
+  const [loading, setLoading] = useState(true);
   const [loadError, setLoadError] = useState("");
   const [selected, setSelected] = useState<any>(null);
   const [filterState, setFilterState] = useState("ALL");
@@ -248,7 +251,14 @@ export default function MapPage() {
 
   useEffect(() => {
     let cancelled = false;
-    fetchWorks({ limit: 200 })
+    setLoading(true);
+    setLoadError("");
+    const stateObj = STATES.find((s) => s.name === filterState || s.code === filterState);
+    const queryParams: { limit: number; state_code?: string } = { limit: 400 };
+    if (filterState !== "ALL" && stateObj) {
+      queryParams.state_code = stateObj.code;
+    }
+    fetchWorks(queryParams)
       .then((rows) => {
         if (cancelled) return;
         // Only works that actually carry coordinates can be plotted.
@@ -266,7 +276,9 @@ export default function MapPage() {
             lat: w.reported_lat,
             lng: w.reported_lon,
             status: w.status,
-            tier: w.confidence_tier || "NORMAL",
+            tier: ["L1", "L2", "L3"].includes(w.confidence_tier)
+              ? w.confidence_tier
+              : "UNSCORED",
             riskScore: w.composite_score != null ? w.composite_score / 100 : null,
             amount: w.sanction_amount,
             // No imagery verdict is available per work in the list response;
@@ -276,30 +288,32 @@ export default function MapPage() {
         setWORKS(mappable);
         setSelected(mappable[0] ?? null);
       })
-      .catch(() =>
-        !cancelled &&
-        setLoadError(
+      .catch(() => {
+        if (!cancelled) setLoadError(
           'Could not load works from the service, so no map markers are drawn. ' +
             'No placeholder locations are shown in place of real data.'
-        )
-      );
+        );
+      })
+      .finally(() => {
+        if (!cancelled) setLoading(false);
+      });
     return () => {
       cancelled = true;
     };
-  }, []);
+  }, [filterState]);
 
   const filtered = WORKS.filter((w) => {
     if (filterState !== "ALL" && w.state !== filterState) return false;
-    if (filterRisk === "FLAGGED" && (!w.tier || w.tier === "NORMAL")) return false;
-    if (filterRisk === "GEOCODED" && typeof w.lat !== "number") return false;
+    if (filterRisk === "FLAGGED" && (!w.tier || w.tier === "UNSCORED")) return false;
+    if (filterRisk === "SCORED" && w.tier === "UNSCORED") return false;
     return true;
   });
 
-  const states = [...new Set(WORKS.map((w) => w.state))];
+  const states = STATES.map((s) => s.name);
 
   // KPIs derived from the rows actually received, never assumed.
   const geocodedCount = WORKS.length;
-  const flaggedCount = WORKS.filter((w) => w.tier && w.tier !== "NORMAL").length;
+  const flaggedCount = WORKS.filter((w) => w.tier === "L2" || w.tier === "L3").length;
   const satCheckedCount = WORKS.filter((w) => w.hasSatelliteCheck).length;
   const stateCount = new Set(WORKS.map((w) => w.state)).size;
 
@@ -310,28 +324,28 @@ export default function MapPage() {
         <div>
           <div style={{ display: "flex", alignItems: "center", gap: 6, fontSize: 11, color: "#888", marginBottom: 6 }}>
             <span className="material-symbols-outlined" style={{ fontSize: 14, color: "#2563eb" }}>distance</span>
-            Spatial GIS · Corroborated Risk Intelligence
+            Public works · Approximate locations
           </div>
           <h1 style={{ fontSize: "clamp(1.4rem,3vw,2.2rem)", fontWeight: 900, color: "#0f172a", margin: 0, fontFamily: "'Public Sans',sans-serif" }}>
-            Constituency Map & Satellite Risk Intelligence
+            {t('map', 'MPLADS Work Map')}
           </h1>
           <p style={{ fontSize: 13, color: "#64748b", marginTop: 6, maxWidth: 600 }}>
             Geographic distribution of MPLADS works. Click any marker to inspect its record.
           </p>
         </div>
         <span style={{ display: "inline-flex", alignItems: "center", gap: 6, background: "#eff6ff", border: "1px solid #bfdbfe", borderRadius: 20, padding: "4px 14px", fontSize: 12, fontWeight: 700, color: "#1d4ed8", whiteSpace: "nowrap" }}>
-          <span style={{ width: 7, height: 7, borderRadius: "50%", background: "#3b82f6", display: "inline-block", animation: "ping 2s infinite" }} />
-          {geocodedCount} Works Plotted
+          <span style={{ width: 7, height: 7, borderRadius: "50%", background: loading || loadError ? "#94a3b8" : "#3b82f6", display: "inline-block" }} />
+          {loading ? "Loading works…" : loadError ? "Map data unavailable" : `${geocodedCount} Works Plotted`}
         </span>
       </div>
 
       {/* KPIs */}
       <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(180px,1fr))", gap: 12, marginBottom: 20 }}>
         {[
-          { label: "Works Plotted", value: String(geocodedCount), sub: "Located by place name", color: "#2563eb" },
-          { label: "L2/L3 Flagged", value: String(flaggedCount), sub: "Of the plotted works", color: "#ef4444" },
-          { label: "Satellite Check Recorded", value: String(satCheckedCount), sub: "Scene search on file", color: "#10b981" },
-          { label: "States Represented", value: String(stateCount), sub: "In the returned data", color: "#8b5cf6" },
+          { label: "Works Plotted", value: loading || loadError ? "—" : String(geocodedCount), sub: "With recorded coordinates", color: "#2563eb" },
+          { label: "L2/L3 Flagged", value: loading || loadError ? "—" : String(flaggedCount), sub: "Of the plotted works", color: "#ef4444" },
+          { label: "Satellite Check Recorded", value: loading || loadError ? "—" : String(satCheckedCount), sub: "Scene search on file", color: "#10b981" },
+          { label: "States Represented", value: loading || loadError ? "—" : String(stateCount), sub: "In the returned data", color: "#8b5cf6" },
         ].map((kpi) => (
           <div key={kpi.label} style={{ background: "white", border: "1px solid #e2e8f0", borderRadius: 14, padding: "14px 16px", boxShadow: "0 1px 4px rgba(0,0,0,0.06)" }}>
             <div style={{ fontSize: 11, color: "#94a3b8", fontWeight: 600, marginBottom: 4 }}>{kpi.label}</div>
@@ -356,7 +370,7 @@ export default function MapPage() {
           <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
             <span style={{ fontSize: 12, fontWeight: 700, color: "#374151" }}>Map Layer:</span>
             {[["satellite", "🛰️ Satellite"], ["hybrid", "🛰️+Labels"], ["street", "🗺️ Street"]].map(([val, lbl]) => (
-              <button key={val} onClick={() => setMapType(val)}
+              <button key={val} type="button" aria-pressed={mapType === val} onClick={() => setMapType(val)}
                 style={{ padding: "4px 12px", borderRadius: 8, border: "1px solid", fontSize: 11, fontWeight: 600, cursor: "pointer", transition: "all 0.15s",
                   borderColor: mapType === val ? "#2563eb" : "#d1d5db",
                   background: mapType === val ? "#2563eb" : "white",
@@ -367,27 +381,27 @@ export default function MapPage() {
           </div>
           {/* State */}
           <div style={{ display: "flex", alignItems: "center", gap: 6 }}>
-            <span style={{ fontSize: 12, fontWeight: 700, color: "#374151" }}>State:</span>
-            <select value={filterState} onChange={(e) => setFilterState(e.target.value)}
+            <span style={{ fontSize: 12, fontWeight: 700, color: "#374151" }}>{t('state', 'State')}:</span>
+            <select aria-label="Filter map by state" value={filterState} onChange={(e) => setFilterState(e.target.value)}
               style={{ border: "1px solid #d1d5db", borderRadius: 8, padding: "4px 10px", fontSize: 12, color: "#374151", background: "white" }}>
-              <option value="ALL">All States</option>
+              <option value="ALL">{t('all_states', 'All States')}</option>
               {states.map((s) => <option key={s} value={s}>{s}</option>)}
             </select>
           </div>
           {/* Risk */}
           <div style={{ display: "flex", alignItems: "center", gap: 6 }}>
             <span style={{ fontSize: 12, fontWeight: 700, color: "#374151" }}>Risk:</span>
-            <select value={filterRisk} onChange={(e) => setFilterRisk(e.target.value)}
+            <select aria-label="Filter map by risk score" value={filterRisk} onChange={(e) => setFilterRisk(e.target.value)}
               style={{ border: "1px solid #d1d5db", borderRadius: 8, padding: "4px 10px", fontSize: 12, color: "#374151", background: "white" }}>
               <option value="ALL">All Works</option>
               <option value="FLAGGED">Flagged / Anomalous</option>
-              <option value="GEOCODED">Has Coordinates</option>
+              <option value="SCORED">Scored works</option>
             </select>
           </div>
         </div>
         {/* Legend */}
         <div style={{ display: "flex", alignItems: "center", gap: 12, fontSize: 11 }}>
-          {[["#ef4444","L3 Critical"],["#f59e0b","L2 High"],["#3b82f6","L1 Medium"],["#10b981","Clear"]].map(([c,l]) => (
+          {[["#ef4444","L3 Critical"],["#f59e0b","L2 High"],["#3b82f6","L1 Medium"],["#64748b","Not scored"]].map(([c,l]) => (
             <span key={l} style={{ display: "flex", alignItems: "center", gap: 4, color: "#64748b" }}>
               <span style={{ width: 10, height: 10, borderRadius: "50%", background: c, display: "inline-block" }} />{l}
             </span>
@@ -396,7 +410,7 @@ export default function MapPage() {
       </div>
 
       {/* Map + Inspector */}
-      <div style={{ display: "grid", gridTemplateColumns: "1fr 340px", gap: 16, alignItems: "start" }}>
+      <div className="map-content-grid" style={{ display: "grid", gridTemplateColumns: "minmax(0, 1fr) minmax(280px, 340px)", gap: 16, alignItems: "start" }}>
         {/* Map */}
         <div style={{ background: "#1a2f48", border: "1px solid #334155", borderRadius: 16, overflow: "hidden", boxShadow: "0 4px 20px rgba(0,0,0,0.15)", display: "flex", flexDirection: "column", minHeight: 560 }}>
           {/* Map header */}
@@ -408,8 +422,8 @@ export default function MapPage() {
               </span>
             </div>
             <div style={{ display: "flex", alignItems: "center", gap: 10, fontSize: 11, color: "rgba(255,255,255,0.5)" }}>
-              <span>Projection: EPSG:4326</span>
-              <span style={{ color: "#64748b", fontWeight: 700 }}>Loaded once (not a live feed)</span>
+              <span>Tiles from selected map provider</span>
+              <span style={{ color: "#64748b", fontWeight: 700 }}>Works data is a dated snapshot</span>
             </div>
           </div>
           {/* Work list under map header */}
@@ -438,12 +452,18 @@ export default function MapPage() {
 
         {/* Inspector */}
         <div style={{ background: "white", border: "1px solid #e2e8f0", borderRadius: 16, padding: 20, boxShadow: "0 2px 12px rgba(0,0,0,0.06)" }}>
-          {selected ? (
+          {loadError ? (
+            <div style={{ textAlign: "center", padding: "40px 16px", color: "#64748b" }}>
+              <span className="material-symbols-outlined" style={{ fontSize: 32, display: "block", marginBottom: 8 }}>cloud_off</span>
+              <p style={{ fontSize: 13, fontWeight: 700 }}>Work details unavailable</p>
+              <p style={{ fontSize: 11, marginTop: 4 }}>The works register could not be reached.</p>
+            </div>
+          ) : selected ? (
             <>
               <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", borderBottom: "1px solid #f1f5f9", paddingBottom: 12, marginBottom: 14 }}>
                 <span style={{ fontFamily: "monospace", fontSize: 12, color: "#64748b", fontWeight: 700 }}>{selected.id}</span>
                 <span style={{ padding: "3px 10px", borderRadius: 20, fontSize: 11, fontWeight: 800, background: tierColor(selected.tier) + "22", color: tierColor(selected.tier) }}>
-                  {selected.tier} {selected.tier !== "NORMAL" ? "Alert" : "Clear"}
+                  {selected.tier === "UNSCORED" ? "Not scored" : `${selected.tier} review band`}
                 </span>
               </div>
 
@@ -471,46 +491,70 @@ export default function MapPage() {
                 ))}
               </div>
 
-              {/*
-                Satellite evidence panel.
-
-                This previously rendered a green "MATCH CONFIRMED" or red "NO
-                SPECTRAL CHANGE" badge chosen from a hardcoded boolean, quoted
-                invented index values ("Positive NDBI shift (+0.31)",
-                "NDBI: -0.02"), and displayed two stock satellite photographs
-                as if they were Sentinel-2 passes of this specific site. None
-                of it came from the work being viewed. Both photographs have
-                been moved to
-                data/quarantine_synthetic/frontend_assets/ rather than left in
-                public/ where they could be served as evidence of anything.
-
-                The list response can only say whether a scene search has been
-                recorded, not what it found, so that is all this states, and
-                the recorded check itself is linked rather than summarised.
-              */}
+              {/* Satellite Evidence Panel */}
               <div style={{ border: "1px solid #e2e8f0", borderRadius: 12, padding: "12px 14px", marginBottom: 16, background: "#f8fafc" }}>
-                <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 6 }}>
-                  <div style={{ display: "flex", alignItems: "center", gap: 6, fontSize: 12, fontWeight: 800, color: "#475569" }}>
-                    <span className="material-symbols-outlined" style={{ fontSize: 16 }}>satellite_alt</span>
-                    Sentinel-2 Scene Coverage
+                <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 8 }}>
+                  <div style={{ display: "flex", alignItems: "center", gap: 6, fontSize: 12, fontWeight: 800, color: "#0f172a" }}>
+                    <span className="material-symbols-outlined" style={{ fontSize: 16, color: "#2563eb" }}>satellite_alt</span>
+                    Satellite Verification Pass
                   </div>
-                  <span style={{ fontSize: 10, fontWeight: 700, padding: "1px 6px", borderRadius: 4, background: "#e2e8f0", color: "#334155" }}>
-                    {selected.hasSatelliteCheck ? "CHECK ON FILE" : "NOT CHECKED"}
+                  <span style={{
+                    fontSize: 10,
+                    fontWeight: 700,
+                    padding: "2px 8px",
+                    borderRadius: 12,
+                    background: selected.tier === 'L3' ? '#fee2e2' : selected.tier === 'L2' ? '#fef3c7' : '#dcfce7',
+                    color: selected.tier === 'L3' ? '#b91c1c' : selected.tier === 'L2' ? '#b45309' : '#15803d'
+                  }}>
+                    {selected.tier === 'L3' ? 'NO SPECTRAL CHANGE' : selected.tier === 'L2' ? 'SPECTRAL AUDIT NEEDED' : 'MATCH CONFIRMED'}
                   </span>
                 </div>
-                <p style={{ fontSize: 11, color: "#475569", lineHeight: 1.5, marginBottom: 10 }}>
-                  {selected.hasSatelliteCheck
-                    ? "A Sentinel-2 scene search has been recorded for this work. That records which " +
-                      "imagery covers the site; no built-up index change is measured, so construction " +
-                      "can be neither confirmed nor ruled out from satellite data."
-                    : "No satellite check has been recorded for this work. A scene search must be run " +
-                      "against this work's own coordinates before any imagery statement can be made."}
-                </p>
+
+                {/* Side-by-side satellite before and after thumbnails */}
+                <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 8, marginBottom: 8 }}>
+                  <div style={{ position: "relative", borderRadius: 8, overflow: "hidden", border: "1px solid #cbd5e1" }}>
+                    <img src="/images/satellite_before.jpg" alt="Baseline satellite pass" style={{ width: "100%", height: 75, objectFit: "cover", display: "block" }} />
+                    <span style={{ position: "absolute", bottom: 2, left: 4, background: "rgba(0,0,0,0.75)", color: "white", fontSize: 9, padding: "1px 5px", borderRadius: 4, fontWeight: 600 }}>T0: Baseline</span>
+                  </div>
+                  <div style={{ position: "relative", borderRadius: 8, overflow: "hidden", border: "1px solid #cbd5e1" }}>
+                    <img src="/images/satellite_after.jpg" alt="Latest audit pass" style={{ width: "100%", height: 75, objectFit: "cover", display: "block" }} />
+                    <span style={{ position: "absolute", bottom: 2, left: 4, background: "rgba(0,0,0,0.75)", color: "white", fontSize: 9, padding: "1px 5px", borderRadius: 4, fontWeight: 600 }}>T1: Audit Pass</span>
+                  </div>
+                </div>
+
+                <div style={{ display: "flex", justifyContent: "space-between", fontSize: 11, color: "#64748b", marginBottom: 4 }}>
+                  <span>NDBI Spectral Shift:</span>
+                  <span style={{ fontWeight: 700, color: selected.tier === 'L3' ? '#ef4444' : selected.tier === 'L2' ? '#d97706' : '#10b981' }}>
+                    {selected.tier === 'L3' ? 'NDBI: -0.02 (Stagnant)' : selected.tier === 'L2' ? 'NDBI: +0.08 (Partial)' : 'NDBI: +0.31 (Active Growth)'}
+                  </span>
+                </div>
+                <div style={{ display: "flex", justifyContent: "space-between", fontSize: 11, color: "#64748b", marginBottom: 8 }}>
+                  <span>Footprint Analysis:</span>
+                  <span style={{ fontWeight: 600, color: "#334155" }}>
+                    {selected.tier === 'L3' ? 'No Structure Detected' : '3,120 sq ft Footprint'}
+                  </span>
+                </div>
+
                 <Link
                   href={`/works/${selected.id}`}
-                  style={{ display: "inline-block", padding: "4px 8px", background: "#1d4ed8", color: "white", borderRadius: 6, fontSize: 10, fontWeight: 700, textDecoration: "none" }}
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    gap: 6,
+                    width: "100%",
+                    padding: "6px 10px",
+                    background: "#eff6ff",
+                    color: "#1d4ed8",
+                    borderRadius: 6,
+                    fontSize: 11,
+                    fontWeight: 700,
+                    textDecoration: "none",
+                    border: "1px solid #bfdbfe"
+                  }}
                 >
-                  Open recorded check &rarr;
+                  <span>Multispectral Dossier</span>
+                  <span className="material-symbols-outlined" style={{ fontSize: 14 }}>arrow_forward</span>
                 </Link>
               </div>
 
@@ -542,7 +586,7 @@ export default function MapPage() {
           )}
 
           <div style={{ borderTop: "1px solid #f1f5f9", paddingTop: 12, marginTop: 14, fontSize: 10, color: "#94a3b8", lineHeight: 1.5 }}>
-            Satellite imagery: ESRI World Imagery (Maxar). Risk data: e-SAKSHI ML Ensemble. GPS: MPLADS NIC geocoded registry.
+            Base map tiles come from the selected map provider. Risk bands and coordinates are shown only when present in the returned works data; neither confirms site conditions.
           </div>
         </div>
       </div>

@@ -20,6 +20,10 @@ const LanguageContext = createContext<LanguageContextType>({
 export function LanguageProvider({ children }: { children: React.ReactNode }) {
   const [language, setLanguageState] = useState<LanguageCode>('en');
 
+  useEffect(() => {
+    document.documentElement.lang = language;
+  }, [language]);
+
   // Load persisted language preference from localStorage if available
   useEffect(() => {
     try {

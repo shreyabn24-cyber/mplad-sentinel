@@ -57,9 +57,19 @@ export const STATES: StateOption[] = [
 
 export const STATE_CODES: string[] = STATES.map((s) => s.code);
 
+const STATE_ALIASES: Record<string, string> = {
+  OR: 'OD',
+  TS: 'TG',
+  CT: 'CG',
+  UT: 'UK',
+};
+
 /** Human-readable name for a state code, or the code itself if unknown. */
 export function stateName(code?: string | null): string {
   if (!code) return '—';
-  const hit = STATES.find((s) => s.code === code.toUpperCase());
+  const upper = code.toUpperCase();
+  const canonical = STATE_ALIASES[upper] || upper;
+  const hit = STATES.find((s) => s.code === canonical || s.code === upper);
   return hit ? hit.name : code;
 }
+

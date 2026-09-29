@@ -228,7 +228,16 @@ class _Result:
         # The auth layer resolves the account with this call. A demand query
         # must never answer it, hence the explicit `_one` rather than a fallback
         # to the first row.
-        return self._one
+        if self._one is not None:
+            return self._one
+        return self._rows[0] if len(self._rows) == 1 else None
+
+    def scalar_one(self):
+        if self._one is not None:
+            return self._one
+        if len(self._rows) != 1:
+            raise AssertionError(f"expected one row, received {len(self._rows)}")
+        return self._rows[0]
 
 
 class _DemandStubSession:

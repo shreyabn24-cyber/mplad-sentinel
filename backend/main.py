@@ -30,7 +30,13 @@ async def lifespan(app: FastAPI):
     try:
         await create_tables()
     except Exception as e:
-        print(f"[Database] Notice: PostgreSQL not active on localhost ({type(e).__name__}). Running in CSV/JSON-backed operational mode.")
+        # Routers use the configured database directly; there is no CSV/JSON
+        # adapter. Claiming otherwise made a failed deployment look healthy.
+        print(
+            f"[Database] Startup check failed ({type(e).__name__}). "
+            "Database-backed API routes will return errors until the configured "
+            "database is reachable."
+        )
     yield
 
 

@@ -618,9 +618,15 @@ def test_broadcast_only_reaches_subscribers_with_a_matching_role():
     from schemas.schemas import NotificationMessage
 
     async def scenario():
-        auditor = Subscriber({"AUDITOR"}, "auditor.one")
-        citizen = Subscriber({"CITIZEN"}, "citizen.one")
-        anon = Subscriber(set(), "anonymous")
+        auditor = Subscriber(Principal(
+            user_id="auditor-id", username="auditor.one", role=Role.AUDITOR,
+            is_authenticated=True,
+        ))
+        citizen = Subscriber(Principal(
+            user_id="citizen-id", username="citizen.one", role=Role.CITIZEN,
+            is_authenticated=True,
+        ))
+        anon = Subscriber(ANONYMOUS)
         subscribers.update({auditor, citizen, anon})
         try:
             delivered = await broadcast_notification(

@@ -21,14 +21,20 @@
 -- current type has to be read from the catalog.
 DO $$
 DECLARE
-    t   text;
+    t   integer;
     tbl text;
     col text;
     target_len int := 64;
 BEGIN
-    FOREACH tbl, col IN ARRAY ARRAY[
-        'works', 'risk_scores', 'satellite_checks', 'citizen_reports'
-    ], ARRAY['work_id', 'work_id', 'work_id', 'work_id'] LOOP
+    FOR tbl, col IN
+        SELECT table_name, column_name
+        FROM (VALUES
+            ('works', 'work_id'),
+            ('risk_scores', 'work_id'),
+            ('satellite_checks', 'work_id'),
+            ('citizen_reports', 'work_id')
+        ) AS work_key_columns(table_name, column_name)
+    LOOP
         SELECT character_maximum_length INTO t
         FROM information_schema.columns
         WHERE table_name = tbl

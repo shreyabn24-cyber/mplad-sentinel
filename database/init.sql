@@ -341,11 +341,14 @@ CREATE TABLE users (
     user_id             UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
     username            VARCHAR(100) UNIQUE NOT NULL,
     email               VARCHAR(200) UNIQUE NOT NULL,
-    hashed_password     VARCHAR(200) NOT NULL,
+    hashed_password     VARCHAR(255) NOT NULL,
     full_name           VARCHAR(200),
-    role                VARCHAR(30) CHECK (role IN ('INTERNAL', 'DISTRICT_AUDITOR', 'CAG_OFFICER', 'ADMIN')),
+    role                VARCHAR(30) NOT NULL CHECK (role IN ('CITIZEN', 'MP', 'AUDITOR', 'DISTRICT_AUTHORITY', 'ADMIN')),
     jurisdiction_state  VARCHAR(2),   -- NULL = all states
-    is_active           BOOLEAN DEFAULT TRUE,
+    district_name       VARCHAR(100),
+    constituency_name   VARCHAR(150),
+    mp_id               VARCHAR(20),
+    is_active           BOOLEAN NOT NULL DEFAULT TRUE,
     last_login          TIMESTAMP,
     created_at          TIMESTAMP DEFAULT NOW()
 );
@@ -393,15 +396,5 @@ INSERT INTO states (state_code, state_name, region) VALUES
 ('UK', 'Uttarakhand', 'North'),
 ('WB', 'West Bengal', 'East');
 
--- ============================================================
--- DEFAULT ADMIN USER (change password immediately)
--- Password: admin123 (hashed with bcrypt)
--- ============================================================
-INSERT INTO users (username, email, hashed_password, full_name, role)
-VALUES (
-    'admin',
-    'admin@mplads-sentinel.gov.in',
-    '$2b$12$EixZaYVK1fsbw1ZfbX3OXePaWxn96p36WQoeG6Lruj3vjPGga31lW',  -- 'secret'
-    'System Administrator',
-    'ADMIN'
-);
+-- Accounts must be provisioned out of band with backend/manage_users.py.
+-- Never seed an administrator with a published or default password.

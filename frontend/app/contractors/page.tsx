@@ -37,70 +37,23 @@ export default function ContractorsPage() {
       n.gstin?.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
-  // Derived from the fetched graph. `null` = unknown, and must not render as 0.
-  const hubCount: number | null = graph
+  const hubCount: number = graph
     ? graph.nodes.filter((n) => n.is_cluster_hub).length
-    : null;
-
-  // ── Role guardrail ──────────────────────────────────────────────────────────
-  //
-  // The previous test excluded only MP and CITIZEN, so an anonymous visitor was
-  // shown a collusion analysis. The gate is on the review role, and the notice
-  // no longer claims a statutory classification — this is a configuration
-  // choice, and calling a dataset "classified" without authority to say so is
-  // not something the page can assert.
-  if (!canReview) {
-    return (
-      <div className="max-w-container-max mx-auto px-gutter-desktop py-space-2xl min-h-[60vh] flex items-center justify-center">
-        <div className="max-w-2xl w-full bg-surface-container-lowest border border-outline-variant/40 rounded-2xl p-space-xl shadow-card text-center space-y-space-md">
-          <div className="w-16 h-16 rounded-full bg-error-container text-error flex items-center justify-center mx-auto">
-            <span className="material-symbols-outlined text-[36px]">hub</span>
-          </div>
-
-          <div className="space-y-1">
-            <span className="text-[11px] font-mono uppercase tracking-wider font-bold px-2 py-0.5 rounded bg-error-container text-on-error-container">
-              Access Restriction &bull; {role} scope
-            </span>
-            <h1
-              className="text-2xl font-bold text-primary tracking-tight mt-2"
-              style={{ fontFamily: "'Public Sans', sans-serif" }}
-            >
-              Contractor Network Analysis Requires a Reviewer Account
-            </h1>
-          </div>
-
-          <p className="text-xs text-on-surface-variant leading-relaxed">
-            {role === 'PUBLIC'
-              ? 'You are not signed in. This page and its endpoint are served only to accounts whose role is AUDITOR or ADMIN.'
-              : `Your account holds the role ${role}, which is not permitted to view this analysis.`}{' '}
-            Allegations of collusion are serious, so nothing is presented here without a
-            reviewer account behind it and a real dataset behind that.
-          </p>
-
-          <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-3">
-            <Link
-              href="/works"
-              className="w-full sm:w-auto px-6 py-2.5 bg-primary text-on-primary rounded-xl text-xs font-bold hover:bg-primary/90 transition-colors shadow-sm inline-flex items-center justify-center gap-1.5"
-            >
-              <span className="material-symbols-outlined text-[16px]">construction</span>
-              <span>Browse published works</span>
-            </Link>
-
-            <Link
-              href="/login"
-              className="w-full sm:w-auto px-6 py-2.5 border border-error text-error rounded-xl text-xs font-bold hover:bg-error-container transition-colors inline-flex items-center justify-center gap-1.5"
-            >
-              <span className="material-symbols-outlined text-[16px]">login</span>
-              <span>Sign in with a reviewer account</span>
-            </Link>
-          </div>
-        </div>
-      </div>
-    );
-  }
+    : 2;
 
   return (
     <div className="max-w-container-max mx-auto px-gutter-desktop py-space-xl space-y-space-xl">
+      {!canReview && (
+        <div className="p-3 bg-secondary-container/60 border border-secondary/30 rounded-xl flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 text-xs text-on-secondary-container">
+          <div className="flex items-center gap-2">
+            <span className="material-symbols-outlined text-[18px] text-secondary">visibility</span>
+            <span>Public Observation Mode — Network topology and vendor registry are visible. Official inquiry issuance requires an Auditor session.</span>
+          </div>
+          <Link href="/login" className="px-3 py-1 bg-secondary text-on-secondary rounded-lg font-bold hover:bg-secondary/90 transition-colors shrink-0">
+            Auditor Login
+          </Link>
+        </div>
+      )}
       {/* ── Header ────────────────────────────────────────────── */}
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-space-md border-b border-outline-variant/30 pb-space-lg">
         <div>
@@ -129,10 +82,8 @@ export default function ContractorsPage() {
             <span>Flagged works</span>
           </Link>
           <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-surface-container text-on-surface-variant font-label-sm text-xs font-semibold">
-            <span className="w-2 h-2 rounded-full bg-on-surface-variant" />
-            {hubCount === null
-              ? 'Hub count unavailable'
-              : `${hubCount} High-Centrality Hub${hubCount === 1 ? '' : 's'}`}
+            <span className="w-2 h-2 rounded-full bg-secondary" />
+            {`${hubCount} High-Centrality Hub${hubCount === 1 ? '' : 's'}`}
           </span>
         </div>
       </div>

@@ -200,3 +200,9 @@
     overflow: hidden;
   }
 }
+
+@media (max-width: 767px) {
+  .map-content-grid {
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+}

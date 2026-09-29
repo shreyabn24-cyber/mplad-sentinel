@@ -23,6 +23,7 @@ pydantic-settings==2.3.0
 # ── Persistence ───────────────────────────────────────────────────────────────
 sqlalchemy==2.0.30
 asyncpg==0.29.0
+psycopg2-binary==2.9.9      # required by the synchronous CSV ingestion CLI
 alembic==1.13.1
 
 # ── HTTP client (outbound: AWS STAC satellite search, MoSPI, Google APIs) ─────

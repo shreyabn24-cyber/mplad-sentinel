@@ -128,6 +128,7 @@ def test_migrations_are_idempotent_by_construction():
                     "IF EXISTS",
                     "ON CONFLICT",
                     "ADD CONSTRAINT",  # wrapped in a pg_constraint guard below
+                    "WHERE ROLE IN (",  # role migration only matches legacy values
                     # An UPDATE that only touches rows it has not already
                     # changed matches nothing on a second run.
                     "IS NULL",

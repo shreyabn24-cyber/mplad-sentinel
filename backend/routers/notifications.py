@@ -60,12 +60,40 @@ MAX_SUBSCRIBERS = 500
 class Subscriber:
     """One connected SSE client."""
 
-    __slots__ = ("queue", "roles", "username")
+    __slots__ = ("queue", "principal")
 
-    def __init__(self, roles: Set[str], username: str):
+    def __init__(self, principal: Principal):
         self.queue: asyncio.Queue = asyncio.Queue(maxsize=QUEUE_MAXSIZE)
-        self.roles = roles
-        self.username = username
+        self.principal = principal
+
+    def matches(self, message: NotificationMessage) -> bool:
+        principal = self.principal
+        wanted = message.recipients()
+        if not message.is_broadcast() and principal.role.value not in wanted:
+            return False
+
+        if principal.role.value in {"ADMIN", "AUDITOR"}:
+            return True
+        if message.target_state_code and (
+            not principal.state_code
+            or principal.state_code.upper() != message.target_state_code.upper()
+        ):
+            return False
+        if principal.role.value == "MP":
+            return bool(
+                message.target_constituency_name
+                and principal.constituency_name
+                and principal.constituency_name.casefold()
+                == message.target_constituency_name.casefold()
+            )
+        if principal.role.value == "DISTRICT_AUTHORITY":
+            return bool(
+                message.target_district_name
+                and principal.district_name
+                and principal.district_name.casefold()
+                == message.target_district_name.casefold()
+            )
+        return message.is_broadcast()
 
 
 subscribers: set[Subscriber] = set()
@@ -89,15 +117,10 @@ async def broadcast_notification(message: NotificationMessage) -> int:
         "timestamp": message.timestamp
         or datetime.now(timezone.utc).strftime("%H:%M:%S UTC"),
     }
-    wanted = message.recipients()
-    send_everywhere = message.is_broadcast()
-
     delivered = 0
     dead: list[Subscriber] = []
     for subscriber in list(subscribers):
-        # An event with no named audience goes to everyone; otherwise the
-        # subscriber must hold one of the addressed roles.
-        if not send_everywhere and not (subscriber.roles & wanted):
+        if not subscriber.matches(message):
             continue
         try:
             subscriber.queue.put_nowait(payload)
@@ -134,8 +157,7 @@ async def notification_stream(
     if len(subscribers) >= MAX_SUBSCRIBERS:
         raise HTTPException(503, "Too many live notification connections; retry shortly.")
 
-    roles = {principal.role.value} if principal.is_authenticated else set()
-    subscriber = Subscriber(roles=roles, username=principal.actor)
+    subscriber = Subscriber(principal)
     subscribers.add(subscriber)
 
     async def event_generator() -> AsyncGenerator[str, None]:

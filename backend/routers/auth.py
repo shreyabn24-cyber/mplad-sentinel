@@ -48,6 +48,35 @@ logger = logging.getLogger(__name__)
 _GENERIC_LOGIN_FAILURE = "Incorrect username or password."
 
 
+@router.get("/demo-users")
+async def list_demo_users(db: AsyncSession = Depends(get_db)):
+    """Expose seeded synthetic identities only in local demo mode."""
+    if not settings.DEMO_MODE or settings.ENVIRONMENT.lower() != "development":
+        raise HTTPException(status_code=404, detail="Demo accounts are not enabled.")
+    configured = [
+        {"username": "demo_citizen", "role": "CITIZEN", "label": "Demo Citizen"},
+        {"username": "demo_mp", "role": "MP", "label": "Demo MP · Guntur"},
+        {"username": "demo_district", "role": "DISTRICT_AUTHORITY", "label": "Demo District · Guntur"},
+        {"username": "demo_auditor", "role": "AUDITOR", "label": "Demo Auditor"},
+        {"username": "demo_admin", "role": "ADMIN", "label": "Demo Admin"},
+    ]
+    result = await db.execute(
+        select(User.username, User.role, User.is_active).where(
+            func.lower(User.username).in_([entry["username"] for entry in configured])
+        )
+    )
+    seeded = {
+        username.lower(): (role, active)
+        for username, role, active in result.all()
+    }
+    return [
+        entry for entry in configured
+        if (entry["username"].lower() in seeded
+            and seeded[entry["username"].lower()][0] == entry["role"]
+            and seeded[entry["username"].lower()][1])
+    ]
+
+
 def _user_from_row(user: User) -> UserProfileResponse:
     return UserProfileResponse(
         user_id=str(user.user_id),
@@ -75,6 +104,17 @@ async def login(
     details are available from ``GET /auth/me`` once the token is attached.
     """
     username = (payload.username or "").strip()
+
+    # Seeded demo accounts must never remain usable if the environment is
+    # switched out of local demo mode after provisioning.
+    if username.lower().startswith("demo_") and (
+        not settings.DEMO_MODE or settings.ENVIRONMENT.lower() != "development"
+    ):
+        raise HTTPException(
+            status_code=status.HTTP_401_UNAUTHORIZED,
+            detail=_GENERIC_LOGIN_FAILURE,
+            headers={"WWW-Authenticate": "Bearer"},
+        )
 
     if not username or not payload.password:
         raise HTTPException(

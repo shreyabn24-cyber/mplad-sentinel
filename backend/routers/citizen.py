@@ -41,7 +41,7 @@ import math
 import re
 import secrets
 import string
-from datetime import datetime, timezone
+from datetime import datetime
 from typing import Literal, Optional
 from urllib.parse import quote
 from uuid import UUID
@@ -59,6 +59,7 @@ from fastapi import (
 from fastapi.responses import FileResponse
 from pydantic import BaseModel, Field, field_validator
 from sqlalchemy import and_, desc, select
+from sqlalchemy.orm import selectinload
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from auth import (
@@ -86,6 +87,7 @@ from schemas.schemas import (
     CitizenReportResponse,
     DemandAcknowledgement,
     EvidenceAttachmentResponse,
+    NotificationMessage,
 )
 from services.uploads import resolve_storage_path, store_uploads
 
@@ -105,6 +107,59 @@ def _new_acknowledgement_ref() -> str:
     UTR — those are issued by the competent authority, not by this application.
     """
     return "CPR-" + "".join(secrets.choice(_REF_ALPHABET) for _ in range(8))
+
+
+async def _notify_request_reviewers(record: CitizenDemand, attachment_count: int) -> None:
+    """Notify connected accounts that can see this request in their scoped queue."""
+    from routers.notifications import broadcast_notification
+
+    targets = ["AUDITOR", "ADMIN"]
+    if record.constituency_name:
+        targets.append("MP")
+    if record.district_name:
+        targets.append("DISTRICT_AUTHORITY")
+    location = ", ".join(
+        part for part in (record.village, record.district_name, record.state_code) if part
+    ) or "an unspecified location"
+    description = (
+        f"A citizen request was recorded for {location}. Open your scoped request queue to review it."
+        f" Portal receipt: {record.acknowledgement_ref}."
+    )
+    if attachment_count:
+        description += f" {attachment_count} evidence file(s) are attached."
+
+    await broadcast_notification(
+        NotificationMessage(
+            category="CITIZEN_REQUEST",
+            title="New citizen request received",
+            description=description,
+            target_id=record.acknowledgement_ref,
+            severity="INFO",
+            target_roles=targets,
+            target_state_code=record.state_code,
+            target_district_name=record.district_name,
+            target_constituency_name=record.constituency_name,
+        )
+    )
+
+
+async def _notify_report_reviewers(report: CitizenReport, attachment_count: int) -> None:
+    """Notify the review roles after a site observation is durably saved."""
+    from routers.notifications import broadcast_notification
+
+    await broadcast_notification(
+        NotificationMessage(
+            category="CITIZEN_REPORT",
+            title="New site observation received",
+            description=(
+                f"A citizen submitted an observation for work {report.work_id}."
+                + (f" {attachment_count} evidence file(s) are attached." if attachment_count else "")
+            ),
+            target_id=report.work_id,
+            severity="INFO",
+            target_roles=["AUDITOR", "ADMIN"],
+        )
+    )
 
 
 # ── Ground-truth reports ──────────────────────────────────────────────────────
@@ -148,6 +203,7 @@ async def submit_citizen_report(
     )
     await db.commit()
     await db.refresh(db_report)
+    await _notify_report_reviewers(db_report, 0)
     return db_report
 
 
@@ -159,8 +215,8 @@ async def submit_citizen_report_with_evidence(
         ...,
         description="The report fields as a JSON object (CitizenReportCreate).",
     ),
-    photos: list[UploadFile] | None = File(
-        default=None,
+    photos: list[UploadFile] = File(
+        default_factory=list,
         description="Evidence photos or a PDF. At most 5 files.",
     ),
 ):
@@ -235,6 +291,7 @@ async def submit_citizen_report_with_evidence(
     )
     await db.commit()
     await db.refresh(db_report)
+    await _notify_report_reviewers(db_report, len(stored))
     return db_report
 
 
@@ -313,10 +370,10 @@ async def list_report_evidence(
 @router.get("/evidence/{attachment_id}/download")
 async def download_evidence(
     attachment_id: UUID,
-    principal: Principal = Depends(require_roles(ROLES_AUDIT)),
+    principal: Principal = Depends(require_roles(ROLES_OFFICE)),
     db: AsyncSession = Depends(get_db),
 ):
-    """Stream one evidence file to an auditor.
+    """Stream report evidence to auditors and request evidence to scoped offices.
 
     The frontend previously had a download control that did nothing at all
     (it showed a success toast and produced no file), because no route served
@@ -335,6 +392,28 @@ async def download_evidence(
         raise HTTPException(
             status_code=status.HTTP_404_NOT_FOUND,
             detail="No such evidence attachment.",
+        )
+
+    if record.demand_id is not None:
+        scope = _scope_demands(principal)
+        if scope is False:
+            raise HTTPException(
+                status_code=status.HTTP_403_FORBIDDEN,
+                detail="This request evidence is outside your jurisdiction.",
+            )
+        if scope is not None and not await db.scalar(
+            select(CitizenDemand.demand_id).where(
+                CitizenDemand.demand_id == record.demand_id, scope
+            )
+        ):
+            raise HTTPException(
+                status_code=status.HTTP_403_FORBIDDEN,
+                detail="This request evidence is outside your jurisdiction.",
+            )
+    elif principal.role.value not in ROLES_AUDIT:
+        raise HTTPException(
+            status_code=status.HTTP_403_FORBIDDEN,
+            detail="Site observation evidence is restricted to auditor accounts.",
         )
 
     path = resolve_storage_path(record.storage_key)
@@ -407,6 +486,8 @@ async def submit_demand(
         work_title=payload.work_title,
         description=payload.description,
         estimated_amount=payload.estimated_amount,
+        routed_to_role="OFFICE_QUEUE",
+        routed_at=datetime.utcnow(),
         status="RECEIVED",
     )
     db.add(demand)
@@ -424,6 +505,7 @@ async def submit_demand(
         },
     )
     await db.commit()
+    await _notify_request_reviewers(demand, 0)
 
     return DemandAcknowledgement(
         demand_id=str(demand.demand_id),
@@ -444,7 +526,7 @@ async def submit_demand_with_evidence(
     principal: Principal = Depends(require_roles(ROLES_CITIZEN)),
     db: AsyncSession = Depends(get_db),
     demand: str = Form(..., description="CitizenDemandCreate fields as a JSON object."),
-    photos: list[UploadFile] | None = File(default=None),
+    photos: list[UploadFile] = File(default_factory=list),
 ):
     """Register a citizen request together with supporting evidence files."""
     import json
@@ -471,6 +553,8 @@ async def submit_demand_with_evidence(
         work_title=payload.work_title,
         description=payload.description,
         estimated_amount=payload.estimated_amount,
+        routed_to_role="OFFICE_QUEUE",
+        routed_at=datetime.utcnow(),
         status="RECEIVED",
     )
     db.add(record)
@@ -502,6 +586,7 @@ async def submit_demand_with_evidence(
         },
     )
     await db.commit()
+    await _notify_request_reviewers(record, len(stored))
 
     return DemandAcknowledgement(
         demand_id=str(record.demand_id),
@@ -530,6 +615,7 @@ async def list_my_demands(
     """
     result = await db.execute(
         select(CitizenDemand)
+        .options(selectinload(CitizenDemand.attachments))
         .where(CitizenDemand.submitted_by == principal.username)
         .order_by(desc(CitizenDemand.created_at))
         .limit(100)
@@ -627,7 +713,7 @@ async def list_demands_for_office(
             ),
         )
 
-    query = select(CitizenDemand)
+    query = select(CitizenDemand).options(selectinload(CitizenDemand.attachments))
     if scope is not None:
         query = query.where(scope)
     if status_filter:
@@ -694,7 +780,12 @@ async def review_demand(
     leaves an audit entry. It does not approve a work, commit money, or contact
     any office outside this database.
     """
-    record = await db.get(CitizenDemand, demand_id)
+    result = await db.execute(
+        select(CitizenDemand)
+        .options(selectinload(CitizenDemand.attachments))
+        .where(CitizenDemand.demand_id == demand_id)
+    )
+    record = result.scalar_one_or_none()
     if record is None:
         raise HTTPException(404, f"Request {demand_id} not found")
 
@@ -719,7 +810,7 @@ async def review_demand(
     record.status = "ACKNOWLEDGED"
     record.decision_note = payload.note
     record.decided_by = principal.username
-    record.decided_at = datetime.now(timezone.utc)
+    record.decided_at = datetime.utcnow()
     if payload.routed_to_role is not None:
         record.routed_to_role = payload.routed_to_role.value
 
@@ -737,8 +828,12 @@ async def review_demand(
         },
     )
     await db.commit()
-    await db.refresh(record)
-    return record
+    result = await db.execute(
+        select(CitizenDemand)
+        .options(selectinload(CitizenDemand.attachments))
+        .where(CitizenDemand.demand_id == demand_id)
+    )
+    return result.scalar_one()
 
 
 # ── Helpers ──────────────────────────────────────────────────────────────────

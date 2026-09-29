@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 import { useAuth, UserRole, displayName } from '@/lib/auth';
@@ -16,7 +16,6 @@ export default function StitchHeader() {
     isAuthenticated,
     notifications,
     unreadNotificationCount,
-    notificationStream,
     markNotificationAsRead,
     clearAllNotifications,
     logout,
@@ -27,8 +26,30 @@ export default function StitchHeader() {
   const [showNotifDropdown, setShowNotifDropdown] = useState(false);
   const [showAccountDropdown, setShowAccountDropdown] = useState(false);
   const [showLangDropdown, setShowLangDropdown] = useState(false);
+  const [fontPreferenceReady, setFontPreferenceReady] = useState(false);
 
-  const fontSizeClass = fontSize === 'sm' ? 'text-[90%]' : fontSize === 'lg' ? 'text-[110%]' : '';
+  // Apply the accessibility control to the whole document and preserve it.
+  useEffect(() => {
+    if (!fontPreferenceReady) return;
+    const root = document.documentElement;
+    root.style.fontSize = fontSize === 'sm' ? '90%' : fontSize === 'lg' ? '110%' : '';
+    try {
+      window.localStorage.setItem('mplads_font_size', fontSize);
+    } catch {
+      // The control still works for this session when storage is unavailable.
+    }
+  }, [fontSize, fontPreferenceReady]);
+
+  useEffect(() => {
+    try {
+      const saved = window.localStorage.getItem('mplads_font_size');
+      if (saved === 'sm' || saved === 'md' || saved === 'lg') setFontSize(saved);
+    } catch {
+      // Keep the default size when storage is unavailable.
+    } finally {
+      setFontPreferenceReady(true);
+    }
+  }, []);
 
   // Navigation follows the *server-issued* role. An anonymous visitor gets the
   // public set; there is no way to reach another role's views by navigating,
@@ -122,14 +143,14 @@ export default function StitchHeader() {
     // bars visible. When this element was `fixed` it detached from that block
     // and covered the banner, because `fixed` resolves against the viewport and
     // paints above an in-flow sibling regardless of document order.
-    <header className={`relative w-full shadow-[0_1px_8px_rgba(0,0,0,0.04)] ${fontSizeClass}`}>
+    <header className="relative w-full shadow-[0_1px_8px_rgba(0,0,0,0.04)]">
       {/* ── Sovereign Amber Accent Bar ──────────────────────────── */}
       <div className="h-1 bg-amber-600 w-full" />
 
       {/* ── Utility Bar ────────────────────────────────────────── */}
       <div className="bg-surface-container-low border-b border-outline-variant/30 text-on-surface-variant">
         <div className="max-w-container-max mx-auto px-gutter-desktop h-9 flex items-center justify-between font-label-sm text-label-sm">
-          <div className="flex items-center gap-space-sm text-xs">
+          <div className="hidden md:flex items-center gap-space-sm text-xs">
             {/*
               This read "Government Public Information Portal | भारत सरकार •
               Ministry of Statistics & Programme Implementation". A government
@@ -145,7 +166,7 @@ export default function StitchHeader() {
 
           <div className="flex items-center gap-space-md text-xs">
             {/* Session pill. Shows the real account, or the anonymous state. */}
-            <div className="hidden sm:flex items-center gap-1.5 px-2 py-0.5 rounded-full border text-[11px] bg-surface-container-lowest">
+            <div className="hidden lg:flex items-center gap-1.5 px-2 py-0.5 rounded-full border text-[11px] bg-surface-container-lowest">
               <span
                 className={`w-1.5 h-1.5 rounded-full ${
                   isAuthenticated ? 'bg-emerald-600' : 'bg-outline'
@@ -168,6 +189,8 @@ export default function StitchHeader() {
                 className="hover:text-on-surface transition-colors"
                 type="button"
                 title="Decrease font size"
+                aria-label="Decrease page text size"
+                aria-pressed={fontSize === 'sm'}
                 onClick={() => setFontSize('sm')}
               >
                 A-
@@ -176,6 +199,8 @@ export default function StitchHeader() {
                 className={`hover:text-on-surface transition-colors font-bold ${fontSize === 'md' ? 'text-on-surface' : ''}`}
                 type="button"
                 title="Default font size"
+                aria-label="Use default page text size"
+                aria-pressed={fontSize === 'md'}
                 onClick={() => setFontSize('md')}
               >
                 A
@@ -184,6 +209,8 @@ export default function StitchHeader() {
                 className="hover:text-on-surface transition-colors"
                 type="button"
                 title="Increase font size"
+                aria-label="Increase page text size"
+                aria-pressed={fontSize === 'lg'}
                 onClick={() => setFontSize('lg')}
               >
                 A+
@@ -426,11 +453,6 @@ export default function StitchHeader() {
                           Those were indistinguishable from real events. Nothing
                           is shown now, and the reason is stated instead.
                         */}
-                        {notificationStream.reason && (
-                          <p className="text-[10px] text-on-surface-variant/80 leading-relaxed px-2">
-                            {notificationStream.reason}
-                          </p>
-                        )}
                       </div>
                     ) : (
                       notifications.map((n) => (

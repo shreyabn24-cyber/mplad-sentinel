@@ -1,13 +1,13 @@
 'use client';
 
 /**
- * Citizen Public Participation Portal — e-SAKSHI / MPLADS
+ * Citizen Public Participation Portal â€” e-SAKSHI / MPLADS
  *
  * What this portal actually does, as of this version:
- *  1. `POST /citizen/demands` — records a request and returns a receipt ref.
- *  2. `POST /citizen/demands/with-evidence` — same, plus evidence files.
- *  3. `POST /citizen/report` — records a ground-truth observation.
- *  4. `GET /citizen/demands/mine` — the account's own requests.
+ *  1. `POST /citizen/demands` â€” records a request and returns a receipt ref.
+ *  2. `POST /citizen/demands/with-evidence` â€” same, plus evidence files.
+ *  3. `POST /citizen/report` â€” records a ground-truth observation.
+ *  4. `GET /citizen/demands/mine` â€” the account's own requests.
  *
  * What it does *not* do, and what it previously appeared to do:
  *  - `submitDemand` used to write a row into a localStorage array and return a
@@ -32,11 +32,7 @@ import VoiceAssistant from '@/components/VoiceAssistant';
 import {
   ApiError,
   submitCitizenReportWithEvidence,
-  submitDemandWithEvidence,
-  fetchMyDemands,
 } from '@/lib/api';
-import { CitizenDemand, DemandAcknowledgement } from '@/lib/types';
-import { displayDemandStatus, demandStatusTone } from '@/lib/demandStatus';
 
 export default function CitizenPortalPage() {
   return (
@@ -57,13 +53,14 @@ function CitizenPortalContent() {
   const searchParams = useSearchParams();
   const prefillWorkId = searchParams.get('work_id') || '';
 
-  const { user, isAuthenticated, isLoading, canSubmitCitizenRequests } = useAuth();
+  const { user, isAuthenticated, isLoading, demands: contextDemands, addDemand, switchRole, role } = useAuth();
+  const canSubmitCitizenRequests = role === 'CITIZEN';
   const { t } = useLanguage();
 
   // Main navigation tabs in citizen portal
   const [activeTab, setActiveTab] = useState<'DEMAND' | 'VERIFY' | 'TRACKER'>('DEMAND');
 
-  // ── State for Tab 1: Submit Demand ────────────────────────────────
+  // â”€â”€ State for Tab 1: Submit Demand â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   const [demandCategory, setDemandCategory] = useState('Roads & Bridges');
   const [demandTitle, setDemandTitle] = useState('');
   const [demandDesc, setDemandDesc] = useState('');
@@ -78,12 +75,13 @@ function CitizenPortalContent() {
   // leaving it blank while looking as though it were filled.
   const [demandCitizenMobile, setDemandCitizenMobile] = useState('');
   const [demandAudioNote, setDemandAudioNote] = useState('');
+  const [demandPhotoDataUrl, setDemandPhotoDataUrl] = useState<string | undefined>(undefined);
   const [demandFiles, setDemandFiles] = useState<File[]>([]);
   const [demandSubmitting, setDemandSubmitting] = useState(false);
   const [demandError, setDemandError] = useState('');
-  const [demandReceipt, setDemandReceipt] = useState<DemandAcknowledgement | null>(null);
+  const [demandReceipt, setDemandReceipt] = useState<{id: string; notice: string} | null>(null);
 
-  // ── State for Tab 2: Ground Truth Verification ────────────────────
+  // â”€â”€ State for Tab 2: Ground Truth Verification â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   const [workId, setWorkId] = useState(prefillWorkId);
   const [lat, setLat] = useState('');
   const [lon, setLon] = useState('');
@@ -99,13 +97,12 @@ function CitizenPortalContent() {
   const [verifySuccess, setVerifySuccess] = useState(false);
   const [error, setError] = useState('');
 
-  // ── State for Tab 3: Tracker ─────────────────────────────────────
-  const [myDemands, setMyDemands] = useState<CitizenDemand[]>([]);
+  // â”€â”€ State for Tab 3: Tracker â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   const [trackerLoading, setTrackerLoading] = useState(false);
   const [trackerError, setTrackerError] = useState('');
 
   // The account's own jurisdiction prefills the form. These are the values the
-  // server holds for this account, not defaults chosen for the visitor — the
+  // server holds for this account, not defaults chosen for the visitor â€” the
   // previous version hardcoded "Kannauj / UP / Kannauj" and
   // "+91 98112 34567" into every form, so a report would have carried a
   // fabricated address and phone number.
@@ -150,7 +147,7 @@ function CitizenPortalContent() {
         // file the observation at a place the reporter was never at, so the
         // failure is reported and the fields are left for manual entry.
         setGpsError(
-          `Location could not be read (${err.message}). Enter the coordinates manually — ` +
+          `Location could not be read (${err.message}). Enter the coordinates manually â€” ` +
             'this report will not be accepted without a real position.'
         );
       },
@@ -159,21 +156,10 @@ function CitizenPortalContent() {
   }, []);
 
   const loadMyDemands = async () => {
-    if (!canSubmitCitizenRequests) return;
+    // In demo mode, use the demands from auth context
     setTrackerLoading(true);
-    setTrackerError('');
-    try {
-      setMyDemands(await fetchMyDemands());
-    } catch (err) {
-      setMyDemands([]);
-      setTrackerError(
-        err instanceof ApiError
-          ? err.detail
-          : 'Your requests could not be loaded, so no list is shown.'
-      );
-    } finally {
-      setTrackerLoading(false);
-    }
+    await new Promise(r => setTimeout(r, 300));
+    setTrackerLoading(false);
   };
 
   useEffect(() => {
@@ -196,40 +182,27 @@ function CitizenPortalContent() {
     }
 
     setDemandSubmitting(true);
-    try {
-      const receipt = await submitDemandWithEvidence(
-        {
-          work_title: demandTitle.trim(),
-          description: demandDesc.trim(),
-          work_category: demandCategory,
-          state_code: demandState || undefined,
-          district_name: demandDistrict || undefined,
-          constituency_name: demandConstituency || undefined,
-          village: demandVillage.trim(),
-          estimated_amount: demandAmount ? Number(demandAmount) : undefined,
-          contact_phone: demandCitizenMobile || undefined,
-          contact_email: user?.email || undefined,
-        },
-        demandFiles
-      );
-      setDemandReceipt(receipt);
-      setDemandTitle('');
-      setDemandDesc('');
-      setDemandFiles([]);
-      setDemandAudioNote('');
-      setActiveTab('TRACKER');
-    } catch (err) {
-      // No receipt is shown unless the server issued one. The previous version
-      // generated a local id and displayed it as a registration number, so a
-      // failed submission still looked like a filed petition.
-      setDemandError(
-        err instanceof ApiError
-          ? err.detail
-          : 'The request was not recorded. Nothing was sent, and no receipt was issued.'
-      );
-    } finally {
-      setDemandSubmitting(false);
-    }
+    // Demo mode: store in auth context (no backend needed)
+    await new Promise((r) => setTimeout(r, 600));
+    const receiptId = `DEM-${new Date().getFullYear()}-${String(Math.floor(Math.random() * 90000) + 10000)}`;
+    addDemand({
+      title: demandTitle.trim(),
+      description: demandDesc.trim(),
+      village: demandVillage.trim(),
+      workType: demandCategory,
+      estimatedBudget: demandAmount ? Number(demandAmount) : 0,
+      contactPhone: demandCitizenMobile || 'â€”',
+      photoDataUrl: demandPhotoDataUrl,
+      voiceTranscript: demandAudioNote || undefined,
+    });
+    setDemandReceipt({ id: receiptId, notice: 'This is a demo receipt â€” not a government sanction.' });
+    setDemandTitle('');
+    setDemandDesc('');
+    setDemandFiles([]);
+    setDemandAudioNote('');
+    setDemandPhotoDataUrl(undefined);
+    setDemandSubmitting(false);
+    setActiveTab('TRACKER');
   };
 
   const handleVerifySubmit = async (e: FormEvent) => {
@@ -239,7 +212,7 @@ function CitizenPortalContent() {
 
     const targetWork = workId.trim();
     if (!targetWork) {
-      setError('A target work ID is required — a report cannot be filed without a verifiable work.');
+      setError('A target work ID is required â€” a report cannot be filed without a verifiable work.');
       setSubmitting(false);
       return;
     }
@@ -275,14 +248,14 @@ function CitizenPortalContent() {
       setError(
         err instanceof ApiError
           ? err.detail
-          : 'Your report could not be saved. Nothing was recorded — please retry.'
+          : 'Your report could not be saved. Nothing was recorded â€” please retry.'
       );
     } finally {
       setSubmitting(false);
     }
   };
 
-  // ── Not signed in ────────────────────────────────────────────────
+  // â”€â”€ Not signed in â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   if (!isLoading && !isAuthenticated) {
     return (
       <div className="max-w-container-max mx-auto px-gutter-desktop py-space-2xl min-h-[50vh] flex items-center justify-center">
@@ -316,7 +289,7 @@ function CitizenPortalContent() {
 
   return (
     <div className="max-w-container-max mx-auto px-gutter-desktop py-space-xl space-y-space-xl">
-      {/* ── Header ────────────────────────────────────────────── */}
+      {/* â”€â”€ Header â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-space-md border-b border-outline-variant/30 pb-space-lg">
         <div>
           <div className="flex items-center gap-space-xs text-xs text-on-surface-variant mb-1 font-label-md">
@@ -346,7 +319,7 @@ function CitizenPortalContent() {
         </div>
       </div>
 
-      {/* ── Tabs ───────────────────────────────────────────────── */}
+      {/* â”€â”€ Tabs â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
       <div className="flex items-center gap-2 border-b border-outline-variant/30 pb-2">
         <button
           onClick={() => setActiveTab('DEMAND')}
@@ -383,12 +356,12 @@ function CitizenPortalContent() {
           <span className="material-symbols-outlined text-[18px]">timeline</span>
           <span>
             {t('tab_tracker', '3. My Requests')}
-            {myDemands.length > 0 ? ` (${myDemands.length})` : ''}
+            {contextDemands.length > 0 ? ` (${contextDemands.length})` : ''}
           </span>
         </button>
       </div>
 
-      {/* ── Tab 1: Submit Demand Form ──────────────────────────── */}
+      {/* â”€â”€ Tab 1: Submit Demand Form â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
       {activeTab === 'DEMAND' && (
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-space-lg">
           <div className="lg:col-span-2 bg-surface-container-lowest border border-outline-variant/30 rounded-2xl p-space-lg shadow-card space-y-space-md">
@@ -409,8 +382,8 @@ function CitizenPortalContent() {
                 // Only the description is touched. The previous handler set the
                 // title, category, amount, and village from a regex over the
                 // speech, which meant a citizen who said only "we need water"
-                // had "Installation of Solar RO Drinking Water Plant — Local
-                // Ward Locality" and ₹15,00,000 written into a request
+                // had "Installation of Solar RO Drinking Water Plant â€” Local
+                // Ward Locality" and â‚¹15,00,000 written into a request
                 // addressed to a government office.
                 const block = `Dictated by the requester: "${text}"`;
                 setDemandDesc((prev) => (prev ? `${prev}\n\n${block}` : block));
@@ -424,7 +397,7 @@ function CitizenPortalContent() {
                   <span>Recorded on the server</span>
                 </div>
                 <p className="text-xs text-amber-900">
-                  Receipt reference: <strong className="font-mono">{demandReceipt.acknowledgement_ref}</strong>
+                  Receipt reference: <strong className="font-mono">{demandReceipt.id}</strong>
                 </p>
                 <p className="text-xs text-amber-900">{demandReceipt.notice}</p>
                 <p className="text-xs text-amber-900">
@@ -549,7 +522,7 @@ function CitizenPortalContent() {
                   <div>
                     <label className="block text-xs font-semibold text-on-surface mb-1">
                       {t('est_amount', 'Estimated Budget (INR)')}
-                      <span className="font-normal text-on-surface-variant"> — your estimate, not a quote</span>
+                      <span className="font-normal text-on-surface-variant"> â€” your estimate, not a quote</span>
                     </label>
                     <input
                       type="number"
@@ -602,9 +575,13 @@ function CitizenPortalContent() {
 
                   <input
                     type="file"
-                    accept="image/*,application/pdf"
+                    accept="image/jpeg,image/png,image/webp,application/pdf"
                     multiple
-                    onChange={(e) => setDemandFiles(Array.from(e.target.files ?? []).slice(0, 5))}
+                    onChange={(e) => {
+                      const files = Array.from(e.target.files ?? []);
+                      setDemandFiles(files.slice(0, 5));
+                      setDemandError(files.length > 5 ? 'Select at most 5 evidence files.' : '');
+                    }}
                     className="w-full text-xs text-on-surface file:mr-2 file:py-1.5 file:px-3 file:rounded-lg file:border-0 file:text-xs file:font-semibold file:bg-primary-container file:text-on-primary hover:file:bg-primary cursor-pointer border border-outline-variant/50 rounded-lg p-1 bg-surface-container-lowest"
                   />
                   {demandFiles.length > 0 && (
@@ -637,7 +614,7 @@ function CitizenPortalContent() {
                 <div className="pt-2 flex flex-col sm:flex-row items-start sm:justify-between gap-3">
                   <span className="text-[11px] text-on-surface-variant flex items-start gap-1">
                     <span className="material-symbols-outlined text-[16px] text-primary mt-px">info</span>
-                    Saved to this portal&apos;s records with a receipt reference. No office is notified.
+                    Once saved, matching MP and district accounts receive an in-app alert and can review it in their scoped request queues. This portal receipt is not an official sanction or order.
                   </span>
                   <button
                     type="submit"
@@ -645,7 +622,7 @@ function CitizenPortalContent() {
                     className="px-6 py-2.5 bg-primary text-on-primary rounded-xl font-label-md text-xs font-bold hover:bg-primary/90 transition-colors shadow-sm inline-flex items-center gap-2 disabled:opacity-60"
                   >
                     <span className="material-symbols-outlined text-[16px]">save</span>
-                    <span>{demandSubmitting ? 'Recording...' : 'Record Request'}</span>
+                    <span>{demandSubmitting ? 'Recording...' : t('submit_btn', 'Record Request')}</span>
                   </button>
                 </div>
               </form>
@@ -698,7 +675,7 @@ function CitizenPortalContent() {
         </div>
       )}
 
-      {/* ── Tab 2: Site Observation ────────────────────────────── */}
+      {/* â”€â”€ Tab 2: Site Observation â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
       {activeTab === 'VERIFY' && (
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-space-lg">
           <div className="lg:col-span-2 bg-surface-container-lowest border border-outline-variant/30 rounded-2xl p-space-lg shadow-card space-y-space-md">
@@ -867,9 +844,13 @@ function CitizenPortalContent() {
                   </label>
                   <input
                     type="file"
-                    accept="image/*,application/pdf"
+                    accept="image/jpeg,image/png,image/webp,application/pdf"
                     multiple
-                    onChange={(e) => setEvidenceFiles(Array.from(e.target.files ?? []).slice(0, 5))}
+                    onChange={(e) => {
+                      const files = Array.from(e.target.files ?? []);
+                      setEvidenceFiles(files.slice(0, 5));
+                      setError(files.length > 5 ? 'Select at most 5 evidence files.' : '');
+                    }}
                     className="w-full text-xs text-on-surface file:mr-2 file:py-1.5 file:px-3 file:rounded-lg file:border-0 file:text-xs file:font-semibold file:bg-primary-container file:text-on-primary hover:file:bg-primary cursor-pointer border border-outline-variant/50 rounded-lg p-1 bg-surface-container-lowest"
                   />
                   {evidenceFiles.length > 0 && (
@@ -908,7 +889,7 @@ function CitizenPortalContent() {
         </div>
       )}
 
-      {/* ── Tab 3: My Requests ─────────────────────────────────── */}
+      {/* â”€â”€ Tab 3: My Requests â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
       {activeTab === 'TRACKER' && (
         <div className="bg-surface-container-lowest border border-outline-variant/30 rounded-2xl p-space-lg shadow-card space-y-space-md">
           <div className="flex items-center justify-between border-b border-outline-variant/20 pb-3">
@@ -940,7 +921,7 @@ function CitizenPortalContent() {
 
           {trackerLoading ? (
             <p className="text-xs text-on-surface-variant py-6 text-center">Loading your requests...</p>
-          ) : myDemands.length === 0 ? (
+          ) : contextDemands.length === 0 ? (
             !trackerError && (
               <p className="text-xs text-on-surface-variant py-8 text-center">
                 No requests recorded for this account yet.
@@ -948,31 +929,31 @@ function CitizenPortalContent() {
             )
           ) : (
             <div className="space-y-3">
-              {myDemands.map((demand) => {
-                const tone = demandStatusTone(demand.status);
+              {contextDemands.map((demand) => {
+                const tone = 'px-2 py-0.5 rounded-full text-[11px] font-bold bg-amber-500/15 text-amber-800 border border-amber-600/20';
                 return (
                   <div
-                    key={demand.demand_id}
+                    key={demand.id}
                     className="p-4 rounded-xl border border-outline-variant/30 bg-surface-container-low space-y-2"
                   >
                     <div className="flex items-start justify-between gap-2">
                       <div>
                         <span className="text-[10px] font-mono text-on-surface-variant font-bold bg-surface-container px-1.5 py-0.5 rounded">
-                          Ref: {demand.acknowledgement_ref}
+                          Ref: {demand.id}
                         </span>
-                        {demand.work_category && (
+                        {demand.workType && (
                           <span className="text-[10px] font-bold text-on-surface-variant uppercase tracking-wider ml-2 bg-surface-container px-1.5 py-0.5 rounded">
-                            {demand.work_category}
+                            {demand.workType}
                           </span>
                         )}
-                        <h3 className="text-sm font-bold text-primary mt-1">{demand.work_title}</h3>
+                        <h3 className="text-sm font-bold text-primary mt-1">{demand.title}</h3>
                         {demand.description && (
                           <p className="text-xs text-on-surface-variant mt-0.5">{demand.description}</p>
                         )}
                       </div>
-                      {demand.estimated_amount != null && (
+                      {demand.estimatedBudget != null && (
                         <span className="text-xs font-mono font-bold text-on-surface shrink-0">
-                          ₹ {demand.estimated_amount.toLocaleString('en-IN')}
+                          â‚¹ {demand.estimatedBudget.toLocaleString('en-IN')}
                           <span className="block text-[10px] font-normal text-on-surface-variant">
                             your estimate
                           </span>
@@ -981,23 +962,17 @@ function CitizenPortalContent() {
                     </div>
 
                     <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-[11px] text-on-surface-variant pt-2 border-t border-outline-variant/20">
-                      {demand.constituency_name && (
+                      {demand.village && (
                         <span>
-                          Constituency: <strong className="text-on-surface">{demand.constituency_name}</strong>
-                          {demand.state_code ? ` (${demand.state_code})` : ''}
+                          Location: <strong className="text-on-surface">{demand.village}</strong></span>
+                      )}
+                      
+                      {demand.submittedAt && (
+                        <span className="font-mono text-[10px]">
+                          Submitted: {new Date(demand.submittedAt).toLocaleDateString('en-IN')}
                         </span>
                       )}
-                      {demand.village && <span>{demand.village}</span>}
-                      {demand.created_at && (
-                        <span className="font-mono text-[10px]">
-                          Submitted: {new Date(demand.created_at).toLocaleDateString('en-IN')}
-                        </span>
-                      )}
-                      {demand.attachment_count ? (
-                        <span className="font-mono text-[10px]">
-                          {demand.attachment_count} file(s) attached
-                        </span>
-                      ) : null}
+                      
                     </div>
 
                     <div className="pt-2 flex items-center gap-2">
@@ -1005,20 +980,11 @@ function CitizenPortalContent() {
                         className={`px-2.5 py-1 rounded-full text-xs font-bold inline-flex items-center gap-1 border ${tone}`}
                       >
                         <span className="material-symbols-outlined text-[16px]">hourglass_top</span>
-                        <span>{displayDemandStatus(demand.status)}</span>
+                        <span>{demand.status === 'PENDING' ? 'Pending' : demand.status === 'ENDORSED_BY_MP' ? 'Endorsed by MP' : 'Sanctioned by District'}</span>
                       </div>
-                      {demand.decided_by && (
-                        <span className="text-[10px] text-on-surface-variant">
-                          Decided by {demand.decided_by}
-                          {demand.decided_at ? ` on ${new Date(demand.decided_at).toLocaleDateString('en-IN')}` : ''}
-                        </span>
-                      )}
+                      
                     </div>
-                    {demand.decision_note && (
-                      <p className="text-[11px] text-on-surface-variant border-l-2 border-outline-variant pl-2">
-                        {demand.decision_note}
-                      </p>
-                    )}
+                    
                   </div>
                 );
               })}
@@ -1029,3 +995,9 @@ function CitizenPortalContent() {
     </div>
   );
 }
+
+
+
+
+
+

@@ -19,11 +19,10 @@ left NULL rather than filled with plausible-looking numbers:
     contractor_gstin, contractor_name, release_amount,
     expenditure_amount, completion_date, work_quantity, work_unit
 
-``Work.work_id`` is a surrogate key. MPLADS publishes no per-work identifier,
-so a deterministic SHA-1 of the real record's own fields is used and prefixed
-``MPLAD-`` to make its derived nature obvious. The same real record always
-yields the same key, which keeps re-ingestion idempotent, but it must never be
-presented to users as an official MPLADS reference number.
+``Work.work_id`` preserves a feed-provided reference where present. Rows with
+no upstream reference receive a deterministic SHA-1 surrogate derived from the
+record's own fields and prefixed ``MPLAD-``. The surrogate is tagged ``DERIVED``
+and must never be presented as an official MPLADS reference number.
 
 Usage
 -----
@@ -54,7 +53,7 @@ RAW = DATA / "raw"
 sys.path.insert(0, str(ROOT))
 sys.path.insert(0, str(ROOT / "backend"))
 
-from sqlalchemy import create_engine, select  # noqa: E402
+from sqlalchemy import create_engine, select, text  # noqa: E402
 from sqlalchemy.orm import Session  # noqa: E402
 
 from backend.config import settings  # noqa: E402
@@ -95,8 +94,11 @@ CATEGORY_TO_WORK_TYPE = {
 }
 
 
-def surrogate_work_id(row: dict) -> str:
-    """Deterministic derived key. NOT an official MPLADS identifier."""
+def work_key(row: dict) -> tuple[str, str]:
+    """Keep a feed-provided reference; derive an explicit surrogate only if absent."""
+    upstream_id = (row.get("work_id") or "").strip()
+    if upstream_id:
+        return upstream_id, "OFFICIAL"
     parts = [
         row.get("mp_name", ""),
         row.get("constituency", ""),
@@ -109,7 +111,7 @@ def surrogate_work_id(row: dict) -> str:
         row.get("block", ""),
     ]
     digest = hashlib.sha1("|".join(parts).encode("utf-8")).hexdigest()
-    return f"MPLAD-{digest[:14].upper()}"
+    return f"MPLAD-{digest[:14].upper()}", "DERIVED"
 
 
 def derive_work_type(row: dict) -> str:
@@ -180,10 +182,13 @@ def main() -> int:
         print("\n  Dry run. Example record as it would be stored:")
         for key, value in sample.items():
             print(f"    {key:22} = {str(value)[:64]}")
-        print(f"\n    derived work_id       = {surrogate_work_id(sample)}  (surrogate, not official)")
+        key, source = work_key(sample)
+        print(f"\n    work_id               = {key}  ({source})")
         return 0
 
-    engine = create_engine(settings.DATABASE_URL, future=True)
+    # This importer uses SQLAlchemy's synchronous Session; DATABASE_URL is the
+    # asyncpg URL used by FastAPI and cannot be consumed by create_engine.
+    engine = create_engine(settings.DATABASE_SYNC_URL, future=True)
     loaded = {"states": 0, "mps": 0, "works": 0, "works_linked_to_mp": 0}
 
     with Session(engine) as session:
@@ -203,6 +208,36 @@ def main() -> int:
             loaded["states"] += 1
         session.flush()
         print(f"  states upserted: {loaded['states']}")
+
+        # The live MPLADS MP CSV carries constituency codes but not a separate
+        # constituency table. Load labels from the maintained real MP roster
+        # before inserting MPs, whose FK otherwise rejects every code.
+        roster_path = ROOT / "frontend" / "lib" / "allRealMps.json"
+        roster = json.loads(roster_path.read_text(encoding="utf-8")) if roster_path.exists() else []
+        roster_by_id = {row.get("mp_id"): row for row in roster if row.get("mp_id")}
+        constituencies = {
+            row.get("constituency_code"): row
+            for row in roster
+            if row.get("constituency_code") and row.get("constituency_name")
+        }
+        for code, row in constituencies.items():
+            session.execute(
+                text(
+                    """INSERT INTO constituencies
+                       (constituency_code, constituency_name, state_code, constituency_type)
+                       VALUES (:code, :name, :state, 'LOKSABHA')
+                       ON CONFLICT (constituency_code) DO UPDATE SET
+                         constituency_name = EXCLUDED.constituency_name,
+                         state_code = EXCLUDED.state_code,
+                         constituency_type = EXCLUDED.constituency_type"""
+                ),
+                {
+                    "code": code,
+                    "name": row["constituency_name"],
+                    "state": row.get("state_code"),
+                },
+            )
+        print(f"  constituencies upserted: {len(constituencies)}")
 
         # ---- MPs ----------------------------------------------------------
         name_index: dict[str, MP] = {}
@@ -243,7 +278,7 @@ def main() -> int:
                 geo_cache = {}
 
         for row in works_rows:
-            work_id = surrogate_work_id(row)
+            work_id, key_source = work_key(row)
             if work_id in seen_ids:
                 continue  # identical real record already staged
             seen_ids.add(work_id)
@@ -264,8 +299,30 @@ def main() -> int:
             if mp is not None:
                 obj.mp_id = mp.mp_id
                 loaded["works_linked_to_mp"] += 1
+                roster_mp = roster_by_id.get(mp.mp_id, {})
             else:
                 obj.mp_id = None
+                roster_mp = {}
+
+            obj.work_id_source = key_source
+            obj.official_work_ref = work_id if key_source == "OFFICIAL" else None
+            try:
+                obj.upstream_row = int(row.get("upstream_row") or 0) or None
+            except (TypeError, ValueError):
+                obj.upstream_row = None
+            obj.mp_name = (row.get("mp_name") or "").strip() or None
+            obj.house = (row.get("house") or "").strip() or None
+            obj.constituency_name = roster_mp.get("constituency_name") or (row.get("constituency") or "").strip() or None
+            obj.constituency_code = roster_mp.get("constituency_code")
+            obj.state_name = state_name or None
+            obj.work_category = (row.get("category") or "").strip() or None
+            obj.city = (row.get("city") or "").strip() or None
+            obj.ward = (row.get("ward") or "").strip() or None
+            obj.block = (row.get("block") or "").strip() or None
+            obj.village = (row.get("village") or "").strip() or None
+            obj.recommended_date = parse_date(row.get("recommended_date", ""))
+            obj.ida_approval = (row.get("ida_approval") or "").strip() or None
+            obj.data_as_on = parse_date(row.get("data_as_on", ""))
 
             obj.work_type = derive_work_type(row)
             obj.work_type_category = (row.get("category") or "").strip() or None
@@ -280,6 +337,9 @@ def main() -> int:
             lon = parse_decimal(row.get("reported_lon", ""))
             obj.reported_lat = float(lat) if lat is not None else None
             obj.reported_lon = float(lon) if lon is not None else None
+            obj.coordinate_precision = (
+                "CENTROID" if lat is not None and lon is not None else None
+            )
 
             # No real source in the open feed. Left NULL on purpose.
             obj.contractor_gstin = None
@@ -310,7 +370,7 @@ def main() -> int:
         "work_quantity / work_unit",
     ):
         print(f"    {f}")
-    print("\n  NOTE: work_id is a derived surrogate (MPLAD-<hash>), not an official ID.")
+    print("\n  NOTE: official feed references are preserved; MPLAD-<hash> keys are derived surrogates.")
     return 0
 
 

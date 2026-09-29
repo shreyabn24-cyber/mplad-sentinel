@@ -33,9 +33,64 @@ from sqlalchemy.ext.asyncio import AsyncSession
 from auth import ROLES_AUDIT, Principal, require_roles, viewer
 from database import get_db
 from models.models import AuditLog, LapseForecast, RiskScore, Work
-from schemas.schemas import AnomalyCard, AuditorReviewRequest
+from schemas.schemas import AnomalyCard, AuditorReviewRequest, RuleExplanation
+from ml_catalog_loader import (
+    CatalogError,
+    context_rules_for,
+    has_unevaluated,
+    load_catalog,
+    matched_rules_for,
+    not_computed,
+)
 
 router = APIRouter()
+
+STATE_CODE_ALIASES: dict[str, list[str]] = {
+    "OD": ["OD", "OR"],
+    "OR": ["OD", "OR"],
+    "TG": ["TG", "TS"],
+    "TS": ["TG", "TS"],
+    "CG": ["CG", "CT"],
+    "CT": ["CG", "CT"],
+    "UT": ["UT", "UK"],
+    "UK": ["UT", "UK"],
+}
+
+def _resolve_state_codes(code: str) -> list[str]:
+    c = code.strip().upper()
+    return STATE_CODE_ALIASES.get(c, [c])
+
+
+@router.get("/catalog", response_model=RuleExplanation)
+async def anomaly_catalog(principal: Principal = Depends(viewer)):
+    """The canonical catalog: every rule the system can evaluate, and every
+    analysis it cannot, with the reason.
+
+    Readable anonymously, like the anomaly list, because the whole point is that
+    a reader can check what the system claims to be able to detect.
+
+    The response is served from ``shared/anomaly_catalog.json``, which is also
+    what ``ml/catalog.py`` evaluates, so the API and the UI cannot describe a
+    rule differently from the one that ran. Previously the explanation lived in a
+    hardcoded frontend map, so the UI could assert telemetry the backend never
+    computed and nothing detected the divergence.
+    """
+    try:
+        cat = load_catalog()
+    except CatalogError as exc:
+        # A malformed catalog is a deployment fault, not a client error: the
+        # system must not serve anomaly explanations it cannot back.
+        raise HTTPException(500, f"anomaly catalog is invalid: {exc}") from exc
+
+    return RuleExplanation(
+        schema_version=cat["$schema_version"],
+        frozen_at=cat["frozen_at"],
+        purpose=cat["purpose"],
+        interpretation_contract=cat["interpretation_contract"],
+        vocabulary=cat["vocabulary"],
+        rules=cat["rules"],
+        not_computed=cat["not_computed"],
+    )
 
 
 def _mask_mp_id(mp_id: Optional[str], tier: str) -> Optional[str]:
@@ -72,10 +127,15 @@ def _build_cards(rows, *, reveal_mp_identity: bool) -> list[AnomalyCard]:
     for work, risk in rows:
         tier_val = risk.confidence_tier or "L1"
         evidence = risk.evidence_chain or {}
-        active_signals = [
-            k for k, v in evidence.items()
-            if isinstance(v, dict) and v.get("score", 0) >= 0.3
-        ]
+
+        # The evidence chain holds one entry per catalog rule, recording the value
+        # that triggered it. The split into candidacy rules, non-discriminative
+        # context rules and rules that could not be evaluated lives in
+        # ml.catalog, so the list endpoint and the work detail endpoint cannot
+        # disagree about what counted.
+        matched = matched_rules_for(evidence)
+        context = context_rules_for(evidence)
+        active_signals = [m["rule_id"] for m in matched]
 
         cards.append(
             AnomalyCard(
@@ -91,6 +151,10 @@ def _build_cards(rows, *, reveal_mp_identity: bool) -> list[AnomalyCard]:
                 composite_score=risk.composite_score,
                 confidence_tier=tier_val,
                 active_signals=active_signals,
+                matched_rules=matched,
+                context_rules=context,
+                not_computed=not_computed(),
+                incomplete_evaluation=has_unevaluated(evidence),
                 mp_id_masked=(
                     work.mp_id
                     if reveal_mp_identity
@@ -130,7 +194,7 @@ async def list_anomalies(
     if tier:
         filters.append(RiskScore.confidence_tier == tier)
     if state_code:
-        filters.append(func.upper(Work.state_code) == state_code.strip().upper())
+        filters.append(func.upper(Work.state_code).in_(_resolve_state_codes(state_code)))
     if district_code:
         filters.append(Work.district_code == district_code)
     if reviewed is not None:
@@ -165,7 +229,7 @@ async def list_l3_anomalies(
         .where(RiskScore.confidence_tier == "L3")
     )
     if state_code:
-        q = q.where(func.upper(Work.state_code) == state_code.strip().upper())
+        q = q.where(func.upper(Work.state_code).in_(_resolve_state_codes(state_code)))
 
     q = q.order_by(desc(RiskScore.composite_score))
     result = await db.execute(q)
