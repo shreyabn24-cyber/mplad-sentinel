@@ -1117,7 +1117,7 @@ Copy `.env.example` to `.env` and configure:
 
 ## Team
 
-**Team Ojas** — Smart India Hackathon 2024
+**Team Ojas** — Smart India Hackathon 2026
 **Problem Statement:** PS 26102 — AI-based monitoring and audit platform for MPLADS scheme
 
 ---
